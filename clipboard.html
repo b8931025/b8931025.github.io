@@ -73,6 +73,8 @@
                 $("#stickerText").val('');
                 $("#lblNotice").text('');
                 $("#divPasteBoard").empty();
+                //狀態儲存
+                if (localStorage.setItem != undefined)localStorage.setItem('stickerTxt', '');                
             });
 
             const oldValue = window.localStorage.getItem('stickerTxt');
@@ -106,9 +108,7 @@
         </div>
 
         <div class="row">
-            <textarea rows="10" cols="50" id="stickerText" class="bg-info" style="width:100%">
-
-            </textarea>
+            <textarea rows="10" cols="50" id="stickerText" class="bg-info" style="width:100%"></textarea>
         </div>
 
         <div class="row">
