@@ -1,2 +1,2 @@
 # b8931025.github.io
-simple website
+Github 靜態網站
