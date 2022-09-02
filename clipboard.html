@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <title>威力剪貼簿</title>
+
+    <style>
+        body {
+            font-size: medium;
+        }
+
+        .StickerButton {
+            margin-left: 10px;
+            margin-block: 10px;
+        }
+    </style>
+
+    <script type="text/javascript">
+        //多群組貼紙
+        //網站解說        
+
+        $(function () {
+            //瀏覽器不支援剪貼薄
+            if (navigator.clipboard == undefined) alert("您的瀏覽器不支援剪貼薄，請改更Chrome或更新版瀏覽器");
+
+            $(document).on("click", "#btnCreate", function () {
+                let txt = $("#stickerText").val();
+                let board = $("#divPasteBoard");
+                let splitChar = $('input[name=grpSplict]:checked').val();
+                const list = (splitChar == "default") ? txt.split('\n') : txt.split(splitChar);
+
+                for (var i = 0; i < list.length; i++) {
+                    let txtSticker = list[i].replace(/[\s]*$/gi, "");;
+
+                    //create sticker button
+                    if (txtSticker != null && txtSticker != "") {
+                        let btn = $(document.createElement('button')).prop({
+                            type: 'button',
+                            innerHTML: txtSticker,
+                            class: 'btn btn-info btn-lg StickerButton'
+                        });
+                        //
+                        let btnOuterDiv = $(document.createElement('div')).prop({
+                            class: 'col-lg-3 col-md-6 col-sm-12'
+                        });
+
+                        btnOuterDiv.append(btn);
+                        board.append(btnOuterDiv);
+                    }
+                }
+
+                //狀態儲存
+                if (localStorage.setItem != undefined)localStorage.setItem('stickerTxt', txt);
+            }).on("click", ".StickerButton", function () {
+                let btnSticker = $(this);
+                /* Copy the text inside the text field */
+                navigator.clipboard.writeText(btnSticker.text());
+                /* Alert the copied text */
+                $("#lblNotice").text("已複製 : " + btnSticker.text());
+                //回復上一個按鈕的顏色
+                $(".btn-success").eq(0).prop({ class: "btn btn-info btn-lg StickerButton" });
+                //標示目前按鈕的顏色
+                btnSticker.prop({ class: "btn btn-success btn-lg StickerButton" });
+            });
+
+            $("#btnClear").on("click", function () {
+                $("#stickerText").val('');
+                $("#lblNotice").text('');
+                $("#divPasteBoard").empty();
+            });
+
+            const oldValue = window.localStorage.getItem('stickerTxt');
+            if (oldValue != null && oldValue.length > 0) {
+                $("#stickerText").val(oldValue);
+                $("#btnCreate").click();
+            }
+        });
+
+
+    </script>
+</head>
+<body>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 col-mg-12 col-sm-12">
+                <label style="margin-right:30px">分隔符號</label>
+                <label for="splict_1" style="margin-left:20px" >換行</label>
+                <input type="radio" name="grpSplict" id="splict_1" value="default" checked />
+
+                <label for="splict_2" style="margin-left:20px">逗號 , </label>
+                <input type="radio" name="grpSplict" id="splict_2" value="," />
+
+                <label for="splict_3" style="margin-left:20px">分號 ; </label>
+                <input type="radio" name="grpSplict" id="splict_3" value=";" />
+
+                <label for="splict_4" style="margin-left:20px">錢字號 $ </label>
+                <input type="radio" name="grpSplict" id="splict_4" value="$" />
+            </div>
+        </div>
+
+        <div class="row">
+            <textarea rows="10" cols="50" id="stickerText" class="bg-info" style="width:100%">
+
+            </textarea>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12">
+                <button type="button" id="btnCreate" class="btn btn-primary btn-lg">產生貼紙</button>
+                <button type="button" id="btnClear" class="btn btn-primary btn-lg">清空</button>
+                <label id="lblNotice" style="font-size:medium;margin-left:10px">
+                </label>
+            </div>
+            
+        </div>
+        <br />
+
+        <div id="divPasteBoard" class="row">
+        </div>
+
+    </div>
+
+</body>
+
+</html>
+
