@@ -4,7 +4,6 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta charset="utf-8" />
-
     <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
@@ -15,15 +14,68 @@
             font-size: medium;
         }
 
-        .StickerButton {
-            margin-left: 10px;
-            margin-block: 10px;
+        .StickerLabel {
+            color:white;
+            margin: 5px;
+            padding: 5px;
+            cursor: pointer;
+        }
+
+        .BtnOff {
+            background-color: #5bc0de;
+        }
+        .BtnOff:hover {
+            background-color: #43a5c6;
+        }        
+
+        .BtnOn {
+            background-color: #5cb85c;
+        }
+        .BtnOn:hover {
+            background-color: #449d44;
+        }
+
+        #divPasteBoard .row {
+            line-height: 40px;
         }
     </style>
 
     <script type="text/javascript">
         //多群組貼紙
         //網站解說        
+        let cssBtnOff = "StickerLabel BtnOff";
+        let cssBtnOn = "StickerLabel BtnOn";
+
+        function getSplicts(){
+            let splictArray = [];
+            //空白
+            if ($("#splict_1").prop('checked')) {
+                splictArray.push(' ');
+                splictArray.push('　');
+            }
+            //逗號
+            if ($("#splict_2").prop('checked')) {
+                splictArray.push(',');
+                splictArray.push('，');
+            }
+            //分號
+            if ($("#splict_3").prop('checked')) {
+                splictArray.push(';');
+                splictArray.push('；');
+            }
+            //錢字號
+            if ($("#splict_4").prop('checked')) {
+                splictArray.push('$');
+                splictArray.push('＄');
+            }
+
+            //句號
+            if ($("#splict_5").prop('checked')) {
+                splictArray.push('。');
+                splictArray.push('.');
+            }
+            return splictArray;
+        }
 
         $(function () {
             //瀏覽器不支援剪貼薄
@@ -32,41 +84,63 @@
             $(document).on("click", "#btnCreate", function () {
                 let txt = $("#stickerText").val();
                 let board = $("#divPasteBoard");
-                let splitChar = $('input[name=grpSplict]:checked').val();
-                const list = (splitChar == "default") ? txt.split('\n') : txt.split(splitChar);
-
+                let splictArray = getSplicts();
+                let list = txt.split('\n');
+                
                 for (var i = 0; i < list.length; i++) {
-                    let txtSticker = list[i].replace(/[\s]*$/gi, "");;
+                    let txtLine = list[i].replace(/[\s]*$/gi, "");
 
-                    //create sticker button
-                    if (txtSticker != null && txtSticker != "") {
-                        let btn = $(document.createElement('button')).prop({
-                            type: 'button',
-                            innerHTML: txtSticker,
-                            class: 'btn btn-info btn-lg StickerButton'
-                        });
-                        //
-                        let btnOuterDiv = $(document.createElement('div')).prop({
-                            class: 'col-lg-3 col-md-6 col-sm-12'
+                    //create sticker label 換行
+                    if (txtLine != null && txtLine != "") {
+                        let frm = $(document.createElement('div')).prop({
+                            class: "row"
                         });
 
-                        btnOuterDiv.append(btn);
-                        board.append(btnOuterDiv);
+                        //無分隔符號
+                        if (splictArray.length == 0){
+                            let lbl = $(document.createElement('span')).prop({
+                                            innerHTML: txtLine,
+                                            class: cssBtnOff
+                                        });
+                            frm.append(lbl);
+                        }else{ //按分隔符號切標籤
+                            let word = '';
+                            let words = [];
+                            txtLine.split('').forEach(char =>{
+                                if (splictArray.indexOf(char) == -1){
+                                    word += char;
+                                }else if (word != ''){
+                                    words.push(word);
+                                    word = '';
+                                }
+                            })
+                            if (word != '') words.push(word);                         
+
+                            words.forEach( w => {
+                                let lbl = $(document.createElement('span')).prop({
+                                    innerHTML: w,
+                                    class: cssBtnOff
+                                });
+                                frm.append(lbl);
+                            })
+                        }
+
+                        board.append(frm);
                     }
                 }
 
                 //狀態儲存
                 if (localStorage.setItem != undefined)localStorage.setItem('stickerTxt', txt);
-            }).on("click", ".StickerButton", function () {
+            }).on("click", ".BtnOff", function () {
                 let btnSticker = $(this);
                 /* Copy the text inside the text field */
                 navigator.clipboard.writeText(btnSticker.text());
                 /* Alert the copied text */
                 $("#lblNotice").text("已複製 : " + btnSticker.text());
                 //回復上一個按鈕的顏色
-                $(".btn-success").eq(0).prop({ class: "btn btn-info btn-lg StickerButton" });
+                $(".BtnOn").eq(0).prop({ class: cssBtnOff });
                 //標示目前按鈕的顏色
-                btnSticker.prop({ class: "btn btn-success btn-lg StickerButton" });
+                btnSticker.prop({ class: cssBtnOn });
             });
 
             $("#btnClear").on("click", function () {
@@ -83,27 +157,27 @@
                 $("#btnCreate").click();
             }
         });
-
-
     </script>
 </head>
 <body>
-
     <div class="container">
         <div class="row">
             <div class="col-lg-12 col-mg-12 col-sm-12">
                 <label style="margin-right:30px">分隔符號</label>
-                <label for="splict_1" style="margin-left:20px" >換行</label>
-                <input type="radio" name="grpSplict" id="splict_1" value="default" checked />
+                <label for="splict_1" style="margin-left:20px" >空白</label>
+                <input type="checkbox" id="splict_1" value=" " checked />
 
                 <label for="splict_2" style="margin-left:20px">逗號 , </label>
-                <input type="radio" name="grpSplict" id="splict_2" value="," />
+                <input type="checkbox" id="splict_2" value="," />
 
                 <label for="splict_3" style="margin-left:20px">分號 ; </label>
-                <input type="radio" name="grpSplict" id="splict_3" value=";" />
+                <input type="checkbox" id="splict_3" value=";" />
 
                 <label for="splict_4" style="margin-left:20px">錢字號 $ </label>
-                <input type="radio" name="grpSplict" id="splict_4" value="$" />
+                <input type="checkbox" id="splict_4" value="$" />
+
+                <label for="splict_5" style="margin-left:20px">句號 。 </label>
+                <input type="checkbox" id="splict_5" value="。" />
             </div>
         </div>
 
@@ -118,15 +192,11 @@
                 <label id="lblNotice" style="font-size:medium;margin-left:10px">
                 </label>
             </div>
-            
         </div>
         <br />
 
-        <div id="divPasteBoard" class="row">
-        </div>
-
+        <div id="divPasteBoard" class="row"></div>
     </div>
-
 </body>
 
 </html>
