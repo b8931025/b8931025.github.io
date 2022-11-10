@@ -63,16 +63,15 @@
                 splictArray.push(';');
                 splictArray.push('；');
             }
-            //錢字號
-            if ($("#splict_4").prop('checked')) {
-                splictArray.push('$');
-                splictArray.push('＄');
-            }
-
             //句號
-            if ($("#splict_5").prop('checked')) {
+            if ($("#splict_4").prop('checked')) {
                 splictArray.push('。');
                 splictArray.push('.');
+            }
+            //問號
+            if ($("#splict_5").prop('checked')) {
+                splictArray.push('?');
+                splictArray.push('？');                
             }
             return splictArray;
         }
@@ -168,16 +167,16 @@
                 <input type="checkbox" id="splict_1" value=" " checked />
 
                 <label for="splict_2" style="margin-left:20px">逗號 , </label>
-                <input type="checkbox" id="splict_2" value="," />
+                <input type="checkbox" id="splict_2" value="," checked />
 
                 <label for="splict_3" style="margin-left:20px">分號 ; </label>
-                <input type="checkbox" id="splict_3" value=";" />
+                <input type="checkbox" id="splict_3" value=";" checked />
 
-                <label for="splict_4" style="margin-left:20px">錢字號 $ </label>
-                <input type="checkbox" id="splict_4" value="$" />
+                <label for="splict_4" style="margin-left:20px">句號 。  </label>
+                <input type="checkbox" id="splict_4" value="。" checked />
 
-                <label for="splict_5" style="margin-left:20px">句號 。 </label>
-                <input type="checkbox" id="splict_5" value="。" />
+                <label for="splict_5" style="margin-left:20px">問號 ？</label>
+                <input type="checkbox" id="splict_5" value="$" />
             </div>
         </div>
 
