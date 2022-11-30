@@ -3,6 +3,7 @@
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <title>威力剪貼簿</title>
+    <meta name="description" content="威力宇宙無敵剪貼簿">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta content="width=device-width, initial-scale=1" name="viewport" />
     <meta charset="utf-8" />
@@ -11,7 +12,15 @@
     <style>
         body {
             font-size: medium;
-        }    
+        }
+
+        #btnClear, #btnCreate {
+            width:85px;
+        }
+
+        #stickerText {
+            width:100%;
+        }
 
         .StickerLabel {
             color:white;
@@ -233,14 +242,14 @@
         </div>
 
         <div class="row">
-            <textarea rows="10" cols="50" id="stickerText" class="bg-info" style="width:100%"></textarea>
+            <textarea rows="10" cols="50" id="stickerText" class="bg-info"></textarea>
         </div>
 
         <div class="row">
             <div class="col-sm-4 col-xs-0"> </div>
             <div class="objCenter col-sm-4 col-xs-12">
-                <button type="button" id="btnCreate" class="btn btn-primary" style="width:85px">產生貼紙</button>
-                <button type="button" id="btnClear" class="btn btn-primary" style="width:85px">清空</button>
+                <button type="button" id="btnCreate" class="btn btn-primary">產生貼紙</button>
+                <button type="button" id="btnClear" class="btn btn-primary">清空</button>
             </div>
             <div class="col-sm-4 col-xs-12">
                 <label id="lblNotice" style="font-size:medium;margin-left:10px;"></label>
