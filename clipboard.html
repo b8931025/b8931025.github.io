@@ -14,8 +14,8 @@
             font-size: medium;
         }
 
-        #btnClear, #btnCreate {
-            width:85px;
+        #btnClear, #btnCreate, #btnCreateID {
+            width: 85px;
         }
 
         #stickerText {
@@ -169,7 +169,7 @@
 
                 //狀態儲存
                 if (localStorage.setItem != undefined)localStorage.setItem('stickerTxt', txt);
-            }).on("click", ".BtnOff", function () {
+            }).on("click", ".BtnOff, .BtnOn", function () {
                 let btnSticker = $(this);
                 /* Copy the text inside the text field */
                 navigator.clipboard.writeText(btnSticker.text());
@@ -216,6 +216,66 @@
                 $("#stickerText").val(oldValue);
                 $("#btnCreate").click();
             }
+
+            const locationTw =
+                [["10", "A", "臺北市"],
+                ["11", "B", "臺中市"],
+                ["12", "C", "基隆市"],
+                ["13", "D", "臺南市"],
+                ["14", "E", "高雄市"],
+                ["15", "F", "臺北縣"],
+                ["16", "G", "宜蘭縣"],
+                ["17", "H", "桃園縣"],
+                ["34", "I", "嘉義市"],
+                ["18", "J", "新竹縣"],
+                ["19", "K", "苗栗縣"],
+                ["20", "L", "臺中縣"],
+                ["21", "M", "南投縣"],
+                ["22", "N", "彰化縣"],
+                ["35", "O", "新竹市"],
+                ["23", "P", "雲林縣"],
+                ["24", "Q", "嘉義縣"],
+                ["25", "R", "臺南縣"],
+                ["26", "S", "高雄縣"],
+                ["27", "T", "屏東縣"],
+                ["28", "U", "花蓮縣"],
+                ["29", "V", "臺東縣"],
+                ["32", "W", "金門縣"],
+                ["30", "X", "澎湖縣"],
+                ["31", "Y", "陽明山"],
+                ["33", "Z", "連江縣"]];
+
+            //產生身份證號
+            $("#btnCreateID").on("click", function () {
+                var locationRdn = locationTw[Math.floor(Math.random() * locationTw.length)];
+                var szSN = "";
+                var location = locationRdn[0],
+                    szLocation = locationRdn[1],
+                    sex = (Math.floor(Math.random() * 2) % 2) + 1 ,
+                    num = 1;
+
+                for (var i = 0; i < num; i++) {
+                    var validateCode = ((location - location % 10) / 10) +
+                        (location % 10 * 9) +
+                        sex * 8;
+                    var tmpSN = szLocation + sex;
+                    for (var j = 1; j <= 7; j++) {
+                        var ran = (Math.random() * 10).toString().charAt(0);
+                        validateCode += parseInt(ran) * (8 - j);
+                        tmpSN += ran;
+                    }
+                    szSN += tmpSN + (10 - validateCode % 10) % 10 + "\n";
+                }
+
+                szSN = szSN.substring(0, szSN.length - 1);
+
+                /* Copy the text inside the text field */
+                navigator.clipboard.writeText(szSN);
+                /* Alert the copied text */
+                $("#lblNotice").text("已複製 : " + szSN);
+                //回復上一個按鈕的顏色
+                $(".BtnOn").eq(0).prop({ class: cssBtnOff });
+            });
         });
     </script>
 </head>
@@ -248,6 +308,7 @@
         <div class="row">
             <div class="col-sm-4 col-xs-0"> </div>
             <div class="objCenter col-sm-4 col-xs-12">
+                <button type="button" id="btnCreateID" class="btn btn-primary">產生ID</button>
                 <button type="button" id="btnCreate" class="btn btn-primary">產生貼紙</button>
                 <button type="button" id="btnClear" class="btn btn-primary">清空</button>
             </div>
@@ -261,4 +322,3 @@
 </body>
 
 </html>
-
