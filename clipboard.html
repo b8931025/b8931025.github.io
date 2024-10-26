@@ -104,16 +104,35 @@
                     opts[3] == "1",
                     opts[4] == "1"
                 ]
+                //空白
+                if (splictChecks[0]) {
+                    splictArray.push(' ');
+                    splictArray.push('　');//全型空白
+                    splictArray.push('	');//tab
+                }
+                //逗號
+                if (splictChecks[1]) {
+                    splictArray.push(',');
+                    splictArray.push('，');
+                }
+                //分號
+                if (splictChecks[2]) {
+                    splictArray.push(';');
+                    splictArray.push('；');
+                }
+                //句號
+                if (splictChecks[3]) {
+                    splictArray.push('。');
+                    splictArray.push('.');
+                }
+                //問號
+                if (splictChecks[4]) {
+                    splictArray.push('?');
+                    splictArray.push('？');                
+                }
             }
 
-            //回復本文和貼紙狀態
-            const oldValue = window.localStorage.getItem('stickerTxt');
-            if (oldValue != null && oldValue.length > 0) {
-                $("#stickerText").val(oldValue);
-                $("#btnCreate").click();
-            }
-
-            function getSplicts(){
+           function getSplicts(){
                 return splictArray;
             }
 
@@ -240,8 +259,17 @@
                 }
 
                 //狀態儲存
-                if (localStorage.setItem != undefined)localStorage.setItem('stickerTxt', txt);
+                if (localStorage.setItem != undefined){
+                    localStorage.setItem('stickerTxt', txt);
+                }
             })
+
+            //回復本文和貼紙狀態
+            const oldValue = window.localStorage.getItem('stickerTxt');
+            if (oldValue != null && oldValue.length > 0) {
+                $("#stickerText").val(oldValue);
+                $("#btnCreate").click();
+            }
 
             $('#divPasteBoard').on('click', '.BtnOff, .BtnOn', function(){
                 let btnSticker = $(this);
