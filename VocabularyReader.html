@@ -60,7 +60,7 @@
         <h1 class="title">{{ message }}</h1>
         <div class="carouselArea">
         <div class="bs-example" data-example-id="simple-carousel">
-            <div id="carousel-example-generic" class="carousel slide" data-ride="carousel" :data-interval="speed">
+            <div id="carousel-example-generic" class="carousel slide" data-ride="carousel" :data-interval='speed'>
                 <!-- Indicators -->
                 <!--
                     <ol class="carousel-indicators">
@@ -72,15 +72,9 @@
                 
                 <!-- Wrapper for slides -->
                 <div class="carousel-inner" role="listbox">
-                    <div class="item active">
-                        <div class="iValue">ABC</div>
-                    </div>
-                    <div class="item">
-                        <div class="iValue">DEF</div>
-                    </div>
-                    <div class="item">
-                        <div class="iValue">GHI</div>
-                    </div>          
+                    <div v-for="(word, index) in rollingContent" :key="index" :xx="index"  :class="(index === 0)? 'item active' : 'item'">
+                        <div class="iValue">{{word}}</div>
+                    </div>         
                 </div>
                 
                 <!-- Controls -->
@@ -96,14 +90,18 @@
             </div>
         </div>
         <div class="controlPanel">
-            <button @click="showTextArea" id="btnImpVocabulary" class="bg-primary">匯入單字</button>
+            <button @click="showTextArea" id="btnImpVocabulary" class="bg-primary">匯入</button>
             <button @click="submitClick" id="btnSubmit" class="bg-primary">{{ switchText }}</button>
+            <button @click="randomPlay" class="bg-primary">隨機播放</button>
+            <button @click="slowDown" class="bg-primary">慢點</button>
+            <button @click="HurryUp" class="bg-primary">快點</button>
+            <span>速度 {{(speed / 1000).toFixed(1)}} 秒</span>
         </div>
     </div>
 
     <script>
         // 創建 Vue 應用程序
-        const { createApp, onMounted } = Vue;
+        const { createApp, onMounted, ref } = Vue;
         createApp({
             setup() {
                 onMounted(() => {
@@ -114,10 +112,16 @@
                 return {
                     message: '單字練習',
                     switchText: '暫停',
-                    count: 0,
-                    speed: 3000,
+                    speed: 1000,
+                    speedMax: 20000,
+                    speedMin: 500,
+                    speedInterval: 500,
                     cycling: true,
-                    rollingContent: []
+                    rollingContent: [
+                        'abc',
+                        'def',
+                        'ghi',
+                    ]
                 };
             },
             methods: {
@@ -128,12 +132,12 @@
                        this.switchText = '暫停'
                     }else{
                        $('.carousel').carousel('pause')
-                       this.switchText = '輪動'
+                       this.switchText = '播放'
                    }
                     
                 },
                 impConfirm(originalTxt) {
-                    alert(originalTxt)
+                    this.rollingContent = originalTxt.split('\n').map(x=>x.replace(/\s+$/,''))
                 },
                 showTextArea(){
                     let htmlMsg = `
@@ -153,6 +157,24 @@
                             }
                         }]
                     });
+                },
+                updateCarouselInterval() {
+                    $('#carousel-example-generic').data('bs.carousel').options.interval = this.speed
+                },
+                slowDown() {
+                    if (this.speed < this.speedMax) {
+                        this.speed += this.speedInterval;
+                        this.updateCarouselInterval();
+                    }
+                },
+                HurryUp() {
+                    if (this.speed > this.speedMin) {
+                        this.speed -= this.speedInterval;
+                        this.updateCarouselInterval();
+                    }
+                },
+                randomPlay(){
+                    
                 }
             }
         }).mount('#app');
