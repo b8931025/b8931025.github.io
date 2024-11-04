@@ -60,13 +60,15 @@
         <h1 class="title">{{ message }}</h1>
         <div class="carouselArea">
         <div class="bs-example" data-example-id="simple-carousel">
-            <div id="carousel-example-generic" class="carousel slide" data-ride="carousel" data-interval="500">
+            <div id="carousel-example-generic" class="carousel slide" data-ride="carousel" :data-interval="speed">
                 <!-- Indicators -->
-                <ol class="carousel-indicators">
-                    <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-                    <li data-target="#carousel-example-generic" data-slide-to="1"></li>
-                    <li data-target="#carousel-example-generic" data-slide-to="2"></li>
-                </ol>
+                <!--
+                    <ol class="carousel-indicators">
+                        <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+                        <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+                        <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+                    </ol>
+                -->
                 
                 <!-- Wrapper for slides -->
                 <div class="carousel-inner" role="listbox">
@@ -113,6 +115,7 @@
                     message: '單字練習',
                     switchText: '暫停',
                     count: 0,
+                    speed: 3000,
                     cycling: true,
                     rollingContent: []
                 };
