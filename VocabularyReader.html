@@ -133,15 +133,22 @@
                     }else{
                        $('.carousel').carousel('pause')
                        this.switchText = '播放'
-                   }
-                    
+                   }                    
                 },
-                impConfirm(originalTxt) {
+                getVocabularyData() {
+                    return window.localStorage.getItem('storageVocabularyData') || ''
+                },
+                setVocabularyData() {
+                    //狀態儲存
+                    window.localStorage.setItem('storageVocabularyData', $("#stickerText").val())
+                },
+                changeRollingContent() {
+                    let originalTxt = this.getVocabularyData()
                     this.rollingContent = originalTxt.split('\n').map(x=>x.replace(/\s+$/,''))
                 },
                 showTextArea(){
                     let htmlMsg = `
-                            <textarea rows="10" cols="78" id="stickerText" class="bg-info"></textarea>
+                            <textarea rows="10" cols="78" id="stickerText" class="bg-info">` + this.getVocabularyData() + `</textarea>
                             `;
                     BootstrapDialog.show({
                         title: '匯入單字',
@@ -151,8 +158,8 @@
                             label: '認確',
                             cssClass: 'btn-primary',
                             action: (dialogRef)=> {
-                                let txt = $("#stickerText").val()
-                                this.impConfirm(txt)
+                                this.setVocabularyData()
+                                this.changeRollingContent()
                                 dialogRef.close()
                             }
                         }]
@@ -174,7 +181,13 @@
                     }
                 },
                 randomPlay(){
-                    
+                    let x = this.rollingContent
+                    for (let i = x.length - 1; i > 0; i--) {
+                        const j = Math.floor(Math.random() * x.length);
+                        // 交換
+                        [x[i], x[j]] = [x[j], x[i]]; 
+                    }
+                    this.rollingContent = x
                 }
             }
         }).mount('#app');
