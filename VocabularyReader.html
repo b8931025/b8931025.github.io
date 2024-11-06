@@ -100,12 +100,18 @@
     </div>
 
     <script>
+        // 手機的嚮應式設計
         // 創建 Vue 應用程序
-        const { createApp, onMounted, ref } = Vue;
+        const { createApp, onMounted, getCurrentInstance } = Vue;
         createApp({
             setup() {
+                const instance = getCurrentInstance()
+                const proxy = instance.proxy
+
                 onMounted(() => {
                     // 在這裡可以執行其他需要在掛載後進行的操作
+                    // 在這裡可以安全地使用 proxy訪問 data 中的屬性和methods
+                    if(proxy.getVocabularyData() !== '') proxy.changeRollingContent()
                 });
             },
             data() {
