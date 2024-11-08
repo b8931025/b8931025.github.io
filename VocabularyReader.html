@@ -45,6 +45,7 @@
         .carousel-body {
             width: 100vw;
             height: 75vh;
+            cursor: wait;
         }
 
         .carousel {
@@ -134,7 +135,7 @@
     </div>
 
     <script>
-        // 記錄上次播放速度 / textarea寬度100%，不可調整大小
+        // 記錄上次播放速度 / 排除匯入資料空白的地方 / 滑鼠移到播放區，游標變成時鐘
         // 創建 Vue 應用程序
         const { createApp, onMounted, getCurrentInstance } = Vue;
         createApp({
