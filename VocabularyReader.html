@@ -13,6 +13,19 @@
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap-dialog@1.34.6/dist/js/bootstrap-dialog.min.js"></script>
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-dialog@1.34.6/dist/css/bootstrap-dialog.min.css">
     <style>
+        .loading {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f3f3f3;
+        }
+
+        .loading-text {
+            font-size: 24px;
+            font-family: Arial, sans-serif;
+        }
+
         html, body {
             height: 100%;
             margin: 0;
@@ -23,7 +36,7 @@
             height: 100vh;
             display: flex; 
             flex-direction: column;
-            justify-content: center; /* 水平置中 */ 
+            justify-content: center;  
         }
 
         button {
@@ -37,8 +50,8 @@
 
         .controlPanel {
             display: flex; 
-            justify-content: center; /* 水平置中 */ 
-            align-items: center; /* 垂直置中 */ 
+            justify-content: center;  
+            align-items: center;  
             height: 15vh; 
         }
 
@@ -59,16 +72,16 @@
         .item {
             height:100%;
             display: flex; 
-            justify-content: center; /* 水平置中 */ 
-            align-items: center; /* 垂直置中 */ 
+            justify-content: center;  
+            align-items: center;  
         }
 
         .iValue {
             font-size: 30px;
             height: 100%;
             display: flex; 
-            justify-content: center; /* 水平置中 */ 
-            align-items: center; /* 垂直置中 */ 
+            justify-content: center;  
+            align-items: center;  
         }
 
         /* 当屏幕宽度大于500px时 */
@@ -93,6 +106,8 @@
     </style>
 </head>
 <body>
+    <div id="loading" class="loading"><div class="loading-text">Loading...</div></div>
+    
     <div id="app">
         <h1 class="title">{{ message }}</h1>
         <div class="carousel-body" data-example-id="simple-carousel">
@@ -135,7 +150,22 @@
     </div>
 
     <script>
-        // 記錄上次播放速度 / 排除匯入資料空白的地方 / 滑鼠移到播放區，游標變成時鐘
+        /*
+            滑鼠移到播放區，游標變成時鐘
+            選擇可以隱藏A / B
+            按鈕改成圖示
+            Boostrap alert 取代 alert
+            輸入格式加上title
+        */ 
+
+
+        // 載入完成後隱藏 loading 畫面
+        window.addEventListener('load', function () {
+            setTimeout(() => { 
+                document.getElementById('loading').style.display = 'none';
+            }, 500);
+        });
+
         // 創建 Vue 應用程序
         const { createApp, onMounted, getCurrentInstance } = Vue;
         createApp({
@@ -146,12 +176,26 @@
                 onMounted(() => {
                     // 在這裡可以執行其他需要在掛載後進行的操作
                     // 在這裡可以安全地使用 proxy訪問 data 中的屬性和methods
+                    BootstrapDialog.show({
+                        type: BootstrapDialog.TYPE_SUCCESS,
+                        title: '使用說明',
+                        message: `1.點擊[匯入]，輸入單字，每行一個，按[認確]後更新播放資料。<br>
+                        2.點擊[暫停]，暫停播放。<br>
+                        3.點擊[隨機]，打亂播放順序。<br>
+                        4.點擊[<<]，減緩播放速度。<br>
+                        5.點擊[>>]，加快播放速度。`
+                    });
+                    
                     if(proxy.getVocabularyData() !== '') proxy.changeRollingContent()
+                    proxy.speed = proxy.getVocabularySpeed()
+                    
+
                 });
             },
             data() {
                 return {
-                    message: '單字練習',
+                    QuotaExceededError: '超出儲存上限，請縮減內容',
+                    message: 'AB Reader',
                     switchText: '暫停',
                     speed: 1000,
                     speedMax: 20000,
@@ -159,33 +203,44 @@
                     speedInterval: 500,
                     cycling: true,
                     rollingContent: [
-                        'abc',
-                        'def',
-                        'ghi',
+                        '1.abc',
+                        '2.def',
+                        '3.ghi',
                     ]
                 };
             },
             methods: {
                 submitClick() {
-                   this.cycling = !this.cycling
-                   if(this.cycling){
+                    this.cycling = !this.cycling
+                    if(this.cycling){
                        $('.carousel').carousel('cycle')
                        this.switchText = '暫停'
                     }else{
                        $('.carousel').carousel('pause')
                        this.switchText = '播放'
-                   }                    
+                    }                    
                 },
                 getVocabularyData() {
                     return window.localStorage.getItem('storageVocabularyData') || ''
                 },
                 setVocabularyData() {
                     //狀態儲存
-                    window.localStorage.setItem('storageVocabularyData', $("#stickerText").val())
+                    try {
+                        window.localStorage.setItem('storageVocabularyData', $("#stickerText").val())
+                    } catch (e) {
+                        if (e.name === 'QuotaExceededError') this.alert(this.QuotaExceededError, BootstrapDialog.TYPE_DANGER)
+                    }
+                },
+                getVocabularySpeed() {
+                    return parseInt(window.localStorage.getItem('storageVocabularySpeed')) || 1000
+                },
+                setVocabularySpeed() {
+                    //狀態儲存
+                    window.localStorage.setItem('storageVocabularySpeed', this.speed)
                 },
                 changeRollingContent() {
                     let originalTxt = this.getVocabularyData()
-                    this.rollingContent = originalTxt.split('\n').map(x=>x.replace(/\s+$/,''))
+                    this.rollingContent = originalTxt.split('\n').map(x=>x.replace(/\s+$/,'')).filter(x=>x !== '')
                 },
                 showTextArea(){
                     let htmlMsg = `
@@ -208,6 +263,7 @@
                 },
                 updateCarouselInterval() {
                     $('#carousel-example-generic').data('bs.carousel').options.interval = this.speed
+                    this.setVocabularySpeed()
                 },
                 slowDown() {
                     if (this.speed < this.speedMax) {
@@ -229,6 +285,18 @@
                         [x[i], x[j]] = [x[j], x[i]]; 
                     }
                     this.rollingContent = x
+                },
+                /*
+                    msg: 訊息
+                    type:BootstrapDialog.TYPE_DEFAULT, BootstrapDialog.TYPE_INFO, BootstrapDialog.TYPE_PRIMARY, BootstrapDialog.TYPE_SUCCESS, BootstrapDialog.TYPE_WARNING, BootstrapDialog.TYPE_DANGER
+                */
+                alert(msg, type = BootstrapDialog.TYPE_DEFAULT) {
+                    
+                    BootstrapDialog.show({
+                        type: type,
+                        title: BootstrapDialog.DEFAULT_TEXTS[type],
+                        message: msg
+                    });
                 }
             }
         }).mount('#app');
