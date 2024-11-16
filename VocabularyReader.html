@@ -105,6 +105,13 @@
             resize: none;
         }
 
+        .wordHide {
+            display: none;
+        }
+
+        .wordShow {
+            display: block;
+        }
     </style>
 </head>
 <body>
@@ -126,14 +133,25 @@
                 <!-- Wrapper for slides -->
                 <div class="carousel-inner" role="listbox">
                     <div v-for="(words, index) in rollingContent" :key="index" :class="(index === 0)? 'item active' : 'item'">
-                        <div v-if="!Array.isArray(words)" class="iValue">
+                        <!--只有A-->
+                        <div v-if="rollingMode === 0" class="iValue">
                             {{words}}
                         </div>
-                        <div v-else class="iValue">
+                        <!--AB都顯示-->
+                        <div v-else-if="rollingMode === 1" class="iValue">
                             <div >
                                 {{words[0]}}
                             </div>
                             <div>
+                                {{_.join(words.slice(1), ',').replace(/,+$/,'')}}
+                            </div>
+                        </div>
+                        <!--2:隱藏A 3:隱藏B-->
+                        <div v-else-if="rollingMode === 2 || rollingMode === 3" class="iValue" @click="anserOnOff">
+                            <div :class="(rollingMode === 2) ? 'wordHide' : 'wordShow'">
+                                {{words[0]}}
+                            </div>
+                            <div :class="(rollingMode === 2) ? 'wordShow' : 'wordHide'">
                                 {{_.join(words.slice(1), ',').replace(/,+$/,'')}}
                             </div>
                         </div>
@@ -164,12 +182,11 @@
     <script>
         /*
             滑鼠移到播放區，游標變成時鐘
-            選擇可以隱藏A / B
+            匯入單字時，選擇可以隱藏A / B 
             按鈕改成圖示
             Boostrap alert 取代 alert
             輸入格式加上title
         */ 
-
 
         // 載入完成後隱藏 loading 畫面
         window.addEventListener('load', function () {
@@ -214,6 +231,7 @@
                     speedMin: 500,
                     speedInterval: 500,
                     cycling: true,
+                    rollingMode: 1, // 0:只有A 1:AB都顯示 2:隱藏A 3:隱藏B
                     rollingContent: [
                         '1.abc',
                         '2.def',
@@ -262,6 +280,14 @@
                                                     return line
                                                 }
                                             })
+
+                    if(this.rollingContent && 
+                        this.rollingContent.length > 0 && 
+                        Array.isArray(this.rollingContent[0])) {
+                      this.rollingMode = 3
+                    } else {
+                      this.rollingMode = 0
+                    }
                 },
                 showTextArea(){
                     let htmlMsg = `
@@ -312,12 +338,21 @@
                     type:BootstrapDialog.TYPE_DEFAULT, BootstrapDialog.TYPE_INFO, BootstrapDialog.TYPE_PRIMARY, BootstrapDialog.TYPE_SUCCESS, BootstrapDialog.TYPE_WARNING, BootstrapDialog.TYPE_DANGER
                 */
                 alert(msg, type = BootstrapDialog.TYPE_DEFAULT) {
-                    
                     BootstrapDialog.show({
                         type: type,
                         title: BootstrapDialog.DEFAULT_TEXTS[type],
                         message: msg
                     });
+                },
+                // 答案開關
+                anserOnOff(event){
+                  let divSwitch = (this.rollingMode === 2) ? event.currentTarget.getElementsByTagName('div')[0] : event.currentTarget.getElementsByTagName('div')[1]
+                  
+                  if(divSwitch.className === 'wordHide'){
+                    divSwitch.className = 'wordShow'
+                  }else{
+                    divSwitch.className = 'wordHide'
+                  }
                 }
             }
         }).mount('#app');
