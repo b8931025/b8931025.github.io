@@ -24,12 +24,12 @@
     <h1>加速器和陀螺儀資訊</h1>
     <div class="sensor-info">
         <p>加速器資訊:</p>
-        <div id="accelerometer"></div>
+        <div id="accelerometer">不支援</div>
         <div id="accelerometerX"></div>
         <div id="accelerometerY"></div>
         <div id="accelerometerZ"></div>
         <p>陀螺儀資訊:</p>
-        <div id="gyroscope"></div>
+        <div id="gyroscope">不支援</div>
         <div id="gyroscopeAlpha"></div>
         <div id="gyroscopeBeta"></div>
         <div id="gyroscopeGamma"></div>
@@ -38,24 +38,23 @@
         if (window.DeviceMotionEvent) {
             window.addEventListener('devicemotion', function(event) {
                 var acceleration = event.acceleration;
-                if (acceleration) {
+                if (acceleration.x) {
                     document.getElementById('accelerometerX').innerText = `X: ${acceleration.x.toFixed(3)}`
                     document.getElementById('accelerometerY').innerText = `Y: ${acceleration.y.toFixed(3)}`
                     document.getElementById('accelerometerZ').innerText = `Z: ${acceleration.z.toFixed(3)}`
+                    document.getElementById('accelerometer').innerText = '';
                 }
             });
-        } else {
-            document.getElementById('accelerometer').innerText = '不支援';
         }
 
         if (window.DeviceOrientationEvent) {
             window.addEventListener('deviceorientation', function(event) {
+                if(event.alpha){
                     document.getElementById('gyroscopeAlpha').innerText = `Alpha: ${event.alpha.toFixed(3)}`
                     document.getElementById('gyroscopeBeta').innerText = `Beta: ${event.beta.toFixed(3)}`
                     document.getElementById('gyroscopeGamma').innerText = `Gamma: ${event.gamma.toFixed(3)}`
+                }
             });
-        } else {
-            document.getElementById('gyroscope').innerText = '不支援';
         }
     </script>
 </body>
