@@ -39,9 +39,9 @@
             window.addEventListener('devicemotion', function(event) {
                 var acceleration = event.acceleration;
                 if (acceleration) {
-                    document.getElementById('accelerometerX').innerText = `X: ${acceleration.x}`
-                    document.getElementById('accelerometerY').innerText = `Y: ${acceleration.y}`
-                    document.getElementById('accelerometerZ').innerText = `Z: ${acceleration.z}`
+                    document.getElementById('accelerometerX').innerText = `X: ${acceleration.x.toFixed(3)}`
+                    document.getElementById('accelerometerY').innerText = `Y: ${acceleration.y.toFixed(3)}`
+                    document.getElementById('accelerometerZ').innerText = `Z: ${acceleration.z.toFixed(3)}`
                 }
             });
         } else {
@@ -50,9 +50,9 @@
 
         if (window.DeviceOrientationEvent) {
             window.addEventListener('deviceorientation', function(event) {
-                    document.getElementById('gyroscopeAlpha').innerText = `Alpha: ${event.alpha}`
-                    document.getElementById('gyroscopeBeta').innerText = `Beta: ${event.beta}`
-                    document.getElementById('gyroscopeGamma').innerText = `Gamma: ${event.gamma}`
+                    document.getElementById('gyroscopeAlpha').innerText = `Alpha: ${event.alpha.toFixed(3)}`
+                    document.getElementById('gyroscopeBeta').innerText = `Beta: ${event.beta.toFixed(3)}`
+                    document.getElementById('gyroscopeGamma').innerText = `Gamma: ${event.gamma.toFixed(3)}`
             });
         } else {
             document.getElementById('gyroscope').innerText = '不支援';
