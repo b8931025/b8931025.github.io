@@ -56,6 +56,85 @@
                 }
             });
         }
+
+        /*
+        function requestPermission() {
+            // 请求加速器和陀螺仪权限
+            if (typeof DeviceMotionEvent.requestPermission === 'function') {
+                DeviceMotionEvent.requestPermission().then(permissionState => {
+                    if (permissionState === 'granted') {
+                        window.addEventListener('devicemotion', handleMotion);
+                    } else {
+                        alert('未授予加速器权限');
+                    }
+                }).catch(console.error);
+            } else {
+                window.addEventListener('devicemotion', handleMotion);
+            }
+
+            if (typeof DeviceOrientationEvent.requestPermission === 'function') {
+                DeviceOrientationEvent.requestPermission().then(permissionState => {
+                    if (permissionState === 'granted') {
+                        window.addEventListener('deviceorientation', handleOrientation);
+                    } else {
+                        alert('未授予陀螺仪权限');
+                    }
+                }).catch(console.error);
+            } else {
+                window.addEventListener('deviceorientation', handleOrientation);
+            }
+        }
+
+        function handleMotion(event) {
+            var acceleration = event.acceleration;
+            if (acceleration) {
+                document.getElementById('accelerometer').innerText = `X: ${acceleration.x.toFixed(2)}, Y: ${acceleration.y.toFixed(2)}, Z: ${acceleration.z.toFixed(2)}`;
+            }
+        }
+
+        function handleOrientation(event) {
+            document.getElementById('gyroscope').innerText = `Alpha: ${event.alpha.toFixed(2)}, Beta: ${event.beta.toFixed(2)}, Gamma: ${event.gamma.toFixed(2)}`;
+        }
+
+        // 监听用户点击事件以请求权限
+        document.body.addEventListener('click', requestPermission, { once: true });
+
+
+        // 判斷瀏覽器版本
+        function getBrowserInfo() {
+            var userAgent = navigator.userAgent;
+            var browserName = "Unknown";
+            var browserVersion = "Unknown";
+
+            if (userAgent.indexOf("Firefox") > -1) {
+                browserName = "Mozilla Firefox";
+                browserVersion = userAgent.match(/Firefox\/([0-9]+\.[0-9]+)/)[1];
+            } else if (userAgent.indexOf("Chrome") > -1) {
+                browserName = "Google Chrome";
+                browserVersion = userAgent.match(/Chrome\/([0-9]+\.[0-9]+)/)[1];
+            } else if (userAgent.indexOf("Safari") > -1) {
+                browserName = "Apple Safari";
+                browserVersion = userAgent.match(/Version\/([0-9]+\.[0-9]+)/)[1];
+            } else if (userAgent.indexOf("Opera") > -1 || userAgent.indexOf("OPR") > -1) {
+                browserName = "Opera";
+                browserVersion = userAgent.match(/(Opera|OPR)\/([0-9]+\.[0-9]+)/)[2];
+            } else if (userAgent.indexOf("Edge") > -1) {
+                browserName = "Microsoft Edge";
+                browserVersion = userAgent.match(/Edge\/([0-9]+\.[0-9]+)/)[1];
+            } else if (userAgent.indexOf("Trident") > -1) {
+                browserName = "Microsoft Internet Explorer";
+                browserVersion = userAgent.match(/rv:([0-9]+\.[0-9]+)/)[1];
+            }
+
+            return { name: browserName, version: browserVersion };
+        }
+
+        var browserInfo = getBrowserInfo();
+        document.getElementById('browser-info').innerText = `您使用的浏览器是 ${browserInfo.name} 版本 ${browserInfo.version}`;
+
+        */
     </script>
 </body>
 </html>
+
+
