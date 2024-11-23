@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>加速器和陀螺儀資訊</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .sensor-info {
+            text-align: center;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>加速器和陀螺儀資訊</h1>
+    <div class="sensor-info">
+        <p>加速器資訊: <span id="accelerometer"></span></p>
+        <p>陀螺儀資訊: <span id="gyroscope"></span></p>
+    </div>
+    <script>
+        if (navigator.accelerometer) {
+            navigator.accelerometer.watchAcceleration(function (acceleration) {
+                document.getElementById('accelerometer').innerText = `X: ${acceleration.x}, Y: ${acceleration.y}, Z: ${acceleration.z}`;
+            }, function (err) {
+                console.error('Error: ' + err.code);
+            }, { frequency: 1000 });
+        } else {
+            document.getElementById('accelerometer').innerText = '加速器不支援';
+        }
+
+        if (navigator.gyroscope) {
+            navigator.gyroscope.watchRotation(function (rotation) {
+                document.getElementById('gyroscope').innerText = `X: ${rotation.alpha}, Y: ${rotation.beta}, Z: ${rotation.gamma}`;
+            }, function (err) {
+                console.error('Error: ' + err.code);
+            }, { frequency: 1000 });
+        } else {
+            document.getElementById('gyroscope').innerText = '陀螺儀不支援';
+        }
+    </script>
+</body>
+</html>
