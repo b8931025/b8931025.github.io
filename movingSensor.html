@@ -27,22 +27,21 @@
         <p>陀螺儀資訊: <span id="gyroscope"></span></p>
     </div>
     <script>
-        if (navigator.accelerometer) {
-            navigator.accelerometer.watchAcceleration(function (acceleration) {
-                document.getElementById('accelerometer').innerText = `X: ${acceleration.x}, Y: ${acceleration.y}, Z: ${acceleration.z}`;
-            }, function (err) {
-                console.error('Error: ' + err.code);
-            }, { frequency: 1000 });
+        if (window.DeviceMotionEvent) {
+            window.addEventListener('devicemotion', function(event) {
+                var acceleration = event.acceleration;
+                if (acceleration) {
+                    document.getElementById('accelerometer').innerText = `X: ${acceleration.x}, Y: ${acceleration.y}, Z: ${acceleration.z}`;
+                }
+            });
         } else {
             document.getElementById('accelerometer').innerText = '加速器不支援';
         }
 
-        if (navigator.gyroscope) {
-            navigator.gyroscope.watchRotation(function (rotation) {
-                document.getElementById('gyroscope').innerText = `X: ${rotation.alpha}, Y: ${rotation.beta}, Z: ${rotation.gamma}`;
-            }, function (err) {
-                console.error('Error: ' + err.code);
-            }, { frequency: 1000 });
+        if (window.DeviceOrientationEvent) {
+            window.addEventListener('deviceorientation', function(event) {
+                document.getElementById('gyroscope').innerText = `Alpha: ${event.alpha}, Beta: ${event.beta}, Gamma: ${event.gamma}`;
+            });
         } else {
             document.getElementById('gyroscope').innerText = '陀螺儀不支援';
         }
