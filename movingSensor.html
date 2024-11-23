@@ -23,27 +23,39 @@
 <body>
     <h1>加速器和陀螺儀資訊</h1>
     <div class="sensor-info">
-        <p>加速器資訊: <div id="accelerometer"></div></p>
-        <p>陀螺儀資訊: <div id="gyroscope"></div></p>
+        <p>加速器資訊:</p>
+        <div id="accelerometer"></div>
+        <div id="accelerometerX"></div>
+        <div id="accelerometerY"></div>
+        <div id="accelerometerZ"></div>
+        <p>陀螺儀資訊:</p>
+        <div id="gyroscope"></div>
+        <div id="gyroscopeAlpha"></div>
+        <div id="gyroscopeBeta"></div>
+        <div id="gyroscopeGamma"></div>
     </div>
     <script>
         if (window.DeviceMotionEvent) {
             window.addEventListener('devicemotion', function(event) {
                 var acceleration = event.acceleration;
                 if (acceleration) {
-                    document.getElementById('accelerometer').outerHTML = `X: ${acceleration.x},<br/> Y: ${acceleration.y},<br/> Z: ${acceleration.z}`;
+                    document.getElementById('accelerometerX').innerText = `X: ${acceleration.x}`
+                    document.getElementById('accelerometerY').innerText = `Y: ${acceleration.y}`
+                    document.getElementById('accelerometerZ').innerText = `Z: ${acceleration.z}`
                 }
             });
         } else {
-            document.getElementById('accelerometer').innerText = '加速器不支援';
+            document.getElementById('accelerometer').innerText = '不支援';
         }
 
         if (window.DeviceOrientationEvent) {
             window.addEventListener('deviceorientation', function(event) {
-                document.getElementById('gyroscope').outerHTML = `Alpha: ${event.alpha},<br/> Beta: ${event.beta},<br/> Gamma: ${event.gamma}`;
+                    document.getElementById('gyroscopeAlpha').innerText = `Alpha: ${event.alpha}`
+                    document.getElementById('gyroscopeBeta').innerText = `Beta: ${event.beta}`
+                    document.getElementById('gyroscopeGamma').innerText = `Gamma: ${event.gamma}`
             });
         } else {
-            document.getElementById('gyroscope').innerText = '陀螺儀不支援';
+            document.getElementById('gyroscope').innerText = '不支援';
         }
     </script>
 </body>
