@@ -170,6 +170,9 @@
             </div>
         </div>
         <div class="controlPanel">
+            <button @click="setRollingMode(1)" id="btnRollingMode1" class="bg-primary">A+B</button>
+            <button @click="setRollingMode(3)" id="btnRollingMode3" class="bg-primary">Only A</button>
+            <button @click="setRollingMode(2)" id="btnRollingMode2" class="bg-primary">Only B</button>
             <button @click="showTextArea" id="btnImpVocabulary" class="bg-primary">匯入</button>
             <button @click="submitClick" id="btnSubmit" class="bg-primary">{{ switchText }}</button>
             <button @click="randomPlay" class="bg-primary">隨機</button>
@@ -182,7 +185,8 @@
     <script>
         /*
             滑鼠移到播放區，游標變成時鐘
-            匯入單字時，選擇可以隱藏A / B 
+            右上方建立menu icon，把所有按鈕放進去
+            記住上次的rolling mode
             按鈕改成圖示
             輸入格式加上title
             加強使用說明
@@ -284,7 +288,7 @@
                     if(this.rollingContent && 
                         this.rollingContent.length > 0 && 
                         Array.isArray(this.rollingContent[0])) {
-                      this.rollingMode = 3
+                      this.rollingMode = 1
                     } else {
                       this.rollingMode = 0
                     }
@@ -353,6 +357,13 @@
                   }else{
                     divSwitch.className = 'wordHide'
                   }
+                },
+                setRollingMode(mode){
+                    if(this.rollingMode === 0) {
+                        this.alert('資料格式無法使用AB模式')
+                        return;
+                    }
+                    this.rollingMode = mode  
                 }
             }
         }).mount('#app');
