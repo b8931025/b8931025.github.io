@@ -226,17 +226,6 @@
             加強使用說明
         */ 
 
-        // 菜單開關邏輯
-        document.getElementById('menu-toggle').addEventListener('click', function() {
-            alert('x')
-            var menu = document.getElementById('menu');
-            if (menu.style.display === 'none' || menu.style.display === '') {
-                menu.style.display = 'block';
-            } else {
-                menu.style.display = 'none';
-            }
-        });
-
         // 載入完成後隱藏 loading 畫面
         window.addEventListener('load', function () {
             setTimeout(() => { 
