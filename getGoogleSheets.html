@@ -5,12 +5,42 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Read Excel File</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.0/xlsx.full.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f4f4f4;
+        }
+        h1 {
+            color: #333;
+        }
+        #fileUpload {
+            margin-bottom: 20px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            background-color: #fff;
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+            border: 1px solid #ddd;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+    </style>
 </head>
 <body>
     <h1>Upload and Read Excel File</h1>
     <input type="file" id="fileUpload" accept=".xlsx, .xls" />
     <br /><br />
-    <table id="excelTable" border="1">
+    <table id="excelTable">
         <thead>
             <tr id="tableHead"></tr>
         </thead>
@@ -34,13 +64,11 @@
                     document.getElementById('tableBody').innerHTML = '';
 
                     // Create table head
-                    const headerRow = document.createElement('tr');
                     jsonData[0].forEach(function(header) {
                         const th = document.createElement('th');
                         th.textContent = header;
-                        headerRow.appendChild(th);
+                        document.getElementById('tableHead').appendChild(th);
                     });
-                    document.getElementById('tableHead').appendChild(headerRow);
 
                     // Create table body
                     jsonData.slice(1).forEach(function(row) {
