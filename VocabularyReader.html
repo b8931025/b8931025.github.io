@@ -152,15 +152,17 @@
 
         <!-- 隱藏的菜單 -->
         <div id="menu">
-            <button @click="setRollingMode(1)" id="btnRollingMode1" class="bg-primary">A+B</button>
-            <button @click="setRollingMode(3)" id="btnRollingMode3" class="bg-primary">Only A</button>
-            <button @click="setRollingMode(2)" id="btnRollingMode2" class="bg-primary">Only B</button>
+            <button @click="showUseInfo" class="bg-primary">使用說明</button>
+            <button @click="setRollingMode(1)" class="bg-primary">A+B</button>
+            <button @click="setRollingMode(3)" class="bg-primary">Only A</button>
+            <button @click="setRollingMode(2)" class="bg-primary">Only B</button>
             <button @click="showTextArea" id="btnImpVocabulary" class="bg-primary">匯入</button>
             <button @click="submitClick" id="btnSubmit" class="bg-primary">{{ switchText }}</button>
             <button @click="randomPlay" class="bg-primary">隨機</button>
             <button @click="slowDown" class="bg-primary"><<</button>
             <span> {{(speed / 1000).toFixed(1)}} 秒</span>
             <button @click="HurryUp" class="bg-primary">>></button>
+            <button @click="switchMenu" class="bg-primary">關閉</button>
             <!-- 您的其他按鈕都可以放在這裡 -->
         </div>
 
@@ -243,20 +245,9 @@
                 onMounted(() => {
                     // 在這裡可以執行其他需要在掛載後進行的操作
                     // 在這裡可以安全地使用 proxy訪問 data 中的屬性和methods
-                    BootstrapDialog.show({
-                        type: BootstrapDialog.TYPE_SUCCESS,
-                        title: '使用說明',
-                        message: `1.點擊[匯入]，輸入單字，每行一個，按[認確]後更新播放資料。<br>
-                        2.點擊[暫停]，暫停播放。<br>
-                        3.點擊[隨機]，打亂播放順序。<br>
-                        4.點擊[<<]，減緩播放速度。<br>
-                        5.點擊[>>]，加快播放速度。`
-                    });
                     
                     if(proxy.getVocabularyData() !== '') proxy.changeRollingContent()
-                    proxy.speed = proxy.getVocabularySpeed()
-                    
-
+                    proxy.speed = proxy.getVocabularySpeed()             
                 });
             },
             data() {
@@ -407,6 +398,21 @@
                     } else {
                         $menu.css('display', 'none');
                     }
+                },
+                // 使用說明
+                showUseInfo(){
+                  BootstrapDialog.show({
+                        type: BootstrapDialog.TYPE_SUCCESS,
+                        title: '使用說明',
+                        message: `1.點擊[匯入]，輸入A單字，以|分隔B單字。每行一組，按[認確]後更新播放資料。<br>
+                        2.點擊[暫停]，暫停播放。<br>
+                        3.點擊[隨機]，打亂內容排序。<br>
+                        4.點擊[<<]，減緩播放速度。<br>
+                        5.點擊[>>]，加快播放速度。<br>
+                        6.[A+B]模式，AB同時顯示。<br>
+                        7.[Only A]模式，只顯示A，螢幕中間點一下可顯示B。<br>
+                        8.[Only B]模式，只顯示B，螢幕中間點一下可顯示A。<br>`
+                    });
                 }
             }
         }).mount('#app');
