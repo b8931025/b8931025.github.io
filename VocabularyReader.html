@@ -14,16 +14,22 @@
     <script src="https://cdn.jsdelivr.net/lodash/4.17.4/lodash.min.js"></script>
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-dialog@1.34.6/dist/css/bootstrap-dialog.min.css">
     <style>
+        /* 重點標注 */
+        #remark {
+            position: fixed;
+            right: 70px;
+            top: 10px;
+            padding: 10px;
+            border: none;
+            z-index: 1002;  
+        }
         /* 菜單開關按鈕樣式 */
         #menu-toggle {
             position: fixed;
             right: 10px;
             top: 10px;
             padding: 10px;
-            background-color: #007bff;
-            color: white;
             border: none;
-            cursor: pointer;
             z-index: 1001;
         }
         /* 隱藏的菜單樣式 */
@@ -148,7 +154,16 @@
 
     <div id="app">
         <!-- 菜單開關按鈕 -->
-        <button id="menu-toggle" @click="switchMenu">設定</button>
+        <button id="menu-toggle" class="btn btn-primary" @click="switchMenu">設定</button>
+        <!-- 加強練習 -->
+        <button id="remark"
+        type="button" 
+        class="btn btn-warning"
+        data-toggle="tooltip" 
+        data-placement="auto left" 
+        title="標注需要加強學習的項目"
+        @click="clickRemark"
+        >重點標注</button>
 
         <!-- 隱藏的菜單 -->
         <div id="menu">
@@ -227,7 +242,9 @@
             輸入格式加上title
             加強使用說明
         */ 
-
+        $(document).ready(function(){
+            $('[data-toggle="tooltip"]').tooltip(); 
+        });
         // 載入完成後隱藏 loading 畫面
         window.addEventListener('load', function () {
             setTimeout(() => { 
@@ -413,6 +430,19 @@
                         7.[Only A]模式，只顯示A，螢幕中間點一下可顯示B。<br>
                         8.[Only B]模式，只顯示B，螢幕中間點一下可顯示A。<br>`
                     });
+                },
+                // 重點標注
+                clickRemark(){
+                    alert('功能尚未開放')
+                    /*
+                    let $remark = $('#remark');
+                    if ($remark.css('background-color') === 'rgb(255, 255, 255)') {
+                        $remark.css('background-color', 'yellow');
+                    } else {
+                        $remark.css('background-color', 'white');
+                    }
+                    */
+
                 }
             }
         }).mount('#app');
