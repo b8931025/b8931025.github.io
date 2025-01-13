@@ -104,6 +104,13 @@
             height:100%;
         }
 
+        .itemIdx {
+            position: fixed;
+            left: 10;
+            top: 10;
+            font-size: 20px;
+        }
+
         .item {
             height:100%;
             display: flex; 
@@ -195,32 +202,33 @@
                 
                 <!-- Wrapper for slides -->
                 <div class="carousel-inner" role="listbox">
-                    <div v-for="(words, index) in rollingContent" :key="index" :class="(index === 0)? 'item active' : 'item'">
+                    <div v-for="(word, index) in rollingObj" :key="index" :class="(index === 0)? 'item active' : 'item'">
+                        <div class="itemIdx">No.{{word.idx + 1}}</div>
                         <!--只有A-->
                         <div v-if="rollingMode === 0" class="iValue">
-                            {{words}}
+                            {{word.fieldA}}
                         </div>
                         <!--AB都顯示-->
                         <div v-else-if="rollingMode === 1" class="iValue">
                             <div >
-                                {{words[0]}}
+                                {{word.fieldA}}
                             </div>
                             <div>
-                                {{_.join(words.slice(1), ',').replace(/,+$/,'')}}
+                                {{word.fieldB}}
                             </div>
                         </div>
                         <!--2:隱藏A 3:隱藏B-->
                         <div v-else-if="rollingMode === 2 || rollingMode === 3" class="iValue" @click="anserOnOff">
                             <div :class="(rollingMode === 2) ? 'wordHide' : 'wordShow'">
-                                {{words[0]}}
+                                {{word.fieldA}}
                             </div>
                             <div :class="(rollingMode === 2) ? 'wordShow' : 'wordHide'">
-                                {{_.join(words.slice(1), ',').replace(/,+$/,'')}}
+                                {{word.fieldB}}
                             </div>
                         </div>
                     </div>         
                 </div>
-                
+
                 <!-- Controls -->
                 <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
                     <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
@@ -263,8 +271,9 @@
                     // 在這裡可以執行其他需要在掛載後進行的操作
                     // 在這裡可以安全地使用 proxy訪問 data 中的屬性和methods
                     
-                    if(proxy.getVocabularyData() !== '') proxy.changeRollingContent()
-                    proxy.speed = proxy.getVocabularySpeed()             
+                    if(proxy.getVocabularyData() !== '') proxy.getRollingObj()
+                    
+                    proxy.speed = proxy.getVocabularySpeed()
                 });
             },
             data() {
@@ -282,7 +291,8 @@
                         '1.abc',
                         '2.def',
                         '3.ghi',
-                    ]
+                    ],
+                    rollingObj: []
                 };
             },
             methods: {
@@ -316,24 +326,38 @@
                 },
                 changeRollingContent() {
                     let originalTxt = this.getVocabularyData()
-                    this.rollingContent = originalTxt.split('\n')
-                                            .map(x=>x.replace(/\s+$/,''))
-                                            .filter(x=>x !== '')
-                                            .map(line=>{
-                                                if(line.indexOf('|') > 0){
-                                                    return line.split('|')
-                                                }else{
-                                                    return line
-                                                }
-                                            })
 
-                    if(this.rollingContent && 
-                        this.rollingContent.length > 0 && 
-                        Array.isArray(this.rollingContent[0])) {
+                    // 將originalTxt的每一行轉成物件陣列
+                    this.rollingObj = originalTxt.split('\n')
+                        .map(x=>x.replace(/\s+$/,''))
+                        .filter(x=>x !== '')
+                        .map((line,idx)=>{
+                            if(line.indexOf('|') > 0){
+                                var abValue = line.split('|')
+                                return {fieldA: abValue[0], fieldB: abValue[1], remark:null, idx: idx}
+                            }else{
+                                return {fieldA: line, fieldB: null, remark: null, idx: idx}
+                            }
+                        }) 
+                    
+                    //狀態儲存
+                    try {
+                        window.localStorage.setItem('storageRollingObj', JSON.stringify(this.rollingObj))
+                    } catch (e) {
+                        if (e.name === 'QuotaExceededError') this.alert(this.QuotaExceededError, BootstrapDialog.TYPE_DANGER)
+                    }
+
+                    if(this.rollingObj && 
+                        this.rollingObj.length > 0 && 
+                        this.rollingObj[0].fieldB) {
                       this.rollingMode = 1
                     } else {
                       this.rollingMode = 0
                     }
+                },
+                getRollingObj(){
+                    const obj = window.localStorage.getItem('storageRollingObj') || '[]'
+                    this.rollingObj = JSON.parse(obj)
                 },
                 showTextArea(){
                     let htmlMsg = `
@@ -345,10 +369,22 @@
                         message: $(htmlMsg),
                         buttons: [{
                             label: '認確',
-                            cssClass: 'btn-primary',
+                            cssClass: 'btn-danger',
                             action: (dialogRef)=> {
-                                this.setVocabularyData()
-                                this.changeRollingContent()
+                                // 有異動才儲存
+                                if(this.getVocabularyData() !== $("#stickerText").val())
+                                {
+                                    this.setVocabularyData()
+                                    this.changeRollingContent()
+                                }
+
+                                dialogRef.close()
+                            }
+                        },
+                        {
+                            label: '取消',
+                            cssClass: 'btn-info',
+                            action: (dialogRef)=> {
                                 dialogRef.close()
                             }
                         }]
@@ -371,13 +407,13 @@
                     }
                 },
                 randomPlay(){
-                    let x = this.rollingContent
+                    let x = this.rollingObj
                     for (let i = x.length - 1; i > 0; i--) {
                         const j = Math.floor(Math.random() * x.length);
                         // 交換
                         [x[i], x[j]] = [x[j], x[i]]; 
                     }
-                    this.rollingContent = x
+                    this.rollingObj = x                    
                 },
                 /*
                     msg: 訊息
