@@ -181,6 +181,7 @@
             <button @click="showTextArea" id="btnImpVocabulary" class="bg-primary">匯入</button>
             <button @click="submitClick" id="btnSubmit" class="bg-primary">{{ switchText }}</button>
             <button @click="randomPlay" class="bg-primary">隨機</button>
+            <button @click="remarkPlay" class="bg-primary">重點複習</button>
             <button @click="slowDown" class="bg-primary"><<</button>
             <span> {{(speed / 1000).toFixed(1)}} 秒</span>
             <button @click="HurryUp" class="bg-primary">>></button>
@@ -360,7 +361,6 @@
                 getRollingObj(){
                     const obj = window.localStorage.getItem('storageRollingObj') || '[]'
                     this.rollingObj = JSON.parse(obj)
-                    console.log('getRollingObj', this.rollingObj)
                 },
                 showTextArea(){
                     let htmlMsg = `
@@ -417,6 +417,11 @@
                         [x[i], x[j]] = [x[j], x[i]]; 
                     }
                     this.rollingObj = x                    
+                },
+                remarkPlay(){
+                    console.log('remarkPlay before', this.rollingObj)
+                    this.rollingObj = this.rollingObj.filter(x=>x.remark === 1)
+                    console.log('remarkPlay', this.rollingObj)
                 },
                 /*
                     msg: 訊息
