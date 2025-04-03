@@ -120,13 +120,19 @@
         }
 
         .iValue {
-            font-size: 30px;
             height: 100%;
             display: flex; 
             flex-direction: column;
             justify-content: center;
             align-items: center;  
             padding: 20px;
+        }
+
+        .valueField {
+            height: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
 
         /* 当屏幕宽度大于500px时 */
@@ -153,7 +159,10 @@
         }
 
         .wordShow {
-            display: block;
+            height: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
     </style>
 </head>
@@ -215,10 +224,10 @@
                         </div>
                         <!--AB都顯示-->
                         <div v-else-if="rollingMode === 1" class="iValue">
-                            <div >
+                            <div class="valueField">
                                 {{word.fieldA}}
                             </div>
-                            <div>
+                            <div class="valueField">
                                 {{word.fieldB}}
                             </div>
                         </div>
