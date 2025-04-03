@@ -179,8 +179,8 @@
             <button @click="setRollingMode(3)" class="bg-primary">Only A</button>
             <button @click="setRollingMode(2)" class="bg-primary">Only B</button>
             <button @click="showTextArea" id="btnImpVocabulary" class="bg-primary">匯入</button>
-            <button @click="submitClick" id="btnSubmit" class="bg-primary">{{ switchText }}</button>
-            <button @click="randomPlay" class="bg-primary">隨機</button>
+            <button @click="submitClick" id="btnSubmit" class="bg-primary">{{ playOrStopText }}</button>
+            <button @click="randomPlay" class="bg-primary">{{ orderOrRandomText }}</button>
             <button @click="remarkPlay" class="bg-primary">重點複習</button>
             <button @click="slowDown" class="bg-primary"><<</button>
             <span> {{(speed / 1000).toFixed(1)}} 秒</span>
@@ -281,7 +281,8 @@
                 return {
                     QuotaExceededError: '超出儲存上限，請縮減內容',
                     message: 'AB Reader',
-                    switchText: '暫停',
+                    playOrStopText: '暫停',
+                    orderOrRandomText: '隨機',
                     speed: 1000,
                     speedMax: 20000,
                     speedMin: 500,
@@ -303,10 +304,10 @@
                     this.cycling = !this.cycling
                     if(this.cycling){
                        $('.carousel').carousel('cycle')
-                       this.switchText = '暫停'
+                       this.playOrStopText = '暫停'
                     }else{
                        $('.carousel').carousel('pause')
-                       this.switchText = '播放'
+                       this.playOrStopText = '播放'
                     }                    
                 },
                 getVocabularyData() {
@@ -413,13 +414,21 @@
                     }
                 },
                 randomPlay(){
-                    let x = this.rollingObj
-                    for (let i = x.length - 1; i > 0; i--) {
-                        const j = Math.floor(Math.random() * x.length);
-                        // 交換
-                        [x[i], x[j]] = [x[j], x[i]]; 
+                    if (this.orderOrRandomText === '隨機') {
+                        this.orderOrRandomText = '依序'
+                        let x = this.rollingObj
+                        for (let i = x.length - 1; i > 0; i--) {
+                            const j = Math.floor(Math.random() * x.length);
+                            // 交換
+                            [x[i], x[j]] = [x[j], x[i]]; 
+                        }
+                        this.rollingObj = x  
+                    } else {
+                        this.orderOrRandomText = '隨機'
+                        this.rollingObj = this.rollingObj.sort(function (a, b) {
+                            return a.idx > b.idx ? 1 : -1;
+                        });
                     }
-                    this.rollingObj = x                    
                 },
                 remarkPlay(){                    
                     this.rollingObj = this.rollingObj.filter(x=>x.remark === 1)
@@ -470,7 +479,7 @@
                         title: '使用說明',
                         message: `1.點擊[匯入]，輸入A單字，以|分隔B單字。每行一組，按[認確]後更新播放資料。<br>
                         2.點擊[暫停]，暫停播放。<br>
-                        3.點擊[隨機]，打亂內容排序。<br>
+                        3.點擊[隨機]，打亂內容排序；點擊[依序]則由小到大排序。<br>
                         4.點擊[<<]，減緩播放速度。<br>
                         5.點擊[>>]，加快播放速度。<br>
                         6.[A+B]模式，AB同時顯示。<br>
