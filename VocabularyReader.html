@@ -342,7 +342,10 @@
                                 return {fieldA: line, fieldB: null, remark: null, idx: idx}
                             }
                         }) 
-                    
+
+                    //從頭開始播放
+                    $('.carousel').carousel(0)
+
                     //狀態儲存
                     try {
                         window.localStorage.setItem('storageRollingObj', JSON.stringify(this.rollingObj))
@@ -418,10 +421,10 @@
                     }
                     this.rollingObj = x                    
                 },
-                remarkPlay(){
-                    //從頭開始播放，不然會出錯
-                    $('.carousel').carousel(0)
+                remarkPlay(){                    
                     this.rollingObj = this.rollingObj.filter(x=>x.remark === 1)
+                    //從頭開始播放
+                    $('.carousel').carousel(0)
                 },
                 /*
                     msg: 訊息
