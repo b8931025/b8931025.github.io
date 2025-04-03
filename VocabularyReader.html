@@ -6,7 +6,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- 引用 Vue 3 CDN -->
-    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@3.3.4/dist/vue.global.min.js"></script>
+    <!-- <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script> -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
@@ -85,7 +86,7 @@
             margin: 10px;
         }
 
-        .title {
+        .readerSubject {
             text-align: center;
             height: 10vh;
         }
@@ -189,7 +190,10 @@
             <!-- 您的其他按鈕都可以放在這裡 -->
         </div>
 
-        <h1 class="title">{{ message }}</h1>
+        <h1 class="readerSubject" v-if="!isEditingSubject" @click="isEditingSubject = true">{{ readerSubject }}</h1>
+        <h1 v-else>
+            <input type="text" class="form-control readerSubject" v-model="readerSubject" @blur="isEditingSubject = false" style="font-size: inherit;" />
+        </h1>
         <div class="carousel-body" data-example-id="simple-carousel">
             <div id="carousel-example-generic" class="carousel slide" data-ride="carousel" :data-interval='speed'>
                 <!-- Indicators -->
@@ -280,7 +284,8 @@
             data() {
                 return {
                     QuotaExceededError: '超出儲存上限，請縮減內容',
-                    message: 'AB Reader',
+                    readerSubject: window.localStorage.getItem('readerSubject') || 'AB Reader',
+                    isEditingSubject: false,
                     playOrStopText: '暫停',
                     orderOrRandomText: '隨機',
                     speed: 1000,
@@ -298,6 +303,11 @@
                     },
                     ]
                 };
+            },
+            watch: {
+                readerSubject(newVal, oldVal) {
+                    window.localStorage.setItem('readerSubject', this.readerSubject)
+                }
             },
             methods: {
                 submitClick() {
@@ -493,7 +503,7 @@
                     let currentIdx = $('.carousel-inner').find('.item.active').attr('currentIdx')
                     this.rollingObj[currentIdx].remark = 1
                     window.localStorage.setItem('storageRollingObj', JSON.stringify(this.rollingObj))
-                }
+                }                
             }
         }).mount('#app');
     </script>
