@@ -170,7 +170,7 @@
         data-placement="auto left" 
         title="標注需要加強學習的項目"
         @click="clickRemark"
-        >重點標注</button>
+        >重點</button>
 
         <!-- 隱藏的菜單 -->
         <div id="menu">
@@ -419,9 +419,9 @@
                     this.rollingObj = x                    
                 },
                 remarkPlay(){
-                    console.log('remarkPlay before', this.rollingObj)
+                    //從頭開始播放，不然會出錯
+                    $('.carousel').carousel(0)
                     this.rollingObj = this.rollingObj.filter(x=>x.remark === 1)
-                    console.log('remarkPlay', this.rollingObj)
                 },
                 /*
                     msg: 訊息
