@@ -19,7 +19,7 @@
         #remark {
             position: fixed;
             right: 70px;
-            top: 10px;
+            top: 15px;
             padding: 10px;
             border: none;
             z-index: 1002;  
@@ -28,11 +28,18 @@
         #menu-toggle {
             position: fixed;
             right: 10px;
-            top: 10px;
+            top: 15px;
             padding: 10px;
             border: none;
             z-index: 1001;
         }
+        @media (max-width: 425px) {
+            #remark {
+                right: unset;
+                left: 10px;
+            }
+        }
+
         /* 隱藏的菜單樣式 */
         #menu {
             display: none;
