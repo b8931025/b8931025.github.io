@@ -227,7 +227,7 @@
                 <!-- Wrapper for slides -->
                 <div class="carousel-inner" role="listbox">
                     <div v-for="(word, index) in rollingObj" :key="index" :currentIdx="index" :class="(index === 0)? 'item active' : 'item'">
-                        <div :class="[word.remark ? 'itemIdx startRemark' : 'itemIdx']">No.{{word.idx + 1}}</div>
+                        <div :class="[{ 'startRemark': word.remark }, 'itemIdx']">No.{{word.idx + 1}}</div>
                         <!--只有A-->
                         <div v-if="rollingMode === 0" class="iValue">
                             {{word.fieldA}}
@@ -269,7 +269,6 @@
     <script>
         /*
             滑鼠移到播放區，游標變成時鐘
-            記住上次的rolling mode
             按鈕改成圖示
             輸入格式加上title
             加強使用說明
@@ -285,7 +284,7 @@
         });
 
         // 創建 Vue 應用程序
-        const { createApp, onMounted, getCurrentInstance } = Vue;
+        const { createApp, onMounted, getCurrentInstance, nextTick } = Vue;
         createApp({
             setup() {
                 const instance = getCurrentInstance()
@@ -298,6 +297,18 @@
                     if(proxy.getVocabularyData() !== '') proxy.getRollingObj()
                     
                     proxy.speed = proxy.getVocabularySpeed()
+                    proxy.cycling = (window.localStorage.getItem('cycling') === 'true')
+
+                    //沒有延遲1秒就會暫停失敗
+                    setTimeout(()=>{
+                        if(proxy.cycling){
+                            $('.carousel').carousel('cycle')
+                            proxy.playOrStopText = '暫停'
+                        }else{
+                            $('.carousel').carousel('pause')
+                            proxy.playOrStopText = '播放'
+                        }
+                    }, 1000)
                 });
             },
             data() {
@@ -331,13 +342,15 @@
             methods: {
                 submitClick() {
                     this.cycling = !this.cycling
+
                     if(this.cycling){
                        $('.carousel').carousel('cycle')
                        this.playOrStopText = '暫停'
                     }else{
                        $('.carousel').carousel('pause')
                        this.playOrStopText = '播放'
-                    }                    
+                    }
+                    window.localStorage.setItem('cycling', this.cycling)
                 },
                 getVocabularyData() {
                     return window.localStorage.getItem('storageVocabularyData') || ''
