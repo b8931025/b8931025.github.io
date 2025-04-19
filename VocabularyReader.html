@@ -204,7 +204,7 @@
 
         <h1 class="readerSubject" v-if="!isEditingSubject" @click="isEditingSubject = true">{{ readerSubject }}</h1>
         <h1 v-else>
-            <input type="text" class="form-control readerSubject" v-model="readerSubject" @blur="isEditingSubject = false" style="font-size: inherit;" />
+            <input type="text" class="form-control readerSubject" v-model="readerSubject" @blur="isEditingSubject = false" @keyup.enter="isEditingSubject = false" style="font-size: inherit;" />
         </h1>
         <div class="carousel-body" data-example-id="simple-carousel">
             <div id="carousel-example-generic" class="carousel slide" data-ride="carousel" :data-interval='speed'>
