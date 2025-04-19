@@ -46,6 +46,8 @@
             padding: 20px;
             z-index: 1000;
             text-align: center;
+            overflow-y: auto;
+            max-height: 90vh;
         }
 
         #menu button {
@@ -167,6 +169,11 @@
             justify-content: center;
             align-items: center;
         }
+
+        .startRemark::after {
+            content: " ★";
+            color: orange;
+        }
     </style>
 </head>
 <body>
@@ -220,7 +227,7 @@
                 <!-- Wrapper for slides -->
                 <div class="carousel-inner" role="listbox">
                     <div v-for="(word, index) in rollingObj" :key="index" :currentIdx="index" :class="(index === 0)? 'item active' : 'item'">
-                        <div class="itemIdx">No.{{word.idx + 1}}</div>
+                        <div :class="[word.remark ? 'itemIdx startRemark' : 'itemIdx']">No.{{word.idx + 1}}</div>
                         <!--只有A-->
                         <div v-if="rollingMode === 0" class="iValue">
                             {{word.fieldA}}
@@ -513,7 +520,14 @@
                 clickRemark(){
                     // 用JQuery取得clss=carousel-inner的元素的第一個div元素，中的currentIdx屬性
                     let currentIdx = $('.carousel-inner').find('.item.active').attr('currentIdx')
-                    this.rollingObj[currentIdx].remark = 1
+                    if(this.rollingObj[currentIdx].remark == 1) 
+                    {
+                        this.rollingObj[currentIdx].remark = 0
+                    }
+                    else
+                    {
+                        this.rollingObj[currentIdx].remark = 1
+                    }
                     window.localStorage.setItem('storageRollingObj', JSON.stringify(this.rollingObj))
                 }                
             }
