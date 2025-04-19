@@ -91,13 +91,14 @@
         .readerSubject {
             text-align: center;
             font-weight: 900;
-            font-size: 7rem;
-            height: 10vh;
+            font-size: 5rem;
+            margin-top: 0px;
+            margin-bottom: 10px;
         }
 
         .carousel-body {
             width: 100vw;
-            height: 75vh;
+            height: 85vh;
             cursor: wait;
         }
 
@@ -151,6 +152,20 @@
         @media (min-width: 900px) {
             .iValue {
                 font-size: 80px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .readerSubject {
+                text-align: center;
+                font-size: 5rem;
+            }
+        }
+
+        @media (max-width: 375px) {
+            .readerSubject {
+                text-align: center;
+                font-size: 3rem;
             }
         }
 
