@@ -350,9 +350,18 @@
                 speakText(txt) {
                   const msg = new SpeechSynthesisUtterance(txt);
                   msg.lang = 'zh-TW'; // 設置語言為中文
+                  //msg.lang = 'vi-VN'; // 設置語言為越語
                   msg.rate = 0.3; // 語速
                   window.speechSynthesis.speak(msg);
 
+                },
+                getVoiceInfo() {
+                  //取得各種人聲資訊
+                  const utterance = new SpeechSynthesisUtterance("Xin chào!"); 
+                  const voices = speechSynthesis.getVoices();
+                  utterance.voice = voices.find(voice => voice.name.includes("Vietnamese")); 
+                  speechSynthesis.speak(utterance);
+                  speechSynthesis.getVoices().forEach(voice => console.log(voice.name, voice.lang));
                 }
             }
         }).mount('#app');
