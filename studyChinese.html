@@ -58,6 +58,27 @@
       background: #fff;     /* 若圖片非4:3會有留白 */
     }
 
+    @media (max-width: 768px) {
+      .word-item {
+        flex-direction: column;
+        align-items: center;
+        width: 95%;
+      }
+      .word-image {
+        margin-right: 0;
+        margin-bottom: 10px;
+      }
+      .word-image img {
+        width: 100%;
+        height: auto;
+        max-width: 250px;
+        max-height: 180px;
+      }
+      .word-info {
+        align-items: center;
+      }
+    }
+
     .word-info {
         display: flex;
         flex-direction: column;
