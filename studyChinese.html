@@ -115,11 +115,12 @@
           <img :src="word.src" alt="圖片">
         </div>
         <div class="word-info">
-          <div>中文：<button @click="speakText(word.chWord)">{{ word.chWord }}</button></div>
-          <div>拼音：{{ word.pinyin }}</div>
-          <div>越南文：{{ word.vnWord }}</div>
+          <div>Tiếng Trung：<button @click="speakText(word.chWord)">{{ word.chWord }}</button></div>
+          <div>Bính âm：{{ word.pinyin }}</div>
+          <div>Tiếng Việt：{{ word.vnWord }}</div>
         </div>
       </div>
+    </div>
 
     <script>
       window.addEventListener('load', function () {
