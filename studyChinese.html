@@ -160,6 +160,12 @@
           }, 500);
       });
 
+      //改善iphone無聲問題
+      window.speechSynthesis.onvoiceschanged = () => {
+          let voices = window.speechSynthesis.getVoices();
+          console.log('voices', voices);
+      };
+
         // 創建 Vue 應用程序
         const { createApp, onMounted, getCurrentInstance, nextTick } = Vue;
         createApp({
