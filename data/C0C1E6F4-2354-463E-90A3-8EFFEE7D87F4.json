@@ -1,5 +1,5 @@
 {
-    "LessionName": "學習水果的中文",
+    "LessionName": "日文單字-水果",
     "voiceLanguage": "ja-JP",
     "TextLable": {
         "voiceWord": "日文",
@@ -10,19 +10,19 @@
         {
             "voiceWord": "くだもの",
             "src": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTp3qVkVke458lpSFiqqfGvzKtzbZyTv402hA&s",
-            "pinyin": "Xiāngjiāo",
+            "pinyin": "kudamono",
             "descriptWord": "水果"
         },
         {
             "voiceWord": "りんご",
             "src": "https://ihealth.bwnet.com.tw/AC_Gallery/2020/04/b201d6bd-475d-8d0b-5308-98525fcf50c2.jpg",
-            "pinyin": "Bā lè",
+            "pinyin": "ringo",
             "descriptWord": "蘋果"
         },
         {
             "voiceWord": "バナナ",
             "src": "https://www.ifruit.hk/image/cache/catalog/Products/B101-2-500x500.jpg",
-            "pinyin": "Lì zhī",
+            "pinyin": "banana",
             "descriptWord": "香蕉"
         }
     ]
