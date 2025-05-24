@@ -1,0 +1,191 @@
+{
+  "LessionName": "Thời tiết",
+  "voiceLanguage": "zh-TW",
+  "TextLable": {
+    "voiceWord": "Tiếng Trung",
+    "pinyin": "Bính âm",
+    "descriptWord": "Tiếng Việt"
+  },
+  "List": [
+    {
+      "voiceWord": "天氣",
+      "srcVoice": "https://tiengtrungthuonghai.vn/wp-content/uploads/2019/11/天气.mp3",
+      "pinyin": "Tiānqì",
+      "descriptWord": "Thời tiết"
+    },
+    {
+      "voiceWord": "氣候",
+      "srcVoice": "https://tiengtrungthuonghai.vn/wp-content/uploads/2019/11/气候.mp3",
+      "pinyin": "Qìhòu",
+      "descriptWord": "Khí hậu"
+    },
+    {
+      "voiceWord": "天氣預報",
+      "srcVoice": "https://tiengtrungthuonghai.vn/wp-content/uploads/2019/11/天气预报-1.mp3",
+      "pinyin": "Tiānqì yùbào",
+      "descriptWord": "Dự báo thời tiết"
+    },
+    {
+      "voiceWord": "晴天",
+      "srcVoice": "https://tiengtrungthuonghai.vn/wp-content/uploads/2019/11/晴天-1-1.mp3",
+      "pinyin": "Qíngtiān",
+      "descriptWord": "Trời nắng/trời quang"
+    },
+    {
+      "voiceWord": "陰天",
+      "srcVoice": "https://tiengtrungthuonghai.vn/wp-content/uploads/2019/11/阴天-1.mp3",
+      "pinyin": "Yīn tiān",
+      "descriptWord": "Trời âm u"
+    },
+    {
+      "voiceWord": "下雨",
+      "srcVoice": "https://tiengtrungthuonghai.vn/wp-content/uploads/2019/11/下雨-1.mp3",
+      "pinyin": "Xià yǔ",
+      "descriptWord": "Mưa"
+    },
+    {
+      "voiceWord": "下雪",
+      "srcVoice": "https://tiengtrungthuonghai.vn/wp-content/uploads/2019/11/下雪-1.mp3",
+      "pinyin": "Xià xuě",
+      "descriptWord": "Tuyết rơi"
+    },
+    {
+      "voiceWord": "出太陽",
+      "srcVoice": "https://tiengtrungthuonghai.vn/wp-content/uploads/2019/11/出太阳-1.mp3",
+      "pinyin": "Chū tàiyáng",
+      "descriptWord": "Trời nắng"
+    },
+    {
+      "voiceWord": "打雷",
+      "srcVoice": "https://tiengtrungthuonghai.vn/wp-content/uploads/2019/11/打雷-1.mp3",
+      "pinyin": "Dǎléi",
+      "descriptWord": "Có sấm"
+    },
+    {
+      "voiceWord": "乾燥",
+      "srcVoice": "https://tiengtrungthuonghai.vn/wp-content/uploads/2019/11/干燥-1.mp3",
+      "pinyin": "Gānzào",
+      "descriptWord": "Khô hanh"
+    },
+    {
+      "voiceWord": "淋濕",
+      "srcVoice": "https://tiengtrungthuonghai.vn/wp-content/uploads/2019/11/淋湿-1.mp3",
+      "pinyin": "Lín shī",
+      "descriptWord": "Ẩm ướt"
+    },
+    {
+      "voiceWord": "涼",
+      "srcVoice": "https://tiengtrungthuonghai.vn/wp-content/uploads/2019/11/凉-1.mp3",
+      "pinyin": "Liáng",
+      "descriptWord": "Mát mẻ"
+    },
+    {
+      "voiceWord": "冷",
+      "srcVoice": "https://tiengtrungthuonghai.vn/wp-content/uploads/2019/11/冷-1.mp3",
+      "pinyin": "Lěng",
+      "descriptWord": "Lạnh"
+    },
+    {
+      "voiceWord": "熱",
+      "srcVoice": "https://tiengtrungthuonghai.vn/wp-content/uploads/2019/11/热-1.mp3",
+      "pinyin": "Rè",
+      "descriptWord": "Nóng"
+    },
+    {
+      "voiceWord": "悶",
+      "srcVoice": "https://tiengtrungthuonghai.vn/wp-content/uploads/2019/11/闷-1.mp3",
+      "pinyin": "Mèn",
+      "descriptWord": "Oi bức"
+    },
+    {
+      "voiceWord": "暖和",
+      "srcVoice": "https://tiengtrungthuonghai.vn/wp-content/uploads/2019/11/暖和-1.mp3",
+      "pinyin": "Nuǎnhuo",
+      "descriptWord": "Ấm áp"
+    },
+    {
+      "voiceWord": "霧",
+      "srcVoice": "https://tiengtrungthuonghai.vn/wp-content/uploads/2019/11/雾-1.mp3",
+      "pinyin": "Wù",
+      "descriptWord": "Sương mù"
+    },
+    {
+      "voiceWord": "閃電",
+      "srcVoice": "https://tiengtrungthuonghai.vn/wp-content/uploads/2019/11/闪电-1.mp3",
+      "pinyin": "Shǎndiàn",
+      "descriptWord": "Chớp"
+    },
+    {
+      "voiceWord": "風",
+      "srcVoice": "https://tiengtrungthuonghai.vn/wp-content/uploads/2019/11/风-1.mp3",
+      "pinyin": "Fēng",
+      "descriptWord": "Gió"
+    },
+    {
+      "voiceWord": "龍捲風",
+      "srcVoice": "https://tiengtrungthuonghai.vn/wp-content/uploads/2019/11/龙卷风-1.mp3",
+      "pinyin": "Lóngjuǎnfēng",
+      "descriptWord": "Gió lốc/gió xoáy"
+    },
+    {
+      "voiceWord": "毛毛雨",
+      "srcVoice": "https://tiengtrungthuonghai.vn/wp-content/uploads/2019/11/毛毛雨-1.mp3",
+      "pinyin": "Máomaoyǔ",
+      "descriptWord": "Mưa phùn"
+    },
+    {
+      "voiceWord": "陣雨",
+      "srcVoice": "https://tiengtrungthuonghai.vn/wp-content/uploads/2019/11/阵雨-1.mp3",
+      "pinyin": "Zhènyǔ",
+      "descriptWord": "Mưa rào"
+    },
+    {
+      "voiceWord": "太陽雨",
+      "srcVoice": "https://tiengtrungthuonghai.vn/wp-content/uploads/2019/11/太阳雨-1.mp3",
+      "pinyin": "Tàiyáng yǔ",
+      "descriptWord": "Mưa bóng mây"
+    },
+    {
+      "voiceWord": "彩虹",
+      "srcVoice": "https://tiengtrungthuonghai.vn/wp-content/uploads/2019/11/彩虹-1.mp3",
+      "pinyin": "Cǎihóng",
+      "descriptWord": "Cầu vồng"
+    },
+    {
+      "voiceWord": "多雲",
+      "srcVoice": "https://tiengtrungthuonghai.vn/wp-content/uploads/2019/11/多云-1.mp3",
+      "pinyin": "Duōyún",
+      "descriptWord": "Nhiều mây"
+    },
+    {
+      "voiceWord": "少雲",
+      "srcVoice": "https://tiengtrungthuonghai.vn/wp-content/uploads/2019/11/少云-1.mp3",
+      "pinyin": "Shǎo yún",
+      "descriptWord": "Ít mây"
+    },
+    {
+      "voiceWord": "冰冷",
+      "srcVoice": "https://tiengtrungthuonghai.vn/wp-content/uploads/2019/11/冰冷-1.mp3",
+      "pinyin": "Bīnglěng",
+      "descriptWord": "Lạnh giá/lạnh buốt"
+    },
+    {
+      "voiceWord": "白天",
+      "srcVoice": "https://tiengtrungthuonghai.vn/wp-content/uploads/2019/11/白天-1.mp3",
+      "pinyin": "Báitiān",
+      "descriptWord": "Ban ngày"
+    },
+    {
+      "voiceWord": "暴風雨",
+      "srcVoice": "https://tiengtrungthuonghai.vn/wp-content/uploads/2019/11/暴风雨-1.mp3",
+      "pinyin": "Bàofēngyǔ",
+      "descriptWord": "Bão tố"
+    },
+    {
+      "voiceWord": "洪水",
+      "srcVoice": "https://tiengtrungthuonghai.vn/wp-content/uploads/2019/11/洪水-1.mp3",
+      "pinyin": "Hóngshuǐ",
+      "descriptWord": "Lũ lụt"
+    }
+  ]
+}
