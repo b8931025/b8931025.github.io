@@ -1,0 +1,185 @@
+{
+    "LessionName": "Ngân àng",
+    "voiceLanguage": "zh-TW",
+    "TextLable": {
+        "voiceWord": "Tiếng Trung",
+        "pinyin": "Bính âm",
+        "descriptWord": "Tiếng Việt"
+    },
+    "List": [
+      {
+        "srcVoice": "https://tiengtrungthuonghai.vn/wp-content/uploads/2019/12/NH1.1.mp3",
+        "voiceWord": "銀行",
+        "pinyin": "yínháng",
+        "descriptWord": "Ngân hàng"
+      },
+      {
+        "srcVoice": "https://tiengtrungthuonghai.vn/wp-content/uploads/2019/12/NH2.1.mp3",
+        "voiceWord": "取錢",
+        "pinyin": "qǔ qián",
+        "descriptWord": "Rút tiền"
+      },
+      {
+        "srcVoice": "https://tiengtrungthuonghai.vn/wp-content/uploads/2019/12/NH3.1.mp3",
+        "voiceWord": "換錢",
+        "pinyin": "huànqián",
+        "descriptWord": "Đổi tiền"
+      },
+      {
+        "srcVoice": "https://tiengtrungthuonghai.vn/wp-content/uploads/2019/12/NH4.1.mp3",
+        "voiceWord": "存錢",
+        "pinyin": "cún qián",
+        "descriptWord": "Gửi tiền"
+      },
+      {
+        "srcVoice": "https://tiengtrungthuonghai.vn/wp-content/uploads/2019/12/NH5.1.mp3",
+        "voiceWord": "轉賬",
+        "pinyin": "zhuǎnzhàng",
+        "descriptWord": "Chuyển khoản"
+      },
+      {
+        "srcVoice": "https://tiengtrungthuonghai.vn/wp-content/uploads/2019/12/NH6.1.mp3",
+        "voiceWord": "戶頭",
+        "pinyin": "hùtóu",
+        "descriptWord": "Tài khoản"
+      },
+      {
+        "srcVoice": "https://tiengtrungthuonghai.vn/wp-content/uploads/2019/12/NH7.1.mp3",
+        "voiceWord": "信用卡",
+        "pinyin": "xìnyòngkǎ",
+        "descriptWord": "Thẻ tín dụng/ thẻ Visa"
+      },
+      {
+        "srcVoice": "https://tiengtrungthuonghai.vn/wp-content/uploads/2019/12/NH8.1.mp3",
+        "voiceWord": "匯率",
+        "pinyin": "huìlǜ",
+        "descriptWord": "Tỷ giá"
+      },
+      {
+        "srcVoice": "https://tiengtrungthuonghai.vn/wp-content/uploads/2019/12/NH9.1.mp3",
+        "voiceWord": "對貨幣",
+        "pinyin": "duìhuòbì",
+        "descriptWord": "Cặp tỷ giá"
+      },
+      {
+        "srcVoice": "https://tiengtrungthuonghai.vn/wp-content/uploads/2019/12/NH10.1.mp3",
+        "voiceWord": "外幣",
+        "pinyin": "wàibì",
+        "descriptWord": "Ngoại tệ"
+      },
+      {
+        "srcVoice": "https://tiengtrungthuonghai.vn/wp-content/uploads/2019/12/NH11.1.mp3",
+        "voiceWord": "紙幣",
+        "pinyin": "zhǐbì",
+        "descriptWord": "Tiền giấy"
+      },
+      {
+        "srcVoice": "https://tiengtrungthuonghai.vn/wp-content/uploads/2019/12/NH12.1.mp3",
+        "voiceWord": "硬幣",
+        "pinyin": "yìngbì",
+        "descriptWord": "Tiền xu"
+      },
+      {
+        "srcVoice": "https://tiengtrungthuonghai.vn/wp-content/uploads/2019/12/NH13.1.mp3",
+        "voiceWord": "假鈔",
+        "pinyin": "jiǎchāo",
+        "descriptWord": "Tiền giả"
+      },
+      {
+        "srcVoice": "https://tiengtrungthuonghai.vn/wp-content/uploads/2019/12/NH14.1.mp3",
+        "voiceWord": "真鈔",
+        "pinyin": "zhēnchāo",
+        "descriptWord": "Tiền thật"
+      },
+      {
+        "srcVoice": "https://tiengtrungthuonghai.vn/wp-content/uploads/2019/12/NH15.1.mp3",
+        "voiceWord": "面額",
+        "pinyin": "miàn’é",
+        "descriptWord": "Mệnh giá"
+      },
+      {
+        "srcVoice": "https://tiengtrungthuonghai.vn/wp-content/uploads/2019/12/NH16.1.mp3",
+        "voiceWord": "電話號碼",
+        "pinyin": "diànhuà hàomǎ",
+        "descriptWord": "Số điện thoại"
+      },
+      {
+        "srcVoice": "https://tiengtrungthuonghai.vn/wp-content/uploads/2019/12/NH17.1.mp3",
+        "voiceWord": "身份證",
+        "pinyin": "shēnfèn zhèng",
+        "descriptWord": "Chứng minh thư"
+      },
+      {
+        "srcVoice": "https://tiengtrungthuonghai.vn/wp-content/uploads/2019/12/NH18.1.mp3",
+        "voiceWord": "存錢單",
+        "pinyin": "cún qián dān",
+        "descriptWord": "Phiếu gửi tiền"
+      },
+      {
+        "srcVoice": "https://tiengtrungthuonghai.vn/wp-content/uploads/2019/12/NH19.1.mp3",
+        "voiceWord": "填",
+        "pinyin": "tián",
+        "descriptWord": "Điền"
+      },
+      {
+        "srcVoice": "https://tiengtrungthuonghai.vn/wp-content/uploads/2019/12/NH20.1.mp3",
+        "voiceWord": "簽名字",
+        "pinyin": "qiānmíng zì",
+        "descriptWord": "Kí tên"
+      },
+      {
+        "srcVoice": "https://tiengtrungthuonghai.vn/wp-content/uploads/2019/12/NH21.1.mp3",
+        "voiceWord": "存定期",
+        "pinyin": "cún dìngqí",
+        "descriptWord": "Gửi có kì hạn"
+      },
+      {
+        "srcVoice": "https://tiengtrungthuonghai.vn/wp-content/uploads/2019/12/NH22.2.mp3",
+        "voiceWord": "存活期",
+        "pinyin": "cúnhuó qí",
+        "descriptWord": "Gửi không kì hạn"
+      },
+      {
+        "srcVoice": "https://tiengtrungthuonghai.vn/wp-content/uploads/2019/12/NH23.1.mp3",
+        "voiceWord": "數",
+        "pinyin": "shǔ",
+        "descriptWord": "Đếm"
+      },
+      {
+        "srcVoice": "https://tiengtrungthuonghai.vn/wp-content/uploads/2019/12/NH24.1.mp3",
+        "voiceWord": "回單",
+        "pinyin": "huí dān",
+        "descriptWord": "Biên lai"
+      },
+      {
+        "srcVoice": "https://tiengtrungthuonghai.vn/wp-content/uploads/2019/12/NH25.1.mp3",
+        "voiceWord": "塊",
+        "pinyin": "kuài",
+        "descriptWord": "Đồng (tệ"
+      },
+      {
+        "srcVoice": "https://tiengtrungthuonghai.vn/wp-content/uploads/2019/12/NH26.1.mp3",
+        "voiceWord": "角",
+        "pinyin": "jiǎo",
+        "descriptWord": "Hào"
+      },
+      {
+        "srcVoice": "https://tiengtrungthuonghai.vn/wp-content/uploads/2019/12/NH27.1.mp3",
+        "voiceWord": "毛",
+        "pinyin": "máo",
+        "descriptWord": "Hào"
+      },
+      {
+        "srcVoice": "https://tiengtrungthuonghai.vn/wp-content/uploads/2019/12/NH28.1.mp3",
+        "voiceWord": "分",
+        "pinyin": "fēn",
+        "descriptWord": "Xu"
+      },
+      {
+        "srcVoice": "https://tiengtrungthuonghai.vn/wp-content/uploads/2019/12/NH29.1.mp3",
+        "voiceWord": "自動取款機",
+        "pinyin": "zìdòng qǔkuǎnjī",
+        "descriptWord": "ATM"
+      }
+    ]
+}

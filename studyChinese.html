@@ -34,36 +34,59 @@
       align-items: center;
     }
 
-    .word-item {
-      display: flex;
-      align-items: flex-start;
-      margin: 20px 0;
-      padding: 15px;
-      border: 1px solid #ddd;
-      border-radius: 8px;
-      background-color: #f9f9f9;
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-      width: 50%;
-    }
-    .word-image {
-        margin-right: 20px;
-    }
-
-    .word-image img {
-      width: 160px;         /* 4:3比例，寬160px，高120px */
-      height: 120px;
-      object-fit: contain;  /* 保持原有圖片比例，內容完整顯示 */
-      border-radius: 8px;
-      margin-right: 15px;
-      background: #fff;     /* 若圖片非4:3會有留白 */
-    }
-
-    @media (max-width: 768px) {
-      .word-item {
-        flex-direction: column;
-        align-items: center;
-        width: 95%;
+      .word-image {
+          margin-right: 20px;
       }
+
+      .word-image img {
+        width: 160px;         /* 4:3比例，寬160px，高120px */
+        height: 120px;
+        object-fit: contain;  /* 保持原有圖片比例，內容完整顯示 */
+        border-radius: 8px;
+        margin-right: 15px;
+        background: #fff;     /* 若圖片非4:3會有留白 */
+      }
+
+      .word-item {
+        position: relative;
+        display: flex;
+        align-items: flex-start;
+        margin: 20px 0;
+        padding: 15px;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        background-color: #f9f9f9;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        width: 80%;
+      }
+
+      .word-info {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          flex: 1;
+          gap: 8px;
+      }
+      .word-info-row {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+      .word-info-label {
+        width: 20%;
+        min-width: 120px;
+        font-weight: bold;
+        color: #555;
+        text-align: right;
+      }
+      .word-info-value {
+        color: #222;
+        min-width: 120px;
+        word-break: break-all;
+        text-align: left;
+      }
+
+    @media (max-width: 425px) {
       .word-image {
         margin-right: 0;
         margin-bottom: 10px;
@@ -74,55 +97,59 @@
         max-width: 250px;
         max-height: 180px;
       }
-      .word-info {
+
+      .word-item {
+        flex-direction: column;
         align-items: center;
+        width: 95%;
+      }
+      .word-info {
+        width: 100%;
+        border: none;
+      }
+      .word-info-row {
+        flex-direction: column;
+        align-items: center;
+      }
+      .word-info-label {
+        width: 100%;
+        min-width: 200px;
+        text-align: left;
+      }
+      .word-info-value {
+        width: 100%;
+        text-align: left;
       }
     }
 
-    .word-info {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        flex: 1;
-        gap: 8px;
+    .solid {
+      border: 1.5px solid blue;
     }
 
-    .word-chinese {
-        font-size: 1.5em;
-        color: #333;
-        margin: 0;
+    .voice-button {
+      position: absolute;
+      top: 10px;
+      right: 10px;
     }
 
-    .word-pinyin {
-        font-size: 1.2em;
-        color: #666;
-        margin: 5px 0;
+    .voice-button button {
+      background: linear-gradient(180deg, #f5f5f5 0%, #e0e0e0 100%);
+      border: 1.5px solid #bbb;
+      border-radius: 6px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.10), 0 1.5px 0 #fff inset;
+      color: #333;
+      font-size: 1em;
+      padding: 6px 12px;
+      margin-left: 2px;
+      transition: box-shadow 0.2s, background 0.2s;
+      outline: none;
+      appearance: none;
+      -webkit-appearance: none;
     }
 
-    .word-translation {
-        font-size: 1em;
-        color: #999;
-        margin: 5px 0;
-    }
-
-    .word-info button {
-        background: linear-gradient(180deg, #f5f5f5 0%, #e0e0e0 100%);
-        border: 1.5px solid #bbb;
-        border-radius: 6px;
-        box-shadow: 0 2px 6px rgba(0,0,0,0.10), 0 1.5px 0 #fff inset;
-        color: #333;
-        font-size: 1em;
-        padding: 6px 18px;
-        margin-left: 8px;
-        transition: box-shadow 0.2s, background 0.2s;
-        outline: none;
-        appearance: none;
-        -webkit-appearance: none;
-    }
-
-    .word-info button:active {
-        background: linear-gradient(180deg, #e0e0e0 0%, #cccccc 100%);
-        box-shadow: 0 1px 2px rgba(0,0,0,0.15) inset;
+    .voice-info button:active {
+      background: linear-gradient(180deg, #e0e0e0 0%, #cccccc 100%);
+      box-shadow: 0 1px 2px rgba(0,0,0,0.15) inset;
     }
   </style>
 </head>
@@ -131,24 +158,33 @@
 
     <div id="app">
       <div v-for="(word, index) in wordList" :key="index" class="word-item">
-        <div class="word-image">
-          <img :src="word.src" alt="圖片">
-        </div>
-        <div class="word-info">
-          <div>
-            {{ lession.TextLable.voiceWord }}：
-            <button @click="speakText(word.voiceWord)">
-              {{ word.voiceWord }}
+        <div class="voice-button">
+            <button @click="speakText(word)">
               <span class="sound-icon" aria-label="sound">
                 <!-- SVG 喇叭 icon -->
-                <svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align: middle; margin-left: 6px;" fill="currentColor">
+                <svg width="18" height="18" viewBox="0 0 20 20" style="vertical-align: middle; margin: 0px;" fill="currentColor">
                   <path d="M3 8v4h4l5 5V3L7 8H3zm13.5 2a4.5 4.5 0 0 0-1.5-3.36v6.72A4.5 4.5 0 0 0 16.5 10zm-2-7.09v2.06A7 7 0 0 1 18 10a7 7 0 0 1-3.5 6.03v2.06A9 9 0 0 0 20 10a9 9 0 0 0-5.5-8.09z"/>
                 </svg>
               </span>
-            </button>
+            </button>      
+        </div>
+
+        <div v-show="word.src" class="word-image">
+          <img :src="word.src" alt="圖片">
+        </div>
+        <div class="word-info">
+          <div class="word-info-row">
+            <div class="word-info-label">{{ lession.TextLable.voiceWord }}：</div>
+            <div class="word-info-value">{{ word.voiceWord }}</div>
           </div>
-          <div>{{ lession.TextLable.pinyin }}：{{ word.pinyin }}</div>
-          <div>{{ lession.TextLable.descriptWord }}：{{ word.descriptWord }}</div>
+          <div class="word-info-row">
+            <div class="word-info-label">{{ lession.TextLable.pinyin }}：</div>
+            <div class="word-info-value">{{ word.pinyin }}</div>
+          </div>
+          <div class="word-info-row">
+            <div class="word-info-label">{{ lession.TextLable.descriptWord }}：</div>
+            <div class="word-info-value">{{ word.descriptWord }}</div>
+          </div>
         </div>
       </div>
     </div>
@@ -204,11 +240,19 @@
 
             },
             methods: {
-                speakText(txt) {
-                  const msg = new SpeechSynthesisUtterance(txt);
-                  msg.lang = this.lession.voiceLanguage; // 設置語言
-                  msg.rate = 0.3; // 語速
-                  window.speechSynthesis.speak(msg);
+                speakText(item) {
+                  let txt = item.voiceWord;
+                  let srcVoice = item.srcVoice;
+
+                  if (srcVoice) {
+                    const audio = new Audio(srcVoice);
+                    audio.play();
+                  } else {
+                    const msg = new SpeechSynthesisUtterance(txt);
+                    msg.lang = this.lession.voiceLanguage; // 設置語言
+                    msg.rate = 0.3; // 語速
+                    window.speechSynthesis.speak(msg);
+                  }
                 },
                 getVoiceInfo() {
                   //取得各種人聲資訊
