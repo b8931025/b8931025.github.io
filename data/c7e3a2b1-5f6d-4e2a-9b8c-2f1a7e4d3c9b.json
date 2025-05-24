@@ -1,221 +1,263 @@
 {
-    "LessionName": "Học tiếng Trung - Hoa Quả",
-    "voiceLanguage": "zh-TW",
-    "TextLable": {
-        "voiceWord": "Tiếng Trung",
-        "pinyin": "Bính âm",
-        "descriptWord": "Tiếng Việt"
+  "LessionName": "Học tiếng Trung - Hoa Quả",
+  "voiceLanguage": "zh-TW",
+  "TextLable": {
+    "voiceWord": "Tiếng Trung",
+    "pinyin": "Bính âm",
+    "descriptWord": "Tiếng Việt"
+  },
+  "List": [
+    {
+      "srcVoice": "https://tiengtrungthuonghai.vn/wp-content/uploads/2019/11/香蕉-3.mp3",
+      "voiceWord": "香蕉",
+      "src": "https://tiengtrungthuonghai.vn/wp-content/uploads/2019/11/174.jpg",
+      "pinyin": "Xiāngjiāo",
+      "descriptWord": "Quả chuối"
     },
-    "List": [
-        {
-            "voiceWord": "香蕉",
-            "src": "https://tiengtrungthuonghai.vn/wp-content/uploads/2019/11/174.jpg",
-            "pinyin": "Xiāngjiāo",
-            "descriptWord": "Quả chuối"
-        },
-        {
-            "voiceWord": "芭樂",
-            "src": "https://tiengtrungthuonghai.vn/wp-content/uploads/2019/11/188.jpg",
-            "pinyin": "Bā lè",
-            "descriptWord": "Quả ổi"
-        },
-        {
-            "voiceWord": "荔枝",
-            "src": "https://tiengtrungthuonghai.vn/wp-content/uploads/2019/11/200.jpg",
-            "pinyin": "Lì zhī",
-            "descriptWord": "Quả vải"
-        },
-        {
-            "voiceWord": "鳳梨",
-            "src": "https://tiengtrungthuonghai.vn/wp-content/uploads/2019/11/189.jpg",
-            "pinyin": "Fòng lí",
-            "descriptWord": "Dứa"
-        },
-        {
-            "voiceWord": "蘋果",
-            "src": "https://tiengtrungthuonghai.vn/wp-content/uploads/2019/11/antao_cjwk-300x169.jpg",
-            "pinyin": "Píngguǒ",
-            "descriptWord": "Quả táo"
-        },
-        {
-            "voiceWord": "芒果",
-            "src": "https://tiengtrungthuonghai.vn/wp-content/uploads/2019/11/mango-300x169.jpg",
-            "pinyin": "Mángguǒ",
-            "descriptWord": "Quả xoài"
-        },
-        {
-            "voiceWord": "橘子",
-            "src": "https://tiengtrungthuonghai.vn/wp-content/uploads/2019/11/193.jpg",
-            "pinyin": "Júzi",
-            "descriptWord": "Quả quýt"
-        },
-        {
-            "voiceWord": "榴蓮",
-            "src": "https://tiengtrungthuonghai.vn/wp-content/uploads/2019/11/195.jpg",
-            "pinyin": "Liú lián",
-            "descriptWord": "Sầu riêng"
-        },
-        {
-            "voiceWord": "釋迦",
-            "src": "https://tiengtrungthuonghai.vn/wp-content/uploads/2019/11/dau-da-day-an-na-duoc-khong-1-300x188.jpg",
-            "pinyin": "Shì jiā",
-            "descriptWord": "Quả na"
-        },
-        {
-            "voiceWord": "葡萄",
-            "src": "https://tiengtrungthuonghai.vn/wp-content/uploads/2019/11/186.jpg",
-            "pinyin": "Pútáo",
-            "descriptWord": "Quả nho"
-        },
-        {
-            "voiceWord": "西瓜",
-            "src": "https://tiengtrungthuonghai.vn/wp-content/uploads/2019/11/171-e1574675855368.jpg",
-            "pinyin": "Xīguā",
-            "descriptWord": "Dưa hấu"
-        },
-        {
-            "voiceWord": "木瓜",
-            "src": "https://tiengtrungthuonghai.vn/wp-content/uploads/2019/11/176.jpg",
-            "pinyin": "Mùguā",
-            "descriptWord": "Quả đu đủ"
-        },
-        {
-            "voiceWord": "香瓜",
-            "src": "https://tiengtrungthuonghai.vn/wp-content/uploads/2019/11/206.png",
-            "pinyin": "Xiāngguā",
-            "descriptWord": "Dưa lê"
-        },
-        {
-            "voiceWord": "草莓",
-            "src": "https://tiengtrungthuonghai.vn/wp-content/uploads/2019/11/168.jpg",
-            "pinyin": "Cǎoméi",
-            "descriptWord": "Quả dâu tây"
-        },
-        {
-            "voiceWord": "柚子",
-            "src": "https://tiengtrungthuonghai.vn/wp-content/uploads/2019/11/165.jpg",
-            "pinyin": "Yòuzi/ xī yòu",
-            "descriptWord": "Quả bưởi"
-        },
-        {
-            "voiceWord": "哈密瓜",
-            "src": "https://tiengtrungthuonghai.vn/wp-content/uploads/2019/11/169.jpg",
-            "pinyin": "Hāmìguā",
-            "descriptWord": "Dưa gang"
-        },
-        {
-            "voiceWord": "紅毛丹",
-            "src": "https://tiengtrungthuonghai.vn/wp-content/uploads/2019/11/166.jpg",
-            "pinyin": "Hóng máo dān",
-            "descriptWord": "Quả chôm chôm"
-        },
-        {
-            "voiceWord": "桑葚",
-            "src": "https://tiengtrungthuonghai.vn/wp-content/uploads/2019/11/167.jpg",
-            "pinyin": "Sāngrèn",
-            "descriptWord": "Dâu tằm"
-        },
-        {
-            "voiceWord": "柳橙",
-            "src": "https://tiengtrungthuonghai.vn/wp-content/uploads/2019/11/qua-cam-1-300x197.jpg",
-            "pinyin": "Liǔ chéng ",
-            "descriptWord": "Quả cam"
-        },
-        {
-            "voiceWord": "桃子",
-            "src": "https://tiengtrungthuonghai.vn/wp-content/uploads/2019/11/175.jpg",
-            "pinyin": "Táozi",
-            "descriptWord": "Quả đào"
-        },
-        {
-            "voiceWord": "椰子",
-            "src": "https://tiengtrungthuonghai.vn/wp-content/uploads/2019/11/images-2-1.jpg",
-            "pinyin": "Yēzi",
-            "descriptWord": "Quả dừa"
-        },
-        {
-            "voiceWord": "石榴",
-            "src": "https://tiengtrungthuonghai.vn/wp-content/uploads/2019/11/178.png",
-            "pinyin": "Shíliú",
-            "descriptWord": "Quả lựu"
-        },
-        {
-            "voiceWord": "楊桃",
-            "src": "https://tiengtrungthuonghai.vn/wp-content/uploads/2019/11/179.jpg",
-            "pinyin": "Yángtáo",
-            "descriptWord": "Quả khế"
-        },
-        {
-            "voiceWord": "奇異果",
-            "src": "https://tiengtrungthuonghai.vn/wp-content/uploads/2019/11/180.jpg",
-            "pinyin": "Qí yì guǒ",
-            "descriptWord": "Quả kiwi"
-        },
-        {
-            "voiceWord": "梨子",
-            "src": "https://tiengtrungthuonghai.vn/wp-content/uploads/2019/11/qua-le-chua-benh-300x202.jpg",
-            "pinyin": "Lízi",
-            "descriptWord": "Quả lê"
-        },
-        {
-            "voiceWord": "山竹",
-            "src": "https://tiengtrungthuonghai.vn/wp-content/uploads/2019/11/182.jpg",
-            "pinyin": "Shānzhú",
-            "descriptWord": "Quả măng cụt"
-        },
-        {
-            "voiceWord": "菠蘿蜜",
-            "src": "https://tiengtrungthuonghai.vn/wp-content/uploads/2019/11/AAGmFoX-300x188.png",
-            "pinyin": "Bōluómì",
-            "descriptWord": "Quả mít"
-        },
-        {
-            "voiceWord": "杏子",
-            "src": "https://tiengtrungthuonghai.vn/wp-content/uploads/2019/11/184.jpg",
-            "pinyin": "Xìngzi",
-            "descriptWord": "Quả mơ"
-        },
-        {
-            "voiceWord": "桂圓",
-            "src": "https://tiengtrungthuonghai.vn/wp-content/uploads/2019/11/190.jpg",
-            "pinyin": "Guìyuán",
-            "descriptWord": "Quả nhãn"
-        },
-        {
-            "voiceWord": "李子",
-            "src": "https://tiengtrungthuonghai.vn/wp-content/uploads/2019/11/an-man-01-300x150.jpg",
-            "pinyin": "Lǐzǐ",
-            "descriptWord": "Quả mận"
-        },
-        {
-            "voiceWord": "蓮霧",
-            "src": "https://tiengtrungthuonghai.vn/wp-content/uploads/2019/11/5_65464-300x218.jpg",
-            "pinyin": "Lián wù",
-            "descriptWord": "Quả doi"
-        },
-        {
-            "voiceWord": "西印度櫻桃",
-            "src": "https://tiengtrungthuonghai.vn/wp-content/uploads/2019/11/ffbfbfa748f5dd325808da5bb07f7e264da9ac8e-300x169.jpg",
-            "pinyin": "Xī yìndù yīngtáo",
-            "descriptWord": "Quả sơri"
-        },
-        {
-            "voiceWord": "無花果",
-            "src": "https://tiengtrungthuonghai.vn/wp-content/uploads/2019/11/198.jpg",
-            "pinyin": "Wúhuāguǒ",
-            "descriptWord": "Quả sung"
-        },
-        {
-            "voiceWord": "火龍果",
-            "src": "https://tiengtrungthuonghai.vn/wp-content/uploads/2019/11/201.jpg",
-            "pinyin": "Huǒlóng guǒ",
-            "descriptWord": "Quả thanh long"
-        },
-        {
-            "voiceWord": "藍莓",
-            "src": "https://tiengtrungthuonghai.vn/wp-content/uploads/2019/11/205.png",
-            "pinyin": "Lánméi",
-            "descriptWord": "Quả việt quất"
-        }
-    ]
+    {
+      "srcVoice": "https://tiengtrungthuonghai.vn/wp-content/uploads/2019/11/荔枝.mp3",
+      "voiceWord": "荔枝",
+      "src": "https://tiengtrungthuonghai.vn/wp-content/uploads/2019/11/200.jpg",
+      "pinyin": "Lìzhī",
+      "descriptWord": "Quả vải"
+    },
+    {
+      "srcVoice": "https://tiengtrungthuonghai.vn/wp-content/uploads/2019/11/苹果.mp3",
+      "voiceWord": "蘋果",
+      "src": "https://tiengtrungthuonghai.vn/wp-content/uploads/2019/11/antao_cjwk-300x169.jpg",
+      "pinyin": "Píngguǒ",
+      "descriptWord": "Quả táo"
+    },
+    {
+      "srcVoice": "https://tiengtrungthuonghai.vn/wp-content/uploads/2019/11/番石榴.mp3",
+      "voiceWord": "番石榴",
+      "src": "https://tiengtrungthuonghai.vn/wp-content/uploads/2019/11/188.jpg",
+      "pinyin": "Fān shíliú",
+      "descriptWord": "Quả ổi"
+    },
+    {
+      "srcVoice": "https://tiengtrungthuonghai.vn/wp-content/uploads/2019/11/菠萝.mp3",
+      "voiceWord": "鳳梨",
+      "src": "https://tiengtrungthuonghai.vn/wp-content/uploads/2019/11/189.jpg",
+      "pinyin": "Bōluó",
+      "descriptWord": "Dứa"
+    },
+    {
+      "srcVoice": "https://tiengtrungthuonghai.vn/wp-content/uploads/2019/11/榴莲.mp3",
+      "voiceWord": "榴槤",
+      "src": "https://tiengtrungthuonghai.vn/wp-content/uploads/2019/11/195.jpg",
+      "pinyin": "Liú lián",
+      "descriptWord": "Sầu riêng"
+    },
+    {
+      "srcVoice": "https://tiengtrungthuonghai.vn/wp-content/uploads/2019/11/番荔枝_-释迦果.mp3",
+      "voiceWord": "番荔枝/釋迦果",
+      "src": "https://tiengtrungthuonghai.vn/wp-content/uploads/2019/11/dau-da-day-an-na-duoc-khong-1-300x188.jpg",
+      "pinyin": "Fān lìzhī/ shì jiāguǒ",
+      "descriptWord": "Quả na"
+    },
+    {
+      "srcVoice": "https://tiengtrungthuonghai.vn/wp-content/uploads/2019/11/西瓜.mp3",
+      "voiceWord": "西瓜",
+      "src": "https://tiengtrungthuonghai.vn/wp-content/uploads/2019/11/171-e1574675855368.jpg",
+      "pinyin": "Xīguā",
+      "descriptWord": "Dưa hấu"
+    },
+    {
+      "srcVoice": "https://tiengtrungthuonghai.vn/wp-content/uploads/2019/11/葡萄.mp3",
+      "voiceWord": "葡萄",
+      "src": "https://tiengtrungthuonghai.vn/wp-content/uploads/2019/11/186.jpg",
+      "pinyin": "Pútáo",
+      "descriptWord": "Quả nho"
+    },
+    {
+      "srcVoice": "https://tiengtrungthuonghai.vn/wp-content/uploads/2019/11/芒果.mp3",
+      "voiceWord": "芒果",
+      "src": "https://tiengtrungthuonghai.vn/wp-content/uploads/2019/11/mango-300x169.jpg",
+      "pinyin": "Mángguǒ",
+      "descriptWord": "Quả xoài"
+    },
+    {
+      "srcVoice": "https://tiengtrungthuonghai.vn/wp-content/uploads/2019/11/柿子-.mp3",
+      "voiceWord": "柿子",
+      "src": "https://tiengtrungthuonghai.vn/wp-content/uploads/2019/11/164.jpg",
+      "pinyin": "Shìzi",
+      "descriptWord": "Quả hồng"
+    },
+    {
+      "srcVoice": "https://tiengtrungthuonghai.vn/wp-content/uploads/2019/11/柚子.mp3",
+      "voiceWord": "柚子/西柚",
+      "src": "https://tiengtrungthuonghai.vn/wp-content/uploads/2019/11/165.jpg",
+      "pinyin": "Yòuzi/ xī yòu",
+      "descriptWord": "Quả bưởi"
+    },
+    {
+      "srcVoice": "https://tiengtrungthuonghai.vn/wp-content/uploads/2019/11/红毛丹.mp3",
+      "voiceWord": "紅毛丹",
+      "src": "https://tiengtrungthuonghai.vn/wp-content/uploads/2019/11/166.jpg",
+      "pinyin": "Hóng máo dān",
+      "descriptWord": "Quả chôm chôm"
+    },
+    {
+      "srcVoice": "https://tiengtrungthuonghai.vn/wp-content/uploads/2019/11/桑葚.mp3",
+      "voiceWord": "桑葚",
+      "src": "https://tiengtrungthuonghai.vn/wp-content/uploads/2019/11/167.jpg",
+      "pinyin": "Sāngrèn",
+      "descriptWord": "Dâu tằm"
+    },
+    {
+      "srcVoice": "https://tiengtrungthuonghai.vn/wp-content/uploads/2019/11/草莓.mp3",
+      "voiceWord": "草莓",
+      "src": "https://tiengtrungthuonghai.vn/wp-content/uploads/2019/11/168.jpg",
+      "pinyin": "Cǎoméi",
+      "descriptWord": "Quả dâu tây"
+    },
+    {
+      "srcVoice": "https://tiengtrungthuonghai.vn/wp-content/uploads/2019/11/哈密瓜.mp3",
+      "voiceWord": "哈密瓜",
+      "src": "https://tiengtrungthuonghai.vn/wp-content/uploads/2019/11/169.jpg",
+      "pinyin": "Hāmìguā",
+      "descriptWord": "Dưa gang"
+    },
+    {
+      "srcVoice": "https://tiengtrungthuonghai.vn/wp-content/uploads/2019/11/橙子-.mp3",
+      "voiceWord": "橙子",
+      "src": "https://tiengtrungthuonghai.vn/wp-content/uploads/2019/11/qua-cam-1-300x197.jpg",
+      "pinyin": "Chéngzi",
+      "descriptWord": "Quả cam"
+    },
+    {
+      "srcVoice": "https://tiengtrungthuonghai.vn/wp-content/uploads/2019/11/桃子.mp3",
+      "voiceWord": "桃子",
+      "src": "https://tiengtrungthuonghai.vn/wp-content/uploads/2019/11/175.jpg",
+      "pinyin": "Táozi",
+      "descriptWord": "Quả đào"
+    },
+    {
+      "srcVoice": "https://tiengtrungthuonghai.vn/wp-content/uploads/2019/11/木瓜.mp3",
+      "voiceWord": "木瓜",
+      "src": "https://tiengtrungthuonghai.vn/wp-content/uploads/2019/11/176.jpg",
+      "pinyin": "Mùguā",
+      "descriptWord": "Quả đu đủ"
+    },
+    {
+      "srcVoice": "https://tiengtrungthuonghai.vn/wp-content/uploads/2019/11/椰子.mp3",
+      "voiceWord": "椰子",
+      "src": "https://tiengtrungthuonghai.vn/wp-content/uploads/2019/11/images-2-1.jpg",
+      "pinyin": "Yēzi",
+      "descriptWord": "Quả dừa"
+    },
+    {
+      "srcVoice": "https://tiengtrungthuonghai.vn/wp-content/uploads/2019/11/石榴.mp3",
+      "voiceWord": "石榴",
+      "src": "https://tiengtrungthuonghai.vn/wp-content/uploads/2019/11/178.png",
+      "pinyin": "Shíliú",
+      "descriptWord": "Quả lựu"
+    },
+    {
+      "srcVoice": "https://tiengtrungthuonghai.vn/wp-content/uploads/2019/11/杨桃.mp3",
+      "voiceWord": "楊桃",
+      "src": "https://tiengtrungthuonghai.vn/wp-content/uploads/2019/11/179.jpg",
+      "pinyin": "Yángtáo",
+      "descriptWord": "Quả khế"
+    },
+    {
+      "srcVoice": "https://tiengtrungthuonghai.vn/wp-content/uploads/2019/11/猕猴桃.mp3",
+      "voiceWord": "獼猴桃",
+      "src": "https://tiengtrungthuonghai.vn/wp-content/uploads/2019/11/180.jpg",
+      "pinyin": "Míhóutáo",
+      "descriptWord": "Quả kiwi"
+    },
+    {
+      "srcVoice": "https://tiengtrungthuonghai.vn/wp-content/uploads/2019/11/梨子.mp3",
+      "voiceWord": "梨子",
+      "src": "https://tiengtrungthuonghai.vn/wp-content/uploads/2019/11/qua-le-chua-benh-300x202.jpg",
+      "pinyin": "Lízi",
+      "descriptWord": "Quả lê"
+    },
+    {
+      "srcVoice": "https://tiengtrungthuonghai.vn/wp-content/uploads/2019/11/山竹.mp3",
+      "voiceWord": "山竹",
+      "src": "https://tiengtrungthuonghai.vn/wp-content/uploads/2019/11/182.jpg",
+      "pinyin": "Shānzhú",
+      "descriptWord": "Quả măng cụt"
+    },
+    {
+      "srcVoice": "https://tiengtrungthuonghai.vn/wp-content/uploads/2019/11/菠萝蜜.mp3",
+      "voiceWord": "波羅蜜",
+      "src": "https://tiengtrungthuonghai.vn/wp-content/uploads/2019/11/AAGmFoX-300x188.png",
+      "pinyin": "Bōluómì",
+      "descriptWord": "Quả mít"
+    },
+    {
+      "srcVoice": "https://tiengtrungthuonghai.vn/wp-content/uploads/2019/11/桂圆.mp3",
+      "voiceWord": "桂圓",
+      "src": "https://tiengtrungthuonghai.vn/wp-content/uploads/2019/11/190.jpg",
+      "pinyin": "Guìyuán",
+      "descriptWord": "Quả nhãn"
+    },
+    {
+      "srcVoice": "https://tiengtrungthuonghai.vn/wp-content/uploads/2019/11/李子.mp3",
+      "voiceWord": "李子",
+      "src": "https://tiengtrungthuonghai.vn/wp-content/uploads/2019/11/an-man-01-300x150.jpg",
+      "pinyin": "Lǐzǐ",
+      "descriptWord": "Quả mận"
+    },
+    {
+      "srcVoice": "https://tiengtrungthuonghai.vn/wp-content/uploads/2019/11/橘子.mp3",
+      "voiceWord": "橘子",
+      "src": "https://tiengtrungthuonghai.vn/wp-content/uploads/2019/11/193.jpg",
+      "pinyin": "Júzi",
+      "descriptWord": "Quả quýt"
+    },
+    {
+      "srcVoice": "https://tiengtrungthuonghai.vn/wp-content/uploads/2019/11/莲雾.mp3",
+      "voiceWord": "蓮霧",
+      "src": "https://tiengtrungthuonghai.vn/wp-content/uploads/2019/11/5_65464-300x218.jpg",
+      "pinyin": "Lián wù",
+      "descriptWord": "Quả doi"
+    },
+    {
+      "srcVoice": "https://tiengtrungthuonghai.vn/wp-content/uploads/2020/01/translate_tts.mp3",
+      "voiceWord": "西印度櫻桃",
+      "src": "https://tiengtrungthuonghai.vn/wp-content/uploads/2019/11/ffbfbfa748f5dd325808da5bb07f7e264da9ac8e-300x169.jpg",
+      "pinyin": "Xī yìndù yīngtáo",
+      "descriptWord": "Quả sơri"
+    },
+    {
+      "srcVoice": "https://tiengtrungthuonghai.vn/wp-content/uploads/2019/11/无花果.mp3",
+      "voiceWord": "無花果",
+      "src": "https://tiengtrungthuonghai.vn/wp-content/uploads/2019/11/198.jpg",
+      "pinyin": "Wúhuāguǒ",
+      "descriptWord": "Quả sung"
+    },
+    {
+      "srcVoice": "https://tiengtrungthuonghai.vn/wp-content/uploads/2019/11/火龙果.mp3",
+      "voiceWord": "火龍果",
+      "src": "https://tiengtrungthuonghai.vn/wp-content/uploads/2019/11/201.jpg",
+      "pinyin": "Huǒlóng guǒ",
+      "descriptWord": "Quả thanh long"
+    },
+    {
+      "srcVoice": "https://tiengtrungthuonghai.vn/wp-content/uploads/2019/11/星苹果_牛奶果-.mp3",
+      "voiceWord": "星蘋果/牛奶果",
+      "src": "https://tiengtrungthuonghai.vn/wp-content/uploads/2019/11/ta-qua-vu-sua-lop-24-300x200.jpg",
+      "pinyin": "Xīng píngguǒ/ niúnǎi guǒ",
+      "descriptWord": "Quả vú sữa"
+    },
+    {
+      "srcVoice": "https://tiengtrungthuonghai.vn/wp-content/uploads/2019/11/蓝莓.mp3",
+      "voiceWord": "藍莓",
+      "src": "https://tiengtrungthuonghai.vn/wp-content/uploads/2019/11/205.png",
+      "pinyin": "Lánméi",
+      "descriptWord": "Quả việt quất"
+    },
+    {
+      "srcVoice": "https://tiengtrungthuonghai.vn/wp-content/uploads/2019/11/香瓜.mp3",
+      "voiceWord": "香瓜",
+      "src": "https://tiengtrungthuonghai.vn/wp-content/uploads/2019/11/206.png",
+      "pinyin": "Xiāngguā",
+      "descriptWord": "Dưa lê"
+    }
+  ]
 }
