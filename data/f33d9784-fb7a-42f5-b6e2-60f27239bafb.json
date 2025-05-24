@@ -186,6 +186,264 @@
       "srcVoice": "https://tiengtrungthuonghai.vn/wp-content/uploads/2019/11/洪水-1.mp3",
       "pinyin": "Hóngshuǐ",
       "descriptWord": "Lũ lụt"
+    },
+    {
+      "voiceWord": "今天天氣怎麼樣？",
+      "srcVoice": "https://tiengtrungthuonghai.vn/wp-content/uploads/2019/12/今天天气怎么样？.mp3",
+      "pinyin": "Jīntiān tiānqì zěnme yàng?",
+      "descriptWord": "Thời tiết hôm nay như thế nào?"
+    },
+    {
+      "voiceWord": "今天天氣好極了！",
+      "srcVoice": "https://tiengtrungthuonghai.vn/wp-content/uploads/2019/12/今天天气好极了！.mp3",
+      "pinyin": "Jīntiān tiānqì hǎo jíle!",
+      "descriptWord": "Thời tiết hôm nay rất tốt."
+    },
+    {
+      "voiceWord": "今天天氣不好。",
+      "srcVoice": "https://tiengtrungthuonghai.vn/wp-content/uploads/2019/12/今天天气不好。.mp3",
+      "pinyin": "Jīntiān tiānqì bù hǎo.",
+      "descriptWord": "Thời tiết hôm nay rất xấu."
+    },
+    {
+      "voiceWord": "今天天氣變壞了。",
+      "srcVoice": "https://tiengtrungthuonghai.vn/wp-content/uploads/2019/12/今天天气变坏了。.mp3",
+      "pinyin": "Jīntiān tiānqì biàn huàile.",
+      "descriptWord": "Thời tiết xấu đi rồi!"
+    },
+    {
+      "voiceWord": "今天又下大雨又打雷。",
+      "srcVoice": "https://tiengtrungthuonghai.vn/wp-content/uploads/2019/12/今天又下大雨又打雷。.mp3",
+      "pinyin": "Jīntiān yòu xià dàyǔ yòu dǎléi.",
+      "descriptWord": "Hôm nay vừa mưa vừa sấm."
+    },
+    {
+      "voiceWord": "最近幾天又悶又熱。",
+      "srcVoice": "https://tiengtrungthuonghai.vn/wp-content/uploads/2019/12/最近几天又闷又热。.mp3",
+      "pinyin": "Zuìjìn jǐ tiān yòu mèn yòu rè.",
+      "descriptWord": "Dạo này vừa oi vừa nóng."
+    },
+    {
+      "voiceWord": "你經常看天氣預報嗎？",
+      "srcVoice": "https://tiengtrungthuonghai.vn/wp-content/uploads/2019/12/你经常看天气预报吗？.mp3",
+      "pinyin": "Nǐ jīngcháng kàn tiānqì yùbào ma?",
+      "descriptWord": "Cậu hay xem dự báo thời tiết không?"
+    },
+    {
+      "voiceWord": "天氣預報說明天下大雪。",
+      "srcVoice": "https://tiengtrungthuonghai.vn/wp-content/uploads/2019/12/天气预报说明天下大雪。.mp3",
+      "pinyin": "Tiānqì yùbào shuō míngtiān xià dàxuě.",
+      "descriptWord": "Dự báo ngày mai sẽ có tuyết rơi."
+    },
+    {
+      "voiceWord": "下午會下雨，別忘帶雨傘。",
+      "srcVoice": "https://tiengtrungthuonghai.vn/wp-content/uploads/2019/12/下午会下雨，别忘带雨伞。.mp3",
+      "pinyin": "Xiàwǔ huì xià yǔ, bié wàng dài yǔsǎn.",
+      "descriptWord": "Buổi chiều có mưa, nhớ mang theo ô đấy."
+    },
+    {
+      "voiceWord": "今天的氣溫是多少？",
+      "srcVoice": "https://tiengtrungthuonghai.vn/wp-content/uploads/2019/12/今天的气温是多少？.mp3",
+      "pinyin": "Jīntiān de qìwēn shì duōshǎo ?",
+      "descriptWord": "Nhiệt độ hôm nay là bao nhiêu?"
+    },
+    {
+      "voiceWord": "溫度是多少度？",
+      "srcVoice": "https://tiengtrungthuonghai.vn/wp-content/uploads/2019/12/温度是多少度？.mp3",
+      "pinyin": "Wēndù shì duōshǎo dù?",
+      "descriptWord": "Nhiệt độ bao nhiêu đấy?"
+    },
+    {
+      "voiceWord": "天氣預報說明天的天氣怎麼樣？",
+      "srcVoice": "https://tiengtrungthuonghai.vn/wp-content/uploads/2019/12/天气预报说明天的天气怎么样？.mp3",
+      "pinyin": "Tiānqì yùbào shuō míng tiān de tiānqì zěnme yàng?",
+      "descriptWord": "Dự báo thời tiết nói ngày mai thế nào?"
+    },
+    {
+      "voiceWord": "天氣熱 /冷 /涼 /乾燥 /潮濕。",
+      "srcVoice": "https://tiengtrungthuonghai.vn/wp-content/uploads/2019/12/天气热-_冷-_凉-_干燥-_潮湿。.mp3",
+      "pinyin": "Tiānqì rè / lěng/ liáng / gānzào / cháoshī.",
+      "descriptWord": "Trời nóng /lạnh /mát / hanh / ẩm."
+    },
+    {
+      "voiceWord": "今天天氣變壞了。",
+      "srcVoice": "https://tiengtrungthuonghai.vn/wp-content/uploads/2019/12/今天天气变坏了。.mp3",
+      "pinyin": "Jīntiān tiānqì biàn huàile.",
+      "descriptWord": "Hôm nay đổi trời rồi."
+    },
+    {
+      "voiceWord": "有霧 /雲 /雨。",
+      "srcVoice": "https://tiengtrungthuonghai.vn/wp-content/uploads/2019/12/有雾-_云-_雨。.mp3",
+      "pinyin": "Yǒu wù /yún / yǔ.",
+      "descriptWord": "Có sương mù /mây /mưa."
+    },
+    {
+      "voiceWord": "今天變冷了。",
+      "srcVoice": "https://tiengtrungthuonghai.vn/wp-content/uploads/2019/12/今天变冷了。.mp3",
+      "pinyin": "Jīntiān biàn lěngle.",
+      "descriptWord": "Hôm nay trời trở lạnh."
+    },
+    {
+      "voiceWord": "今天天氣悶熱。",
+      "srcVoice": "https://tiengtrungthuonghai.vn/wp-content/uploads/2019/12/今天天气闷热。.mp3",
+      "pinyin": "Jīntiān tiānqì mēnrè.",
+      "descriptWord": "Trời hôm nay oi bức."
+    },
+    {
+      "voiceWord": "晴天/陰天/颳風。",
+      "srcVoice": "https://tiengtrungthuonghai.vn/wp-content/uploads/2019/12/晴天_阴天_刮风。.mp3",
+      "pinyin": "Qíngtiān / yīn tiān / guā fēng.",
+      "descriptWord": "Trời nắng / trời dâm /nổi gió."
+    },
+    {
+      "voiceWord": "現在颳12級颱風。",
+      "srcVoice": "https://tiengtrungthuonghai.vn/wp-content/uploads/2019/12/现在刮12-级台风。.mp3",
+      "pinyin": "Xiànzài guā 12 jí táifēng.",
+      "descriptWord": "Hiện tại có gió bão cấp 12."
+    },
+    {
+      "voiceWord": "下雨了。",
+      "srcVoice": "https://tiengtrungthuonghai.vn/wp-content/uploads/2019/12/下雨了。.mp3",
+      "pinyin": "Xià yǔle.",
+      "descriptWord": "Mưa rồi."
+    },
+    {
+      "voiceWord": "陣雨/大雨/小雨/毛毛雨/太陽雨。",
+      "srcVoice": "https://tiengtrungthuonghai.vn/wp-content/uploads/2019/12/阵雨_大雨_小雨_毛毛雨_太阳雨。.mp3",
+      "pinyin": "Zhènyǔ / dàyǔ / xiǎoyǔ / máomaoyǔ / tàiyáng yǔ",
+      "descriptWord": "Mưa rào /to /nhỏ /phùn /bóng mây."
+    },
+    {
+      "voiceWord": "寒潮來了。",
+      "srcVoice": "https://tiengtrungthuonghai.vn/wp-content/uploads/2019/12/寒潮来了。.mp3",
+      "pinyin": "Háncháo láile.",
+      "descriptWord": "Gió lạnh đến rồi."
+    },
+    {
+      "voiceWord": "下雪了。",
+      "srcVoice": "https://tiengtrungthuonghai.vn/wp-content/uploads/2019/12/下雪了。.mp3",
+      "pinyin": "Xià xuěle.",
+      "descriptWord": "Tuyết rơi rồi."
+    },
+    {
+      "voiceWord": "下冰雹了。",
+      "srcVoice": "https://tiengtrungthuonghai.vn/wp-content/uploads/2019/12/下冰雹了。.mp3",
+      "pinyin": "Xià bīngbáole.",
+      "descriptWord": "Mưa đá rồi."
+    },
+    {
+      "voiceWord": "結冰了。",
+      "srcVoice": "https://tiengtrungthuonghai.vn/wp-content/uploads/2019/12/结冰了。.mp3",
+      "pinyin": "Jié bīngle.",
+      "descriptWord": "Đóng băng rồi."
+    },
+    {
+      "voiceWord": "颱風來了。",
+      "srcVoice": "https://tiengtrungthuonghai.vn/wp-content/uploads/2019/12/台风来了。.mp3",
+      "pinyin": "Táifēng láile",
+      "descriptWord": "Bão rồi."
+    },
+    {
+      "voiceWord": "我覺得熱/冷。",
+      "srcVoice": "https://tiengtrungthuonghai.vn/wp-content/uploads/2019/12/我觉得热_冷。.mp3",
+      "pinyin": "Wǒ juédé rè/lěng.",
+      "descriptWord": "Tôi thấy nóng /lạnh."
+    },
+    {
+      "voiceWord": "我怕熱/冷。",
+      "srcVoice": "https://tiengtrungthuonghai.vn/wp-content/uploads/2019/12/我怕热_冷。.mp3",
+      "pinyin": "Wǒ pà rè/lěng.",
+      "descriptWord": "Tôi sợ nóng /rét."
+    },
+    {
+      "voiceWord": "20度/0度/零下5度。",
+      "srcVoice": "https://tiengtrungthuonghai.vn/wp-content/uploads/2019/12/20-度_0-度_零下-5-度。.mp3",
+      "pinyin": "20 Dù/0 dù/língxià 5 dù.",
+      "descriptWord": "20 độ /0 độ /âm 5 độ."
+    },
+    {
+      "voiceWord": "天氣預報說多雲，有雨。",
+      "srcVoice": "https://tiengtrungthuonghai.vn/wp-content/uploads/2019/12/天气预报说多云，有雨。.mp3",
+      "pinyin": "Tiānqì yùbào shuō duōyún, yǒu yǔ.",
+      "descriptWord": "Dự báo nhiều mây, có mưa."
+    },
+    {
+      "voiceWord": "天氣預報說今晚有暴風雨。",
+      "srcVoice": "https://tiengtrungthuonghai.vn/wp-content/uploads/2019/12/天气预报说今晚有暴风雨。.mp3",
+      "pinyin": "Tiānqì yùbào shuō jīn wǎn yǒu bàofēngyǔ.",
+      "descriptWord": "Dự báo tối nay có giông"
+    },
+    {
+      "voiceWord": "今天天氣怎麼樣？",
+      "srcVoice": "https://tiengtrungthuonghai.vn/wp-content/uploads/2019/12/今天天气怎么样？.mp3",
+      "pinyin": "Jīntiān tiānqì zěnme yàng?",
+      "descriptWord": "Thời tiết hôm nay thế nào?"
+    },
+    {
+      "voiceWord": "還很熱。",
+      "srcVoice": "https://tiengtrungthuonghai.vn/wp-content/uploads/2019/12/还很热。.mp3",
+      "pinyin": "Hái hěn rè.",
+      "descriptWord": "Vẫn nóng lắm"
+    },
+    {
+      "voiceWord": "最近幾天都又熱又悶，熱得我睡不著覺。",
+      "srcVoice": "https://tiengtrungthuonghai.vn/wp-content/uploads/2019/12/最近几天都又热又闷，热得我睡不着觉。.mp3",
+      "pinyin": "Zuìjìn jǐ tiān dū yòu rè yòu mèn, rè dé wǒ shuì bùzháo jué.",
+      "descriptWord": "Mấy hôm nay vừa oi vừa nóng, nóng đến nỗi tôi ngủ không nổi luôn! "
+    },
+    {
+      "voiceWord": "天氣預報說明天下午會下雨。下雨以後天氣會變涼了！",
+      "srcVoice": "https://tiengtrungthuonghai.vn/wp-content/uploads/2019/12/天气预报说明天下午会下雨。下雨以后天气会变凉了！.mp3",
+      "pinyin": "Tiānqì yùbào shuōmíng tiān xiàwǔ huì xià yǔ. Xià yǔ yǐhòu tiānqì huì biàn liángle!",
+      "descriptWord": "Dự báo thời tiết nói chiều mai sẽ có mưa. Mưa xong trời sẽ mát."
+    },
+    {
+      "voiceWord": "那太好了！",
+      "srcVoice": "https://tiengtrungthuonghai.vn/wp-content/uploads/2019/12/那太好了！.mp3",
+      "pinyin": "Nà tài hǎole!",
+      "descriptWord": "Thế thì tốt quá!"
+    },
+    {
+      "voiceWord": "天氣預報說今天天氣變冷，還下雪。",
+      "srcVoice": "https://tiengtrungthuonghai.vn/wp-content/uploads/2019/12/天气预报说今天天气变冷，还下雪。.mp3",
+      "pinyin": "Tiānqì yùbào shuō jīntiān tiānqì biàn lěng, hái xià xuě.",
+      "descriptWord": "Dự báo thời tiết nói hôm nay trời trở lạnh, còn có tuyết rơi."
+    },
+    {
+      "voiceWord": "真的嗎？幾年來沒有下雪，今年肯定很冷。",
+      "srcVoice": "https://tiengtrungthuonghai.vn/wp-content/uploads/2019/12/真的吗？几年来没有下雪，今年肯定很冷。.mp3",
+      "pinyin": "Zhēn de ma? Jǐ niánlái méiyǒu xià xuě, jīnnián kěndìng hěn lěng.",
+      "descriptWord": "Thật à? Mấy năm rồi không có tuyết rơi, năm nay chắc lạnh lắm đây."
+    },
+    {
+      "voiceWord": "你去工作要多穿衣服，小心著涼。",
+      "srcVoice": "https://tiengtrungthuonghai.vn/wp-content/uploads/2019/12/你去工作要多穿衣服，小心着凉。.mp3",
+      "pinyin": "Nǐ qù gōngzuò yào duō chuān yīfú, xiǎoxīn zháoliáng.",
+      "descriptWord": "Anh đi làm nhớ mặc thêm áo vào, cẩn thận cảm lạnh."
+    },
+    {
+      "voiceWord": "好了。我知道了。",
+      "srcVoice": "https://tiengtrungthuonghai.vn/wp-content/uploads/2019/12/好了。我知道了。.mp3",
+      "pinyin": "Hǎole. Wǒ zhīdàole.",
+      "descriptWord": "Ok. Anh biết rồi."
+    },
+    {
+      "voiceWord": "你看，天都變黑了，快要下大雨了！",
+      "srcVoice": "https://tiengtrungthuonghai.vn/wp-content/uploads/2019/12/你看，天都变黑了，快要下大雨了！.mp3",
+      "pinyin": "Nǐ kàn, tiān dū biàn hēile, kuàiyào xià dàyǔle!",
+      "descriptWord": "Nhìn này, trời đen thui luôn rồi, chắc sắp mưa to."
+    },
+    {
+      "voiceWord": "那我們走快一點，免得被淋濕。",
+      "srcVoice": "https://tiengtrungthuonghai.vn/wp-content/uploads/2019/12/那我们走快一点，免得被淋湿。.mp3",
+      "pinyin": "Nà wǒmen zǒu kuài yīdiǎn, miǎndé bèi lín shī.",
+      "descriptWord": "Vậy bọn mình đi nhanh lên đi, đỡ bị mắc mưa."
+    },
+    {
+      "voiceWord": "好的。",
+      "srcVoice": "https://tiengtrungthuonghai.vn/wp-content/uploads/2019/12/好的。.mp3",
+      "pinyin": "Hǎo de.",
+      "descriptWord": "Ừ."
     }
   ]
 }
