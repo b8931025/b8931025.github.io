@@ -1,0 +1,245 @@
+{
+  "LessionName": "Từ vựng đời sống",
+  "voiceLanguage": "zh-TW",
+  "TextLable": {
+    "voiceWord": "Tiếng Trung",
+    "pinyin": "Bính âm",
+    "descriptWord": "Tiếng Việt"
+  },
+  "List": [
+  {
+    "srcVoice": "https://tiengtrungthuonghai.vn/wp-content/uploads/2019/11/回家.mp3",
+    "voiceWord": "回家",
+    "pinyin": "huí jiā",
+    "descriptWord": "Về nhà"
+  },
+  {
+    "srcVoice": "https://tiengtrungthuonghai.vn/wp-content/uploads/2019/11/出门.mp3",
+    "voiceWord": "出門",
+    "pinyin": "chūmén",
+    "descriptWord": "Ra ngoài"
+  },
+  {
+    "srcVoice": "https://tiengtrungthuonghai.vn/wp-content/uploads/2019/11/穿衣服.mp3",
+    "voiceWord": "穿衣服",
+    "pinyin": "chuān yīfú",
+    "descriptWord": "Mặc quần áo"
+  },
+  {
+    "srcVoice": "https://tiengtrungthuonghai.vn/wp-content/uploads/2019/11/脱衣服.mp3",
+    "voiceWord": "脫衣服",
+    "pinyin": "tuō yīfú",
+    "descriptWord": "Thay quần áo"
+  },
+  {
+    "srcVoice": "https://tiengtrungthuonghai.vn/wp-content/uploads/2019/11/上厕所.mp3",
+    "voiceWord": "上廁所",
+    "pinyin": "shàng cèsuǒ",
+    "descriptWord": "Đi vệ sinh"
+  },
+  {
+    "srcVoice": "https://tiengtrungthuonghai.vn/wp-content/uploads/2019/11/洗手.mp3",
+    "voiceWord": "洗手",
+    "pinyin": "xǐshǒu",
+    "descriptWord": "Rửa tay"
+  },
+  {
+    "srcVoice": "https://tiengtrungthuonghai.vn/wp-content/uploads/2019/11/吃晚饭.mp3",
+    "voiceWord": "吃晚飯",
+    "pinyin": "chī wǎnfàn",
+    "descriptWord": "Ăn tối"
+  },
+  {
+    "srcVoice": "https://tiengtrungthuonghai.vn/wp-content/uploads/2019/11/休息.mp3",
+    "voiceWord": "休息",
+    "pinyin": "xiūxi",
+    "descriptWord": "Nghỉ ngơi"
+  },
+  {
+    "srcVoice": "https://tiengtrungthuonghai.vn/wp-content/uploads/2019/11/看电视.mp3",
+    "voiceWord": "看電視",
+    "pinyin": "kàn diànshì",
+    "descriptWord": "Xem tivi"
+  },
+  {
+    "srcVoice": "https://tiengtrungthuonghai.vn/wp-content/uploads/2019/11/听音乐.mp3",
+    "voiceWord": "聽音樂",
+    "pinyin": "tīng yīnyuè",
+    "descriptWord": "Nghe nhạc"
+  },
+  {
+    "srcVoice": "https://tiengtrungthuonghai.vn/wp-content/uploads/2019/11/玩游戏.mp3",
+    "voiceWord": "玩遊戲",
+    "pinyin": "wán yóuxì",
+    "descriptWord": "Chơi trò chơi"
+  },
+  {
+    "srcVoice": "https://tiengtrungthuonghai.vn/wp-content/uploads/2019/11/洗澡.mp3",
+    "voiceWord": "洗澡",
+    "pinyin": "xǐzǎo",
+    "descriptWord": "Đi tắm"
+  },
+  {
+    "srcVoice": "https://tiengtrungthuonghai.vn/wp-content/uploads/2019/11/上床.mp3",
+    "voiceWord": "上床",
+    "pinyin": "shàngchuáng",
+    "descriptWord": "Lên giường"
+  },
+  {
+    "srcVoice": "https://tiengtrungthuonghai.vn/wp-content/uploads/2019/11/关灯.mp3",
+    "voiceWord": "關燈",
+    "pinyin": "guān dēng",
+    "descriptWord": "Tắt đèn"
+  },
+  {
+    "srcVoice": "https://tiengtrungthuonghai.vn/wp-content/uploads/2019/11/开灯.mp3",
+    "voiceWord": "開燈",
+    "pinyin": "kāi dēng",
+    "descriptWord": "Bật đèn"
+  },
+  {
+    "srcVoice": "https://tiengtrungthuonghai.vn/wp-content/uploads/2019/11/睡觉-1.mp3",
+    "voiceWord": "睡覺",
+    "pinyin": "shuìjiào",
+    "descriptWord": "Đi ngủ"
+  },
+  {
+    "srcVoice": "https://tiengtrungthuonghai.vn/wp-content/uploads/2019/11/起床-.mp3",
+    "voiceWord": "起床",
+    "pinyin": "qǐchuáng",
+    "descriptWord": "Thức dậy"
+  },
+  {
+    "srcVoice": "https://tiengtrungthuonghai.vn/wp-content/uploads/2019/11/刷牙.mp3",
+    "voiceWord": "刷牙",
+    "pinyin": "shuāyá",
+    "descriptWord": "Đánh răng"
+  },
+  {
+    "srcVoice": "https://tiengtrungthuonghai.vn/wp-content/uploads/2019/11/洗脸.mp3",
+    "voiceWord": "洗臉",
+    "pinyin": "xǐliǎn",
+    "descriptWord": "Rửa mặt"
+  },
+  {
+    "srcVoice": "https://tiengtrungthuonghai.vn/wp-content/uploads/2019/11/梳头.mp3",
+    "voiceWord": "梳頭",
+    "pinyin": "shūtóu",
+    "descriptWord": "Chải đầu"
+  },
+  {
+    "srcVoice": "https://tiengtrungthuonghai.vn/wp-content/uploads/2019/11/刮胡子.mp3",
+    "voiceWord": "刮鬍子",
+    "pinyin": "guā húzi",
+    "descriptWord": "Cạo râu"
+  },
+  {
+    "srcVoice": "https://tiengtrungthuonghai.vn/wp-content/uploads/2019/11/化妆_打扮.mp3",
+    "voiceWord": "化妝/打扮",
+    "pinyin": "huàzhuāng/dǎbàn",
+    "descriptWord": "Trang điểm"
+  },
+  {
+    "srcVoice": "https://tiengtrungthuonghai.vn/wp-content/uploads/2019/11/吃早饭.mp3",
+    "voiceWord": "吃早飯",
+    "pinyin": "chī zǎofàn",
+    "descriptWord": "Ăn sáng"
+  },
+  {
+    "srcVoice": "https://tiengtrungthuonghai.vn/wp-content/uploads/2019/11/穿鞋.mp3",
+    "voiceWord": "穿鞋",
+    "pinyin": "chuān xié",
+    "descriptWord": "Đi giày"
+  },
+  {
+    "srcVoice": "https://tiengtrungthuonghai.vn/wp-content/uploads/2019/11/戴帽子.mp3",
+    "voiceWord": "戴帽子",
+    "pinyin": "dài màozi",
+    "descriptWord": "Đội mũ"
+  },
+  {
+    "srcVoice": "https://tiengtrungthuonghai.vn/wp-content/uploads/2019/11/开车.mp3",
+    "voiceWord": "開車",
+    "pinyin": "kāichē",
+    "descriptWord": "Lái xe"
+  },
+  {
+    "srcVoice": "https://tiengtrungthuonghai.vn/wp-content/uploads/2019/11/走路.mp3",
+    "voiceWord": "走路",
+    "pinyin": "zǒulù",
+    "descriptWord": "Đi bộ"
+  },
+  {
+    "srcVoice": "https://tiengtrungthuonghai.vn/wp-content/uploads/2019/11/吃午饭.mp3",
+    "voiceWord": "吃午飯",
+    "pinyin": "chī wǔfàn",
+    "descriptWord": "Ăn trưa"
+  },
+  {
+    "srcVoice": "https://tiengtrungthuonghai.vn/wp-content/uploads/2019/11/上班.mp3",
+    "voiceWord": "上班",
+    "pinyin": "shàngbān",
+    "descriptWord": "Đi làm"
+  },
+  {
+    "srcVoice": "https://tiengtrungthuonghai.vn/wp-content/uploads/2019/11/下班.mp3",
+    "voiceWord": "下班",
+    "pinyin": "xiàbān",
+    "descriptWord": "Tan làm"
+  },
+  {
+    "srcVoice": "https://tiengtrungthuonghai.vn/wp-content/uploads/2019/11/上课.mp3",
+    "voiceWord": "上課",
+    "pinyin": "shàngkè",
+    "descriptWord": "Đi học"
+  },
+  {
+    "srcVoice": "https://tiengtrungthuonghai.vn/wp-content/uploads/2019/11/下课.mp3",
+    "voiceWord": "下課",
+    "pinyin": "xiàkè",
+    "descriptWord": "Tan học"
+  },
+  {
+    "srcVoice": "https://tiengtrungthuonghai.vn/wp-content/uploads/2019/11/跑步.mp3",
+    "voiceWord": "跑步",
+    "pinyin": "pǎobù",
+    "descriptWord": "Chạy bộ"
+  },
+  {
+    "srcVoice": "https://tiengtrungthuonghai.vn/wp-content/uploads/2019/11/照镜子.mp3",
+    "voiceWord": "照鏡子",
+    "pinyin": "zhào jìng zǐ",
+    "descriptWord": "Soi gương"
+  },
+  {
+    "srcVoice": "https://tiengtrungthuonghai.vn/wp-content/uploads/2019/11/化妆.mp3",
+    "voiceWord": "化妝",
+    "pinyin": "huà zhuāng",
+    "descriptWord": "Trang điểm"
+  },
+  {
+    "srcVoice": "https://tiengtrungthuonghai.vn/wp-content/uploads/2019/11/爬山.mp3",
+    "voiceWord": "爬山",
+    "pinyin": "páshān",
+    "descriptWord": "Leo núi"
+  },
+  {
+    "srcVoice": "https://tiengtrungthuonghai.vn/wp-content/uploads/2019/11/去海边-.mp3",
+    "voiceWord": "去海邊",
+    "pinyin": "qù hǎibiān",
+    "descriptWord": "Đi chơi biển"
+  },
+  {
+    "srcVoice": "https://tiengtrungthuonghai.vn/wp-content/uploads/2019/11/上网-.mp3",
+    "voiceWord": "上網",
+    "pinyin": "shàng wǎng",
+    "descriptWord": "Lướt mạng"
+  },
+  {
+    "srcVoice": "https://tiengtrungthuonghai.vn/wp-content/uploads/2019/11/translate_tts-23.mp3",
+    "voiceWord": "上臉書",
+    "pinyin": "shàng liǎn shū",
+    "descriptWord": "Lướt facebook"
+  } 
+]
+}
