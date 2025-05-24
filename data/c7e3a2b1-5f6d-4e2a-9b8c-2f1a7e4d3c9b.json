@@ -29,17 +29,17 @@
       "descriptWord": "Quả táo"
     },
     {
-      "srcVoice": "https://tiengtrungthuonghai.vn/wp-content/uploads/2019/11/番石榴.mp3",
-      "voiceWord": "番石榴",
+      "srcVoice": "/data/voice/芭樂.mp3",
+      "voiceWord": "芭樂",
       "src": "https://tiengtrungthuonghai.vn/wp-content/uploads/2019/11/188.jpg",
-      "pinyin": "Fān shíliú",
+      "pinyin": "bā lè",
       "descriptWord": "Quả ổi"
     },
     {
-      "srcVoice": "https://tiengtrungthuonghai.vn/wp-content/uploads/2019/11/菠萝.mp3",
+      "srcVoice": "/data/voice/鳳梨.mp3",
       "voiceWord": "鳳梨",
       "src": "https://tiengtrungthuonghai.vn/wp-content/uploads/2019/11/189.jpg",
-      "pinyin": "Bōluó",
+      "pinyin": "fèng lí ",
       "descriptWord": "Dứa"
     },
     {
@@ -50,10 +50,10 @@
       "descriptWord": "Sầu riêng"
     },
     {
-      "srcVoice": "https://tiengtrungthuonghai.vn/wp-content/uploads/2019/11/番荔枝_-释迦果.mp3",
-      "voiceWord": "番荔枝/釋迦果",
+      "srcVoice": "/data/voice/釋迦.mp3",
+      "voiceWord": "釋迦",
       "src": "https://tiengtrungthuonghai.vn/wp-content/uploads/2019/11/dau-da-day-an-na-duoc-khong-1-300x188.jpg",
-      "pinyin": "Fān lìzhī/ shì jiāguǒ",
+      "pinyin": "shì jiā ",
       "descriptWord": "Quả na"
     },
     {
@@ -118,6 +118,13 @@
       "src": "https://tiengtrungthuonghai.vn/wp-content/uploads/2019/11/169.jpg",
       "pinyin": "Hāmìguā",
       "descriptWord": "Dưa gang"
+    },
+    {
+      "srcVoice": "https://tiengtrungthuonghai.vn/wp-content/uploads/2019/11/橘子.mp3",
+      "voiceWord": "橘子",
+      "src": "https://tiengtrungthuonghai.vn/wp-content/uploads/2019/11/193.jpg",
+      "pinyin": "Júzi",
+      "descriptWord": "Quả quýt"
     },
     {
       "srcVoice": "https://tiengtrungthuonghai.vn/wp-content/uploads/2019/11/橙子-.mp3",
@@ -202,13 +209,6 @@
       "src": "https://tiengtrungthuonghai.vn/wp-content/uploads/2019/11/an-man-01-300x150.jpg",
       "pinyin": "Lǐzǐ",
       "descriptWord": "Quả mận"
-    },
-    {
-      "srcVoice": "https://tiengtrungthuonghai.vn/wp-content/uploads/2019/11/橘子.mp3",
-      "voiceWord": "橘子",
-      "src": "https://tiengtrungthuonghai.vn/wp-content/uploads/2019/11/193.jpg",
-      "pinyin": "Júzi",
-      "descriptWord": "Quả quýt"
     },
     {
       "srcVoice": "https://tiengtrungthuonghai.vn/wp-content/uploads/2019/11/莲雾.mp3",
