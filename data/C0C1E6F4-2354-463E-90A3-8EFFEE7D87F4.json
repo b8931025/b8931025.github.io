@@ -10,18 +10,21 @@
         {
             "voiceWord": "くだもの",
             "src": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTp3qVkVke458lpSFiqqfGvzKtzbZyTv402hA&s",
+            "srcVoice": "/data/voice/C0C1E6F4-2354-463E-90A3-8EFFEE7D87F4.mp3?t=0,1.5",
             "pinyin": "kudamono",
             "descriptWord": "水果"
         },
         {
             "voiceWord": "りんご",
             "src": "https://ihealth.bwnet.com.tw/AC_Gallery/2020/04/b201d6bd-475d-8d0b-5308-98525fcf50c2.jpg",
+            "srcVoice": "/data/voice/C0C1E6F4-2354-463E-90A3-8EFFEE7D87F4.mp3?t=1.5,3",
             "pinyin": "ringo",
             "descriptWord": "蘋果"
         },
         {
             "voiceWord": "バナナ",
             "src": "https://www.ifruit.hk/image/cache/catalog/Products/B101-2-500x500.jpg",
+            "srcVoice": "/data/voice/C0C1E6F4-2354-463E-90A3-8EFFEE7D87F4.mp3?t=3,5",
             "pinyin": "banana",
             "descriptWord": "香蕉"
         }
