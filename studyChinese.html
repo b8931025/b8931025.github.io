@@ -246,7 +246,24 @@
 
                   if (srcVoice) {
                     const audio = new Audio(srcVoice);
-                    audio.play();
+                    let playRange = srcVoice.split('?t=')
+                    if (playRange.length === 2) playRange = playRange[1].split(',')
+                    
+                    if (playRange.length === 2) {
+                      let bgn = playRange[0] // 播放起始秒數
+                      let end = playRange[1] // 播放結束秒數
+
+                      audio.currentTime = bgn;
+                      audio.play();
+                      audio.addEventListener('timeupdate', function () {
+                        if (audio.currentTime >= end) {
+                          audio.pause();
+                          audio.currentTime = 0; // 可選，重設
+                        }
+                      });  
+                    } else {
+                      audio.play();
+                    }
                   } else {
                     const msg = new SpeechSynthesisUtterance(txt);
                     msg.lang = this.lession.voiceLanguage; // 設置語言
