@@ -1,0 +1,74 @@
+{
+  "LessionName": "Học tiếng Trung - Phật giáo",
+  "voiceLanguage": "zh-TW",
+  "TextLable": {
+    "voiceWord": "Tiếng Trung",
+    "pinyin": "Bính âm",
+    "descriptWord": "Tiếng Việt"
+  },
+  "List": [
+    {
+      "srcVoice": "/data/voice/f7e2a1c4-9b9e-4e6e-8e8e-2c7b1a5d3f2b.mp3?t=0,1.6",
+      "voiceWord": "佛",
+      "src": "https://i.ntdtv.com/assets/uploads/2022/02/2021-11-11_152639-1200x676.jpg",
+      "pinyin": "phó",
+      "descriptWord": "Phật"
+    },
+    {
+      "srcVoice": "/data/voice/f7e2a1c4-9b9e-4e6e-8e8e-2c7b1a5d3f2b.mp3?t=2,3.5",
+      "voiceWord": "大佛",
+      "src": "https://www.trimt-nsa.gov.tw/_api/Image/10181/?r=1700797083418",
+      "pinyin": "tà phó",
+      "descriptWord": "Phật Lớn"
+    },
+    {
+      "srcVoice": "/data/voice/f7e2a1c4-9b9e-4e6e-8e8e-2c7b1a5d3f2b.mp3?t=4,6",
+      "voiceWord": "珍珠奶茶",
+      "src": "https://imgs.gvm.com.tw/upload/gallery/20181029/54590_00.jpg",
+      "pinyin": "zhēn zhū nǎi chá",
+      "descriptWord": "Trà sữa trân châu"
+    },
+    {
+      "srcVoice": "/data/voice/f7e2a1c4-9b9e-4e6e-8e8e-2c7b1a5d3f2b.mp3?t=7,8.4",
+      "voiceWord": "珍珠",
+      "src": "https://www.hoidaubepaau.com/wp-content/uploads/2018/11/vien-tran-chau.jpg",
+      "pinyin": "zhēn zhū",
+      "descriptWord": "trân châu"
+    },
+    {
+      "srcVoice": "/data/voice/f7e2a1c4-9b9e-4e6e-8e8e-2c7b1a5d3f2b.mp3?t=9,11",
+      "voiceWord": "佛珠",
+      "src": "https://articleimg.xbiao.com/2016/0412/201604121460451243810.jpg",
+      "pinyin": "phó zhū",
+      "descriptWord": "hạt cườm Phật"
+    },
+    {
+      "srcVoice": "/data/voice/f7e2a1c4-9b9e-4e6e-8e8e-2c7b1a5d3f2b.mp3?t=12,14",
+      "voiceWord": "寺廟",
+      "src": "https://cc.tvbs.com.tw/img/program/upload/2022/03/10/20220310174554-2dd7207b.jpg",
+      "pinyin": "sì miào",
+      "descriptWord": "chùa"
+    },
+    {
+      "srcVoice": "/data/voice/f7e2a1c4-9b9e-4e6e-8e8e-2c7b1a5d3f2b.mp3?t=15,16",
+      "voiceWord": "拜拜",
+      "src": "https://media.chuabavang.com/files/ngan_ha/2022/06/29/lay-phat-dung-cach-1146.jpg",
+      "pinyin": "bày bày",
+      "descriptWord": "lạy Phật"
+    },
+    {
+      "srcVoice": "/data/voice/f7e2a1c4-9b9e-4e6e-8e8e-2c7b1a5d3f2b.mp3?t=17,19",
+      "voiceWord": "念經",
+      "src": "https://guanyincitta.org.tw/wp-content/uploads/2019/10/640.webp-26-1080x694.jpg",
+      "pinyin": "niàn jīng",
+      "descriptWord": "tụng kinh"
+    },
+    {
+      "srcVoice": "/data/voice/f7e2a1c4-9b9e-4e6e-8e8e-2c7b1a5d3f2b.mp3?t=19,22",
+      "voiceWord": "佛經",
+      "src": "https://loiphatday.org/wp-content/uploads/2023/07/kinh-dia-tang-bon-nguyen-tron-bobo.jpg",
+      "pinyin": "phó jīng",
+      "descriptWord": "kinh phật"
+    }
+  ]
+}
