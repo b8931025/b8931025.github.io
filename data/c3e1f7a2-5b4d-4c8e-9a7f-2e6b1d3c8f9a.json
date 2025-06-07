@@ -136,63 +136,63 @@
     {
       "voiceWord": "長的頭髮",
       "descriptWord": "tóc dài",
-      "pinyin": "cháng de tóu fà",
+      "pinyin": "cháng tờ tóu fà",
       "srcVoice": "/data/voice/b1c7e2f4-8a3d-4e2a-9c1b-7f6e5d4c3a2b.mp3?t=57.5,60",
       "src": "https://img.myshopline.com/image/store/1677645072032/--91.jpeg"
     },
     {
       "voiceWord": "短的頭髮",
       "descriptWord": "tóc ngắn",
-      "pinyin": "duǎn de tóu fà",
+      "pinyin": "duǎn tờ tóu fà",
       "srcVoice": "/data/voice/b1c7e2f4-8a3d-4e2a-9c1b-7f6e5d4c3a2b.mp3?t=60,62",
       "src": "https://pic.pimg.tw/as19965/1532861209-3693312072.jpg"
     },
     {
       "voiceWord": "長的指甲",
       "descriptWord": "móng dài",
-      "pinyin": "cháng de zhǐ jiǎ",
+      "pinyin": "cháng tờ zhǐ jiǎ",
       "srcVoice": "/data/voice/b1c7e2f4-8a3d-4e2a-9c1b-7f6e5d4c3a2b.mp3?t=62,64.4",
       "src": "https://news.youth.cn/gj/201704/W020170406526340709197.jpg"
     },
     {
       "voiceWord": "短的指甲",
       "descriptWord": "móng ngắn",
-      "pinyin": "duǎn de zhǐ jiǎ",
+      "pinyin": "duǎn tờ zhǐ jiǎ",
       "srcVoice": "/data/voice/b1c7e2f4-8a3d-4e2a-9c1b-7f6e5d4c3a2b.mp3?t=64.4,66.7",
       "src": "https://nubaby.cc/wp-content/uploads/2012/05/20120-11.jpg"
     },
     {
       "voiceWord": "長的牙齒",
       "descriptWord": "răng dài",
-      "pinyin": "cháng de yá chǐ",
+      "pinyin": "cháng tờ yá chǐ",
       "srcVoice": "/data/voice/b1c7e2f4-8a3d-4e2a-9c1b-7f6e5d4c3a2b.mp3?t=66.7,69",
       "src": "https://cc.tvbs.com.tw/img/upload/2018/04/03/20180403141207-20605646.jpg"
     },
     {
       "voiceWord": "大的眼睛",
       "descriptWord": "mắt to",
-      "pinyin": "dà de yǎn jīng",
+      "pinyin": "dà tờ yǎn jīng",
       "srcVoice": "/data/voice/b1c7e2f4-8a3d-4e2a-9c1b-7f6e5d4c3a2b.mp3?t=69,72.3",
       "src": "https://p1.itc.cn/q_70/images03/20210128/87bc9af7f44946a4befaa93d4c3a525b.jpeg"
     },
     {
       "voiceWord": "小的眼睛",
       "descriptWord": "mắt nhỏ",
-      "pinyin": "xiǎo de yǎn jīng",
+      "pinyin": "xiǎo tờ yǎn jīng",
       "srcVoice": "/data/voice/b1c7e2f4-8a3d-4e2a-9c1b-7f6e5d4c3a2b.mp3?t=72.3,74.7",
       "src": "https://memeprod.ap-south-1.linodeobjects.com/user-template/40ee9015b38246a5bb367596a9b58c9a.png"
     },
     {
       "voiceWord": "大的嘴吧",
       "descriptWord": "miệng to",
-      "pinyin": "dà de zuǐ ba",
+      "pinyin": "dà tờ zuǐ ba",
       "srcVoice": "/data/voice/b1c7e2f4-8a3d-4e2a-9c1b-7f6e5d4c3a2b.mp3?t=74.7,77.2",
       "src": "https://images.chinatimes.com/newsphoto/2022-01-26/1024/20220126002070.jpg"
     },
     {
       "voiceWord": "小的鼻子",
       "descriptWord": "mũi nhỏ",
-      "pinyin": "xiǎo de bí zǐ",
+      "pinyin": "xiǎo tờ bí zǐ",
       "srcVoice": "/data/voice/b1c7e2f4-8a3d-4e2a-9c1b-7f6e5d4c3a2b.mp3?t=77.2,79.5",
       "src": "http://i1.sinaimg.cn/bb/health/08/0708/U2226P20T47D118002F776DT20080807084630.jpg"
     }
