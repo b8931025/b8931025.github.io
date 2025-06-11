@@ -1,0 +1,18 @@
+{
+  "LessionName": "Tiếng Trung - XXXX",
+  "voiceLanguage": "zh-TW",
+  "TextLable": {
+    "voiceWord": "Tiếng Trung",
+    "pinyin": "Bính âm",
+    "descriptWord": "Tiếng Việt"
+  },
+  "List": [
+    {
+      "voiceWord": "頭",
+      "descriptWord": "đầu",
+      "pinyin": "tóu",
+      "srcVoice": "/data/voice/b1c7e2f4-8a3d-4e2a-9c1b-7f6e5d4c3a2b.mp3?t=0,1.5",
+      "src": "https://toppng.com/uploads/preview/human-head-png-human-head-silhouette-vector-11562954308n3hdtubgdc.png"
+    }
+  ]
+}
