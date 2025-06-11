@@ -1,5 +1,5 @@
 {
-  "LessionName": "Tiếng Trung - XXXX",
+  "LessionName": "Tiếng Trung - Tempxxxx",
   "voiceLanguage": "zh-TW",
   "TextLable": {
     "voiceWord": "Tiếng Trung",
@@ -8,11 +8,137 @@
   },
   "List": [
     {
-      "voiceWord": "頭",
-      "descriptWord": "đầu",
-      "pinyin": "tóu",
-      "srcVoice": "/data/voice/b1c7e2f4-8a3d-4e2a-9c1b-7f6e5d4c3a2b.mp3?t=0,1.5",
-      "src": "https://toppng.com/uploads/preview/human-head-png-human-head-silhouette-vector-11562954308n3hdtubgdc.png"
+      "voiceWord": "春天",
+      "descriptWord": "mùa xuân",
+      "pinyin": "chūn tiān ",
+      "srcVoice": "/data/voice/138f6ac4-d889-426d-a0e7-bf210df2334f.mp3?t=0,1.7",
+      "src": "/data/img/春天.jpg"
+    },
+    {
+      "voiceWord": "夏天",
+      "descriptWord": "mùa hè",
+      "pinyin": "xià tiān ",
+      "srcVoice": "/data/voice/138f6ac4-d889-426d-a0e7-bf210df2334f.mp3?t=1.7,4.3",
+      "src": "/data/img/夏天.jpg"
+    },
+    {
+      "voiceWord": "秋天",
+      "descriptWord": "mùa thu",
+      "pinyin": "qiū tiān ",
+      "srcVoice": "/data/voice/138f6ac4-d889-426d-a0e7-bf210df2334f.mp3?t=4.3,6.3",
+      "src": "/data/img/秋天.jpg"
+    },
+    {
+      "voiceWord": "冬天",
+      "descriptWord": "mùa đông",
+      "pinyin": "dōng tiān ",
+      "srcVoice": "/data/voice/138f6ac4-d889-426d-a0e7-bf210df2334f.mp3?t=6.3,8.7",
+      "src": "/data/img/冬天.jpg"
+    },
+    {
+      "voiceWord": "蝦子",
+      "descriptWord": "Con tôm",
+      "pinyin": "xiā zǐ ",
+      "srcVoice": "/data/voice/138f6ac4-d889-426d-a0e7-bf210df2334f.mp3?t=8.7,10.8",
+      "src": "/data/img/蝦子.jpg"
+    },
+    {
+      "voiceWord": "現在",
+      "descriptWord": "Bây giờ",
+      "pinyin": "xiàn zài ",
+      "srcVoice": "/data/voice/138f6ac4-d889-426d-a0e7-bf210df2334f.mp3?t=10.8,13.8",
+      "src": "/data/img/現在.jpg"
+    },
+    {
+      "voiceWord": "買菜",
+      "descriptWord": "đi chợ mua thức ăn và nguyên liệu nấu ăn.Chúng tôi gọi việc đó là 買(mua)菜(rau)",
+      "pinyin": "mǎi cài ",
+      "srcVoice": "/data/voice/138f6ac4-d889-426d-a0e7-bf210df2334f.mp3?t=13.8,15.8",
+      "src": "/data/img/買菜.jpg"
+    },
+    {
+      "voiceWord": "食物",
+      "descriptWord": "Từ này là thức ăn.Từ này giống với tiếng Nhật 食べ物.",
+      "pinyin": "shí wù ",
+      "srcVoice": "/data/voice/138f6ac4-d889-426d-a0e7-bf210df2334f.mp3?t=15.8,17.9",
+      "src": "/data/img/食物.jpg"
+    },
+    {
+      "voiceWord": "帶",
+      "descriptWord": "mang",
+      "pinyin": "dài ",
+      "srcVoice": "/data/voice/138f6ac4-d889-426d-a0e7-bf210df2334f.mp3?t=17.9,20",
+      "src": "/data/img/帶.jpg"
+    },
+    {
+      "voiceWord": "女兒",
+      "descriptWord": "con gái",
+      "pinyin": "nǚ ér ",
+      "srcVoice": "/data/voice/138f6ac4-d889-426d-a0e7-bf210df2334f.mp3?t=20,22.3",
+      "src": "/data/img/女兒.jpg"
+    },
+    {
+      "voiceWord": "兒子",
+      "descriptWord": "con trai",
+      "pinyin": "ér zǐ ",
+      "srcVoice": "/data/voice/138f6ac4-d889-426d-a0e7-bf210df2334f.mp3?t=22.3,24.4",
+      "src": "/data/img/兒子.jpg"
+    },
+    {
+      "voiceWord": "蝦子",
+      "descriptWord": "tôm",
+      "pinyin": "xiā zǐ ",
+      "srcVoice": "/data/voice/138f6ac4-d889-426d-a0e7-bf210df2334f.mp3?t=24.4,26.8",
+      "src": "/data/img/蝦子.jpg"
+    },
+    {
+      "voiceWord": "鼻子",
+      "descriptWord": "mũi",
+      "pinyin": "bí zǐ ",
+      "srcVoice": "/data/voice/138f6ac4-d889-426d-a0e7-bf210df2334f.mp3?t=26.8,28.9",
+      "src": "/data/img/鼻子.jpg"
+    },
+    {
+      "voiceWord": "肚子",
+      "descriptWord": "bụng",
+      "pinyin": "dù zǐ ",
+      "srcVoice": "/data/voice/138f6ac4-d889-426d-a0e7-bf210df2334f.mp3?t=28.9,31",
+      "src": "/data/img/肚子.jpg"
+    },
+    {
+      "voiceWord": "車子",
+      "descriptWord": "xe",
+      "pinyin": "chē zǐ ",
+      "srcVoice": "/data/voice/138f6ac4-d889-426d-a0e7-bf210df2334f.mp3?t=31,33.3",
+      "src": "/data/img/車子.jpg"
+    },
+    {
+      "voiceWord": "桌子",
+      "descriptWord": "bàn",
+      "pinyin": "zhuō zǐ ",
+      "srcVoice": "/data/voice/138f6ac4-d889-426d-a0e7-bf210df2334f.mp3?t=33.3,35.5",
+      "src": "/data/img/桌子.jpg"
+    },
+    {
+      "voiceWord": "椅子",
+      "descriptWord": "ghế",
+      "pinyin": "yǐ zǐ ",
+      "srcVoice": "/data/voice/138f6ac4-d889-426d-a0e7-bf210df2334f.mp3?t=35.5,38.1",
+      "src": "/data/img/椅子.jpg"
+    },
+    {
+      "voiceWord": "珠子",
+      "descriptWord": "hạt cườm",
+      "pinyin": "zhū zǐ ",
+      "srcVoice": "/data/voice/138f6ac4-d889-426d-a0e7-bf210df2334f.mp3?t=38.1,40.2",
+      "src": "/data/img/珠子.jpg"
+    },
+    {
+      "voiceWord": "李子",
+      "descriptWord": "quả mận",
+      "pinyin": "lǐ zǐ ",
+      "srcVoice": "/data/voice/138f6ac4-d889-426d-a0e7-bf210df2334f.mp3?t=40.2,42.3",
+      "src": "/data/img/李子.jpg"
     }
   ]
 }
