@@ -1,0 +1,32 @@
+{
+  "LessionName": "Tiếng Trung - Quần Giày Tất",
+  "voiceLanguage": "zh-TW",
+  "TextLable": {
+    "voiceWord": "Tiếng Trung",
+    "pinyin": "Bính âm",
+    "descriptWord": "Tiếng Việt"
+  },
+  "List": [
+    {
+      "voiceWord": "褲子",
+      "descriptWord": "quần",
+      "pinyin": "kù zǐ",
+      "srcVoice": "/data/voice/138f6ac4-d889-426d-a0e7-bf210df2334f.mp3?t=1.7,4.3",
+      "src": "/data/img/褲子.jpg"
+    },     
+    {
+      "voiceWord": "鞋子",
+      "descriptWord": "giày",
+      "pinyin": "xié zǐ",
+      "srcVoice": "/data/voice/138f6ac4-d889-426d-a0e7-bf210df2334f.mp3?t=0,1.7",
+      "src": "/data/img/鞋子.jpg"
+    },
+    {
+      "voiceWord": "襪子",
+      "descriptWord": "tất",
+      "pinyin": "wà zǐ",
+      "srcVoice": "/data/voice/138f6ac4-d889-426d-a0e7-bf210df2334f.mp3?t=4.3,6.3",
+      "src": "/data/img/襪子.jpg"
+    }
+  ]
+}
