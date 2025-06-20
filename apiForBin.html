@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <title>查詢信用卡種類和銀行</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <h1>查詢信用卡種類和銀行</h1>
+    <label for="bin-input">輸入信用卡前6碼(BIN碼)：</label>
+    <input type="text" id="bin-input" name="binNumber" />
+    <button id="search-btn">查詢</button>
+    <button id="download-btn">下載</button>
+    <pre id="api-result"></pre>
+    <script>
+        $(document).ready(function() {
+            function fetchBinData(binNumber) {
+                if (!binNumber || binNumber.trim() === '') {
+                    $('#api-result').text('請輸入 BIN 號碼');
+                    return;
+                }
+
+                if (binNumber.trim().length < 6) {
+                    $('#api-result').text('BIN 號碼需6碼');
+                    return;
+                }
+
+                $.get('https://data.handyapi.com/bin/' + binNumber.trim(), function(data) {
+                    $('#api-result').text(JSON.stringify(data, null, 2));
+                }).fail(function() {
+                    $('#api-result').text('API 呼叫失敗');
+                });
+            }
+
+            let urlParams = new URLSearchParams(window.location.search);
+            let binNumber = urlParams.get('bin');
+            if (binNumber && binNumber !== '') fetchBinData(binNumber);
+
+            $('#search-btn').on('click', function() {
+                let inputBin = $('#bin-input').val();
+                fetchBinData(inputBin);
+            });
+
+            $('#download-btn').on('click', function() {
+                let banks = getIssueBankList();
+                $('#api-result').text(banks);
+            });
+
+            function getIssueBankList()
+            {
+                /*
+                if (CardNoBegin4 >= 4000 && CardNoBegin4 <= 4999) tmpPay.CarType = "1"; //VISA
+                if (CardNoBegin4 >= 5100 && CardNoBegin4 <= 5599) tmpPay.CarType = "2"; //Master
+                if (CardNoBegin4 >= 3528 && CardNoBegin4 <= 3589) tmpPay.CarType = "3"; //JCB
+                if (CardNoBegin4 >= 3400 && CardNoBegin4 <= 3799) tmpPay.CarType = "4"; //美國運通
+                if (CardNoBegin4 >= 6200 && CardNoBegin4 <= 6299) tmpPay.CarType = "5"; //中國銀聯
+                */
+                let rangeList = [
+                    [400000,499999],
+                    [510000,559999],
+                    [352800,358999],
+                    [340000,379999],
+                    [620000,629999]
+                ]
+                rangeList = [
+                    [400000,400099]
+                ]
+                // 使用方式
+                let _banks = [];
+                getBanks(rangeList).then(banks => {
+                    _banks=banks
+                    console.table(banks);
+                });   
+             
+                return _banks
+            }
+
+            function getBanks(rangeList) {
+                return new Promise((resolve, reject) => {
+                    let banks = [];
+                    let errorTimes = 0;
+                    let total = 0, finished = 0;
+
+                    // 計算總共要查幾個 bin
+                    rangeList.forEach(([start, end]) => total += end - start + 1);
+
+                    rangeList.forEach(([start, end]) => {
+                        for (let bin = start; bin <= end; bin++) {
+                            $.get('https://data.handyapi.com/bin/' + bin, function(data) {
+                                banks.push(data);
+                            }).fail(function() {
+                                errorTimes++;
+                                if (errorTimes > 10) reject('Too many errors');
+                            }).always(function() {
+                                finished++;
+                                if (finished === total) resolve(banks);
+                            });
+                        }
+                    });
+                });
+            }
+
+         
+
+        });
+    </script>
+</body>
+</html>
