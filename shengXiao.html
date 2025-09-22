@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>lunar</title>
+  </head>
+  <body>
+    <script src="js/lunar/lunar.js"></script>
+    <script>
+      //文檔:https://6tail.cn/calendar/api.html
+      var today = new Date()
+      var thisYear = today.getFullYear()
+      //陽曆
+      var solar = Solar.fromYmd(1981, 10, 19)
+      //陽曆轉陰曆
+      var lunar = solar.getLunar()
+      //十二生肖
+      let shengXiaoList = '鼠牛虎兔龍蛇馬牛羊猴雞狗豬'
+
+      document.write(`陰曆:${lunar.toString()} ${lunar.getYearInGanZhi()}年`)
+      document.write('<br><br>')
+      document.write('生肖:' + lunar.getYearShengXiao()) 
+      document.write('<br><br>')
+      document.write(`陽曆:${solar.toFullString()}`)
+      document.write('<br><br>')
+      document.write(`今日:${today.getFullYear()}`)
+      document.write('<br><br>')
+
+      for(let y = 0; y < 120; y++)
+      {
+        for(let s = 0; s < 12; s++)
+        {
+          let yearShengXiao = thisYear - y - s
+          lunar = Solar.fromYmd(yearShengXiao, 6, 1).getLunar()
+          document.write(`西元${yearShengXiao}生，今年${y + 1}歲，生肖為[${lunar.getYearShengXiao()}]`)
+          document.write('<br>')
+        }
+        document.write('<br><br>')
+      }
+
+     
+    </script>
+  </body>
+</html>
