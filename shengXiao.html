@@ -9,14 +9,11 @@
     <script>
       //文檔:https://6tail.cn/calendar/api.html
       var today = new Date()
-      var thisYear = today.getFullYear()
       //陽曆
       var solar = Solar.fromYmd(1981, 10, 19)
       //陽曆轉陰曆
       var lunar = solar.getLunar()
-      //十二生肖
-      let shengXiaoList = '鼠牛虎兔龍蛇馬牛羊猴雞狗豬'
-
+      /*
       document.write(`陰曆:${lunar.toString()} ${lunar.getYearInGanZhi()}年`)
       document.write('<br><br>')
       document.write('生肖:' + lunar.getYearShengXiao()) 
@@ -25,20 +22,54 @@
       document.write('<br><br>')
       document.write(`今日:${today.getFullYear()}`)
       document.write('<br><br>')
+      */
 
-      for(let y = 0; y < 120; y++)
+      var thisYear = today.getFullYear()
+      //十二生肖
+      let shengXiaoListTC = '鼠牛虎兔龍蛇馬羊猴雞狗豬'
+      let shengXiaoListSC = '鼠牛虎兔龙蛇马羊猴鸡狗猪'
+      let ageMax = 120
+      let animalList = new Array(shengXiaoListTC.length)
+      for(let y = 0; y < ageMax; y++)
       {
-        for(let s = 0; s < 12; s++)
+        let animalAge = y + 1
+        let animalYear = thisYear - y
+        let animalYearRoc = animalYear - 1911
+        lunar = Solar.fromYmd(animalYear, 6, 1).getLunar()
+        let animalWord = lunar.getYearShengXiao()
+        let animalGanZhi = lunar.getYearInGanZhi()
+        //簡轉繁
+        let idx = shengXiaoListSC.indexOf(animalWord)
+        animalWord = shengXiaoListTC[idx]
+
+        let animalInfo = {
+          animalAge,
+          animalYear,
+          animalYearRoc,
+          animalGanZhi,
+          animalWord
+        }
+
+        if(!animalList[idx]) animalList[idx] = []
+        animalList[idx].push(animalInfo)
+      }
+
+      document.write(`<h1>民國${thisYear - 1911}年生肖對年</h1>`)
+      document.write('<br><br>')
+      for(let i = 0; i < animalList.length; i++)
+      {
+        document.write(`生肖-${animalList[i][0].animalWord}`)
+        document.write('<br>')
+        for(let a = 0; a < animalList[i].length; a++)
         {
-          let yearShengXiao = thisYear - y - s
-          lunar = Solar.fromYmd(yearShengXiao, 6, 1).getLunar()
-          document.write(`西元${yearShengXiao}生，今年${y + 1}歲，生肖為[${lunar.getYearShengXiao()}]`)
+          let animal = animalList[i][a]
+          document.write(`${animal.animalAge.toString().padStart(3, '0')}歲`)
+          document.write(`,民國:${animal.animalYearRoc.toString().padStart(3, '0')}年`)
+          document.write(`,${animal.animalGanZhi}年`)
           document.write('<br>')
         }
         document.write('<br><br>')
       }
-
-     
     </script>
   </body>
 </html>
