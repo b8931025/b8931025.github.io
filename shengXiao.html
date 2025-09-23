@@ -2,18 +2,22 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>lunar</title>
+    <title>生肖與年齡</title>
   </head>
   <body>
     <script src="js/lunar/lunar.js"></script>
     <script>
       //文檔:https://6tail.cn/calendar/api.html
+
+      /*
+      ps:去年/今年/明年切換，響應式UI
+
       var today = new Date()
       //陽曆
       var solar = Solar.fromYmd(1981, 10, 19)
       //陽曆轉陰曆
       var lunar = solar.getLunar()
-      /*
+
       document.write(`陰曆:${lunar.toString()} ${lunar.getYearInGanZhi()}年`)
       document.write('<br><br>')
       document.write('生肖:' + lunar.getYearShengXiao()) 
@@ -24,9 +28,11 @@
       document.write('<br><br>')
       */
 
+      var today = new Date()
       var thisYear = today.getFullYear()
-      //十二生肖
+      //十二生肖(繁體)
       let shengXiaoListTC = '鼠牛虎兔龍蛇馬羊猴雞狗豬'
+      //十二生肖(簡體)
       let shengXiaoListSC = '鼠牛虎兔龙蛇马羊猴鸡狗猪'
       let ageMax = 120
       let animalList = new Array(shengXiaoListTC.length)
@@ -35,7 +41,7 @@
         let animalAge = y + 1
         let animalYear = thisYear - y
         let animalYearRoc = animalYear - 1911
-        lunar = Solar.fromYmd(animalYear, 6, 1).getLunar()
+        let lunar = Solar.fromYmd(animalYear, 6, 1).getLunar()
         let animalWord = lunar.getYearShengXiao()
         let animalGanZhi = lunar.getYearInGanZhi()
         //簡轉繁
