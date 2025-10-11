@@ -53,7 +53,7 @@
       }
 
       .detailSubject {
-        font-size: 2rem;
+        font-size: 3rem;
       }
 
       table {
@@ -96,7 +96,7 @@
 
       <table border="1" >
         <thead>
-            <tr><th colspan="4" class="detailSubject">生肖-鼠</th></tr>
+            <tr><th colspan="4" class="detailSubject"></th></tr>
           <tr>
             <th style="width:25%;">年齡</th>
             <th style="width:25%;">民國</th>
@@ -163,7 +163,14 @@
         animalList[idx].push(animalInfo)
       }
       const subject = document.querySelector('.subject');
-      subject.innerHTML = `<h1>民國${thisYear - 1911}年生肖對年</h1>`;
+      
+      let currentAnimal = null;
+      for (let i = 0; i < animalList.length; i++) {
+        currentAnimal = animalList[i].find(a => a.animalYear === thisYear);
+        if (currentAnimal) break;
+      }
+      let currentAnimalWord = currentAnimal ? currentAnimal.animalWord : '';
+      subject.innerHTML = `<h1>${thisYear}年(${currentAnimalWord})生肖年齡對照表</h1>`;
 
       // 產生生肖圖片與名稱
       const animalContainer = document.querySelector('.container');
@@ -186,7 +193,7 @@
       function changeDetail(animalIdx) 
       {
         const detailSubject = document.querySelector('.detailSubject');
-        detailSubject.innerHTML = '生肖-' + animalList[animalIdx][0].animalWord;
+        detailSubject.innerHTML = animalList[animalIdx][0].animalWord;
 
         const detail = document.querySelector('.detail');
         detail.innerHTML = '';
