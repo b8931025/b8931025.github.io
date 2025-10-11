@@ -3,9 +3,112 @@
   <head>
     <meta charset="utf-8">
     <title>生肖與年齡</title>
+    <script src="js/lunar/lunar.js"></script>
+
+    <style>
+      body {
+        background-color: #941921;
+        min-height: 100vh;
+      }
+
+      .frame {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      }
+
+      h1.subject {
+        text-align: center;
+        padding: 0;
+        margin: 4px 0;
+        font-size: 1rem;
+        line-height: 0.9;
+      }
+
+      .container {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        width: 95%;
+        height: 50%;
+        padding: 5px;
+      }
+
+      .item {
+        display: flex;
+        flex: 0 0 25%;
+        box-sizing: border-box;
+        border: 1px solid black;
+        font-size: 3rem;
+        margin: 0px;
+        justify-content: center;
+        align-items: center;
+        height: 100px; /* 建議設定高度以顯示背景圖 */
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
+        cursor: pointer;
+      }
+
+      .detailSubject {
+        font-size: 2rem;
+      }
+
+      table {
+        border-collapse: collapse;
+        width: 95%;
+        background-color: #fff8f0;
+        color: #941921;
+        font-size: 1.2rem;
+        margin: 0 auto;
+        box-shadow: 0 2px 8px rgba(148,25,33,0.08);
+      }
+
+      th, td {
+        border: 2px solid #941921;
+        padding: 10px 0;
+        text-align: center;
+      }
+
+      th {
+        background-color: #f7d7d7;
+        color: #941921;
+        font-weight: bold;
+      }
+
+      tr:nth-child(even) td {
+        background-color: #fbeaea;
+      }
+
+      tr:nth-child(odd) td {
+        background-color: #fff8f0;
+      }      
+    </style>
   </head>
   <body>
-    <script src="js/lunar/lunar.js"></script>
+    <h1 class="subject"></h1>
+    <div class="frame">
+      <div class="container"></div>     
+
+      <br>
+
+      <table border="1" >
+        <thead>
+            <tr><th colspan="4" class="detailSubject">生肖-鼠</th></tr>
+          <tr>
+            <th style="width:25%;">年齡</th>
+            <th style="width:25%;">民國</th>
+            <th style="width:25%;">西元</th>
+            <th style="width:25%;">天干地支</th>
+          </tr>
+        </thead>
+        <tbody class="detail">
+        </tbody>
+      </table>
+
+    </div>
     <script>
       //文檔:https://6tail.cn/calendar/api.html
 
@@ -59,23 +162,56 @@
         if(!animalList[idx]) animalList[idx] = []
         animalList[idx].push(animalInfo)
       }
+      const subject = document.querySelector('.subject');
+      subject.innerHTML = `<h1>民國${thisYear - 1911}年生肖對年</h1>`;
 
-      document.write(`<h1>民國${thisYear - 1911}年生肖對年</h1>`)
-      document.write('<br><br>')
-      for(let i = 0; i < animalList.length; i++)
-      {
-        document.write(`生肖-${animalList[i][0].animalWord}`)
-        document.write('<br>')
-        for(let a = 0; a < animalList[i].length; a++)
-        {
-          let animal = animalList[i][a]
-          document.write(`${animal.animalAge.toString().padStart(3, '0')}歲`)
-          document.write(`,民國:${animal.animalYearRoc.toString().padStart(3, '0')}年`)
-          document.write(`,${animal.animalGanZhi}年`)
-          document.write('<br>')
-        }
-        document.write('<br><br>')
+      // 產生生肖圖片與名稱
+      const animalContainer = document.querySelector('.container');
+      animalContainer.innerHTML = '';
+      for (let i = 0; i < animalList.length; i++) {
+        const animalWord = animalList[i][0].animalWord;
+        const imgUrl = `data/img/animal_12/${(i+1).toString().padStart(2,'0')}_${animalWord}.jpg`;
+        const div = document.createElement('div');
+        div.addEventListener('click', () => changeDetail(i));
+        div.className = 'item';
+        div.style.backgroundImage = `url('${imgUrl}')`;
+        div.textContent = animalWord;
+        animalContainer.appendChild(div);
       }
-    </script>
+
+      document.write('<br><br>')
+
+      changeDetail(0)
+
+      function changeDetail(animalIdx) 
+      {
+        const detailSubject = document.querySelector('.detailSubject');
+        detailSubject.innerHTML = '生肖-' + animalList[animalIdx][0].animalWord;
+
+        const detail = document.querySelector('.detail');
+        detail.innerHTML = '';
+        for(let a = 0; a < animalList[animalIdx].length; a++)
+        {
+          let animal = animalList[animalIdx][a]
+          let age = animal.animalAge.toString().padStart(3, '0');
+          let GanZhi = animal.animalGanZhi;
+          let yearRoc = animal.animalYearRoc.toString().padStart(3, '0') + '年';
+          let year = animal.animalYear;
+          if (animal.animalYearRoc <= 0)
+          {
+            yearRoc = '(前)' + (animal.animalYearRoc * -1 + 1).toString().padStart(3, '0') + '年'
+          }
+          else if (animal.animalYearRoc == 1)
+          {
+            yearRoc = '元年'
+          }
+
+          detail.innerHTML += '<tr>'
+          detail.innerHTML += `<td>${age}歲</td><td>${yearRoc}</td><td>${year}</td><td>${GanZhi}</td>`;
+          detail.innerHTML += '</tr>'
+        }
+      }
+    </script>  
+
   </body>
 </html>
