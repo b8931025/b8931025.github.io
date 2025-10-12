@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <title>生肖與年齡</title>
     <script src="js/lunar/lunar.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <style>
       body {
@@ -22,14 +23,14 @@
         text-align: center;
         padding: 0;
         margin: 4px 0;
-        font-size: 2rem;
+        font-size: clamp(1.2rem, 4vw, 2.5rem);
         line-height: 1rem;
       }
 
       .container {
         display: flex;
         flex-direction: row;
-        justify-content: space-between;
+        justify-content: flex-start;
         flex-wrap: wrap;
         width: 95%;
         height: 50%;
@@ -38,9 +39,9 @@
 
       .item {
         display: flex;
-        flex: 0 0 25%;
+        flex: 0 0 16.66%;
         box-sizing: border-box;
-        border: 1px solid black;
+        border: 1px solid yellow;
         font-size: 3rem;
         margin: 0px;
         justify-content: center;
@@ -54,36 +55,51 @@
 
       .detailSubject {
         font-size: 3rem;
+        line-height: 2;
       }
 
       table {
         border-collapse: collapse;
         width: 95%;
         background-color: #fff8f0;
-        color: #941921;
+        color: black;
         font-size: 2rem;
         margin: 0 auto;
         box-shadow: 0 2px 8px rgba(148,25,33,0.08);
       }
 
+      .headAnimal
+      {
+        padding: 0px;
+        width: 100%;
+        background-color: #941921;
+      }
+
+      .headAnimal img {
+        height: 2.5em;
+        width: auto;
+        vertical-align: middle;
+        object-fit: contain;
+        max-height: 100%;
+      }
+
       th, td {
-        border: 2px solid #941921;
+        border: 2px solid yellow;
         padding: 10px 0;
         text-align: center;
       }
 
       th {
-        background-color: #f7d7d7;
-        color: #941921;
+        background-color: #f7a6a6;
         font-weight: bold;
       }
 
-      tr:nth-child(even) td {
+      tr:nth-child(odd) td {
         background-color: #fbeaea;
       }
 
-      tr:nth-child(odd) td {
-        background-color: #fff8f0;
+      tr:nth-child(even) td {
+        background-color: #f7a6a6;
       }      
     </style>
   </head>
@@ -96,12 +112,18 @@
 
       <table border="1" >
         <thead>
-            <tr><th colspan="4" class="detailSubject"></th></tr>
+           <tr>
+            <th colspan="4" class="headAnimal" >
+              <img></img>
+              <label class="detailSubject"></label>
+              <img style="transform: scaleX(-1);"></img>
+            </th>
+          </tr>
           <tr>
             <th style="width:25%;">年齡</th>
-            <th style="width:25%;">民國</th>
-            <th style="width:25%;">西元</th>
-            <th style="width:25%;">天干地支</th>
+            <th style="width:25%;">民國年</th>
+            <th style="width:25%;">西元年</th>
+            <th style="width:25%;">農曆年</th>
           </tr>
         </thead>
         <tbody class="detail">
@@ -131,12 +153,14 @@
       document.write('<br><br>')
       */
 
-      var today = new Date()
-      var thisYear = today.getFullYear()
+      let today = new Date()
+      let thisYear = today.getFullYear()     
       //十二生肖(繁體)
       let shengXiaoListTC = '鼠牛虎兔龍蛇馬羊猴雞狗豬'
       //十二生肖(簡體)
       let shengXiaoListSC = '鼠牛虎兔龙蛇马羊猴鸡狗猪'
+      let thisYearAnimal = Solar.fromYmd(thisYear, 6, 1).getLunar().getYearShengXiao()
+      thisYearAnimal = shengXiaoListTC[shengXiaoListSC.indexOf(thisYearAnimal)]
       let ageMax = 120
       let animalList = new Array(shengXiaoListTC.length)
       for(let y = 0; y < ageMax; y++)
@@ -163,14 +187,7 @@
         animalList[idx].push(animalInfo)
       }
       const subject = document.querySelector('.subject');
-      
-      let currentAnimal = null;
-      for (let i = 0; i < animalList.length; i++) {
-        currentAnimal = animalList[i].find(a => a.animalYear === thisYear);
-        if (currentAnimal) break;
-      }
-      let currentAnimalWord = currentAnimal ? currentAnimal.animalWord : '';
-      subject.innerHTML = `<h1>${thisYear}年(${currentAnimalWord})生肖年齡對照表</h1>`;
+      subject.innerHTML = `<h1>${thisYear}(${thisYearAnimal})年生肖年齡對照表</h1>`;
 
       // 產生生肖圖片與名稱
       const animalContainer = document.querySelector('.container');
@@ -194,28 +211,34 @@
       {
         const detailSubject = document.querySelector('.detailSubject');
         detailSubject.innerHTML = animalList[animalIdx][0].animalWord;
+        const headAnimal = document.querySelector('.headAnimal');
+        const imgs = headAnimal.querySelectorAll('img');
+        const imgUrl = `data/img/animal_12/${(animalIdx+1).toString().padStart(2,'0')}_${animalList[animalIdx][0].animalWord}.jpg`;
+        imgs.forEach(img => {
+          img.src = imgUrl;
+        });
 
         const detail = document.querySelector('.detail');
         detail.innerHTML = '';
         for(let a = 0; a < animalList[animalIdx].length; a++)
         {
           let animal = animalList[animalIdx][a]
-          let age = animal.animalAge.toString().padStart(3, '0');
+          let age = animal.animalAge.toString();
           let GanZhi = animal.animalGanZhi;
-          let yearRoc = animal.animalYearRoc.toString().padStart(3, '0') + '年';
+          let yearRoc = animal.animalYearRoc.toString();
           let year = animal.animalYear;
           if (animal.animalYearRoc <= 0)
           {
-            yearRoc = '(前)' + (animal.animalYearRoc * -1 + 1).toString().padStart(3, '0') + '年'
-          }
-          else if (animal.animalYearRoc == 1)
-          {
-            yearRoc = '元年'
+            yearRoc = '(民國前)' + (animal.animalYearRoc * -1 + 1).toString()
           }
 
-          detail.innerHTML += '<tr>'
-          detail.innerHTML += `<td>${age}歲</td><td>${yearRoc}</td><td>${year}</td><td>${GanZhi}</td>`;
-          detail.innerHTML += '</tr>'
+          let rowInnerHtml =  '<tr>';
+          rowInnerHtml += `<td>${age}</td>`;
+          rowInnerHtml += `<td>${yearRoc}</td>`;
+          rowInnerHtml += `<td>${year}</td>`;
+          rowInnerHtml += `<td>${GanZhi}</td>`;
+          rowInnerHtml += '</tr>';
+          detail.innerHTML += rowInnerHtml
         }
       }
     </script>  
