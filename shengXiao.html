@@ -51,7 +51,6 @@
         justify-content: center;
         align-items: center;
         height: 100px;
-        /*height: clamp(50px, 4vw, 400px);*/
         background-size: contain;
         background-repeat: no-repeat;
         background-position: center;
@@ -73,7 +72,13 @@
         box-shadow: 0 2px 8px rgba(148,25,33,0.08);
       }
 
-      .headAnimal
+      .headChon span
+      {
+        margin: 0 clamp(0px, 1vw, 2rem);
+        padding: 0;
+      }
+
+      .headAnimal ,.headChon
       {
         padding: 0px;
         width: 100%;
@@ -108,12 +113,12 @@
       }
 
       tr {
-        height: clamp(10px, 5vw, 60px); /* 響應式高度 */
+        height: clamp(10px, 5vw, 60px);
       }
 
       td {
-        height: 100%; /* 確保填滿 row 的高度 */
-        vertical-align: middle; /* 垂直置中 */
+        height: 100%;
+        vertical-align: middle;
       }
 
       th, td {
@@ -142,6 +147,13 @@
       <div class="container"></div>     
       <table border="1" >
         <thead>
+          <tr>
+            <th colspan="4" class="headChon">
+              <span >犯太歲</span>
+              <span class="chonOpposite"></span>
+              <span class="chonBeside"></span>
+            </th>
+          </tr>
            <tr>
             <th colspan="4" class="headAnimal" >
               <img/><img/><img/>
@@ -159,13 +171,12 @@
         <tbody class="detail">
         </tbody>
       </table>
-
     </div>
     <script>
       //文檔:https://6tail.cn/calendar/api.html
 
       /*
-      ps:去年/今年/明年切換，響應式UI，正沖+6，偏沖+-3，SEO
+      ps:去年/今年/明年切換，響應式UI，正沖+6，偏沖+-3，SEO，安太歲，正沖，偏沖
 
       var today = new Date()
       //陽曆
@@ -184,13 +195,16 @@
       */
 
       let today = new Date()
-      let thisYear = today.getFullYear()     
+      let thisYear = today.getFullYear()
       //十二生肖(繁體)
       let shengXiaoListTC = '鼠牛虎兔龍蛇馬羊猴雞狗豬'
       //十二生肖(簡體)
       let shengXiaoListSC = '鼠牛虎兔龙蛇马羊猴鸡狗猪'
       let thisYearAnimal = Solar.fromYmd(thisYear, 6, 1).getLunar().getYearShengXiao()
-      thisYearAnimal = shengXiaoListTC[shengXiaoListSC.indexOf(thisYearAnimal)]
+      let thisYearIdx = shengXiaoListSC.indexOf(thisYearAnimal);
+      thisYearAnimal = shengXiaoListTC[thisYearIdx];
+
+      //每個生肖只顯示9個 12x9
       let ageMax = 108
       let animalList = new Array(shengXiaoListTC.length)
       for(let y = 0; y < ageMax; y++)
@@ -218,6 +232,19 @@
       }
       const subject = document.querySelector('.subject');
       subject.innerHTML = `<h1>${thisYear}(${thisYearAnimal})年生肖與年齡</h1>`;
+      
+      //正沖:值太歲
+      let chonOpposite1 = thisYearAnimal;
+      //正沖:沖太歲 +6
+      let chonOpposite2 = shengXiaoListTC[(thisYearIdx + 6) % 12];
+      //偏沖:刑太歲 -3
+      let chonBeside1 = shengXiaoListTC[(thisYearIdx + 9) % 12];
+      //偏沖:害太歲 +3
+      let chonBeside2 = shengXiaoListTC[(thisYearIdx + 3) % 12];
+      const chonOpposite = document.querySelector('.chonOpposite');
+      chonOpposite.innerHTML = `正沖：${chonOpposite1}、${chonOpposite2}`;
+      const chonBeside = document.querySelector('.chonBeside');
+      chonBeside.innerHTML = `偏沖：${chonBeside1}、${chonBeside2}`
 
       // 產生生肖圖片與名稱
       const animalContainer = document.querySelector('.container');
