@@ -74,15 +74,17 @@
 
       .headChon {
         display: flex;
-        justify-content: space-around;
-        align-items: center; /* 垂直置中 */
-        flex: 0 0 33.33%;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
         flex-wrap: nowrap; /* 預設不折行 */
+        gap: 20px;
       }
-      @media (max-width: 320px) {
+      @media (max-width: 375px) {
         .headChon {
           flex-wrap: wrap; /* 小於 320px 時允許折行 */
           justify-content: center; /* 折行後內容置中 */
+          gap: 0px;
         }
 
         .headChon div {
@@ -91,7 +93,7 @@
         }
       }
 
-      .headChon span
+      .headChon div
       {
         margin: 0 ;
         padding: 0;
@@ -99,8 +101,20 @@
       .headChon img {
         height: clamp(1em, 4vw, 1.5em);
       }
-      .headChon img:nth-of-type(1) {
+      .headChon img:nth-of-type(2) {
         transform: scaleX(-1);
+      }
+      .chonSubject {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        padding: 0;
+        white-space: nowrap;
+      }
+      .chonSubject img {
+        vertical-align: middle;
+        height: clamp(1em, 4vw, 1.5em);
       }
 
       .headAnimal
@@ -176,7 +190,7 @@
             <th colspan="4" style="padding: 0;background-color: #941921;">
               <div class="headChon">
                 <div class="chonOpposite"></div>
-                <div>
+                <div class="chonSubject">
                   <img src="data/img/animal_12/chinaCloud.png"/>
                   犯太歲
                   <img src="data/img/animal_12/chinaCloud.png"/>
