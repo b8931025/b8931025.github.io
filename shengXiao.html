@@ -72,12 +72,23 @@
         box-shadow: 0 2px 8px rgba(148,25,33,0.08);
       }
 
-      .headChon
-      {
-        width: 100%;
-        background-color: #941921;
-        text-align: center; /* 水平置中 */
-        vertical-align: middle; /* 垂直置中 */
+      .headChon {
+        display: flex;
+        justify-content: space-around;
+        align-items: center; /* 垂直置中 */
+        flex: 0 0 33.33%;
+        flex-wrap: nowrap; /* 預設不折行 */
+      }
+      @media (max-width: 320px) {
+        .headChon {
+          flex-wrap: wrap; /* 小於 320px 時允許折行 */
+          justify-content: center; /* 折行後內容置中 */
+        }
+
+        .headChon div {
+          flex: 0 0 100%; /* 每個 div 占滿一行 */
+          text-align: center; /* 文字置中 */
+        }
       }
 
       .headChon span
@@ -86,7 +97,7 @@
         padding: 0;
       }
       .headChon img {
-        height: clamp(0.5em, 4vw, 1em);
+        height: clamp(1em, 4vw, 1.5em);
       }
       .headChon img:nth-of-type(1) {
         transform: scaleX(-1);
@@ -162,12 +173,16 @@
       <table border="1" >
         <thead>
           <tr>
-            <th colspan="4" class="headChon">
-              <span class="chonOpposite"></span>
-              <img src="data/img/animal_12/chinaCloud.png"/>
-              <span >犯太歲</span>
-              <img src="data/img/animal_12/chinaCloud.png"/>
-              <span class="chonBeside"></span>
+            <th colspan="4" style="padding: 0;background-color: #941921;">
+              <div class="headChon">
+                <div class="chonOpposite"></div>
+                <div>
+                  <img src="data/img/animal_12/chinaCloud.png"/>
+                  犯太歲
+                  <img src="data/img/animal_12/chinaCloud.png"/>
+                </div>
+                <div class="chonBeside"></div>
+              </div>
             </th>
           </tr>
            <tr>
