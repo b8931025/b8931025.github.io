@@ -316,16 +316,15 @@
           // 還原所有項目的背景圖片（移除先前的漸層）
           const items = document.querySelectorAll('.container .item');
           items.forEach((el, idx) => {
-            const imgUrl = `data/img/animal_12/${(idx+1).toString().padStart(2,'0')}_${animalList[idx][0].animalWord}.jpg`;
+            const imgUrl = `data/img/animal_12/${(idx + 1).toString().padStart(2, '0')}_${animalList[idx][0].animalWord}.jpg`;
             el.style.backgroundImage = `url('${imgUrl}')`;
             el.style.transition = 'background-image 300ms ease, box-shadow 200ms ease';
             el.style.boxShadow = 'none';
           });
 
-          // 在點選項目上加上由中心向外擴散的黃色放射狀漸層
+          // 在點選項目上加上由外向圓心變透明的黃色漸層
           const gradient = clickItem.style.backgroundImage;
-          const radialGradient = 'radial-gradient(circle at center, rgba(255,182,193,0.75) 0%, rgba(255,182,193,0.35) 35%, rgba(255,182,193,0) 70%)';
-          
+          const radialGradient = 'radial-gradient(circle at center, rgba(255,255,0,0) 0%, rgba(255,255,0,0.15) 50%, rgba(255,255,0,0.35) 65%, rgba(255,255,0,0.75) 90%)';
           // 把背景先設為漸層，後面會用 gradient (原本的 image) 與現在的漸層組合成 "image, radial-gradient"
           // 最終會是 image 在前（上方），漸層在後（底下）
           clickItem.style.backgroundImage = radialGradient;
