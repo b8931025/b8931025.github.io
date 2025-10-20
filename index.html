@@ -4,13 +4,30 @@
 <title>GitHub Static Website</title>
 <style>
 	body {
-		background-color:gray;
-		
+		background-color: gray;
+		color: white; /* 頁面文字顏色 */
+		font-family: Arial, sans-serif;
 	}
 	
 	.divCenter {
-		display:flex;
+		display: flex;
 		justify-content: center;
+		align-items: center; /* 垂直置中 */
+		text-align: center;
+		font-size: 1.5rem; /* 調整字型大小 */
+		color: yellow; /* 調整文字顏色 */
+		margin: 20px 0; /* 增加上下間距 */
+	}
+
+	a {
+		color: lightblue; /* 調整連結顏色 */
+		text-decoration: none; /* 移除連結下劃線 */
+		font-size: 1.2rem; /* 調整連結字型大小 */
+	}
+
+	a:hover {
+		color: white; /* 滑鼠懸停時改變顏色 */
+		text-decoration: underline; /* 滑鼠懸停時顯示下劃線 */
 	}
 </style>
 </head>
@@ -18,7 +35,9 @@
 	<div class='divCenter'>
 		<h1>Simple Website</h1>	
 	</div>
-	
+  <div class="divCenter">
+    <a href="shengXiao.html">2025(蛇)年生肖與年齡</a>
+  </div>
 </body>
 </html>
 
