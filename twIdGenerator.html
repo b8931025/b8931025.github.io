@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>身份證/居留證產生器</title>
+    <style>
+        #result {
+            margin-top: 20px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            min-height: 100px;
+        }
+    </style>
+</head>
+<body>
+    <select id="locationDdl"></select>
+
+    <input type="radio" id="male" name="gender" value="1" checked>
+    <label for="male">男</label>
+    <input type="radio" id="female" name="gender" value="2">
+    <label for="female">女</label>
+
+    <button id="twId">台灣身份證</button>
+    <button id="newId">新式居留證</button>
+    <button id="oldId">舊式居留證</button>
+    <button id="verifyBtn">驗證</button>
+    <div id="result"></div>
+
+    <script>
+        const twIdBtn = document.getElementById('twId');
+        const newIdBtn = document.getElementById('newId');
+        const oldIdBtn = document.getElementById('oldId');
+        const resultDiv = document.getElementById('result');
+
+        // 身份證字號
+        const locationTw =
+            [[10, "A", "臺北市"],
+            [11, "B", "臺中市"],
+            [12, "C", "基隆市"],
+            [13, "D", "臺南市"],
+            [14, "E", "高雄市"],
+            [15, "F", "臺北縣"],
+            [16, "G", "宜蘭縣"],
+            [17, "H", "桃園縣"],
+            [34, "I", "嘉義市"],
+            [18, "J", "新竹縣"],
+            [19, "K", "苗栗縣"],
+            [20, "L", "臺中縣"],
+            [21, "M", "南投縣"],
+            [22, "N", "彰化縣"],
+            [35, "O", "新竹市"],
+            [23, "P", "雲林縣"],
+            [24, "Q", "嘉義縣"],
+            [25, "R", "臺南縣"],
+            [26, "S", "高雄縣"],
+            [27, "T", "屏東縣"],
+            [28, "U", "花蓮縣"],
+            [29, "V", "臺東縣"],
+            [32, "W", "金門縣"],
+            [30, "X", "澎湖縣"],
+            [31, "Y", "陽明山"],
+            [33, "Z", "連江縣"]];
+        const weights = [1, 9, 8, 7, 6, 5, 4, 3, 2, 1, 1]
+
+        //location:A~Z
+        //gender:1,男 2,女
+        function getResidentId(location = "A",gender =  1){
+          let locationNumber = locationTw.find(item => item[1] === location)[0];
+          let num0 = Math.ceil(locationNumber / 10);
+          let num1 = locationNumber % 10;
+          let num2 = gender === 1 ? 8 : 9;
+          let num3 = Math.floor(Math.random() * 6);
+          let num4 = Math.floor(Math.random() * 9);
+          let num5 = Math.floor(Math.random() * 9);
+          let num6 = Math.floor(Math.random() * 9);
+          let num7 = Math.floor(Math.random() * 9);
+          let num8 = Math.floor(Math.random() * 9);
+          let num9 = Math.floor(Math.random() * 9);
+          let num10 = (num0 * weights[0] + 
+                    num1 * weights[1] +
+                    num2 * weights[2] +
+                    num3 * weights[3] +
+                    num4 * weights[4] +
+                    num5 * weights[5] +
+                    num6 * weights[6] +
+                    num7 * weights[7] +
+                    num8 * weights[8] +
+                    num9 * weights[9]) % 10;
+          if (num10 !== 0) num10 = 10 - num10;
+
+          return location + num2 + num3 + num4 + num5 + num6 + num7 + num8 + num9 + num10
+        }
+
+        function validateResidentId(id){
+          let idArray = id.split(''); 
+          let locationNumber = locationTw.find(item => item[1] === idArray[0])[0]
+          let chr0 = Math.ceil(locationNumber / 10)
+          let chr1 = locationNumber % 10
+          idArray.splice(0,1,chr0,chr1)
+
+          let sum = 0;
+          for(let i = 0 ; i < idArray.length ; i++ ){
+            sum += parseInt(idArray[i]) * weights[i]
+          }
+
+          return sum % 10 === 0;
+        }
+
+
+        //取得新身份證號
+        //location:A~Z
+        //gender:1,男 2,女
+        function getTwId(location, gender){
+            var locationRdn = locationTw.find(item => item[1] === location);
+            var szSN = "";
+            var location = locationRdn[0],
+                szLocation = locationRdn[1],
+                num = 1;
+
+            for (var i = 0; i < num; i++) {
+                var validateCode = ((location - location % 10) / 10) +
+                    (location % 10 * 9) +
+                    gender * 8;
+                var tmpSN = szLocation + gender;
+                for (var j = 1; j <= 7; j++) {
+                    var ran = (Math.random() * 10).toString().charAt(0);
+                    validateCode += parseInt(ran) * (8 - j);
+                    tmpSN += ran;
+                }
+                szSN += tmpSN + (10 - validateCode % 10) % 10 + "\n";
+            }
+
+            szSN = szSN.substring(0, szSN.length - 1);
+            return szSN;
+        }
+        
+        function generateId(isNew) {
+            let id = '';
+            // 1. First char: A-Z
+            id += letters.charAt(Math.floor(Math.random() * letters.length));
+
+            if (isNew) {
+                // 2. Second char: 8 or 9
+                id += Math.random() < 0.5 ? '8' : '9';
+            } else {
+                // 2. Second char: A-D
+                const secondLetters = 'ABCD';
+                id += secondLetters.charAt(Math.floor(Math.random() * secondLetters.length));
+            }
+
+            // 3. Remaining 8 digits
+            for (let i = 0; i < 8; i++) {
+                id += Math.floor(Math.random() * 10);
+            }
+            return id;
+        }
+
+        function verifyId(id) {
+            id = id.trim();
+            
+            verification = id.match("^[A-Z][ABCD]\\d{8}$")
+            if(!verification){
+              return false
+            }
+
+            let conver = "ABCDEFGHJKLMNPQRSTUVXYWZIO"
+            let weights = [1, 9, 8, 7, 6, 5, 4, 3, 2, 1, 1]
+
+            id = String(conver.indexOf(id[0]) + 10) +  String((conver.indexOf(id[1]) + 10)%10) + id.slice(2);
+
+            checkSum = 0
+            for (let i = 0; i < id.length; i++) {
+                c = parseInt(id[i])
+                w = weights[i]
+                checkSum += c * w
+            }
+          
+            return checkSum % 10 == 0
+        }
+
+        twIdBtn.addEventListener('click', () => {
+            resultDiv.textContent = getTwId(locationDdl.value, parseInt(document.querySelector('input[name="gender"]:checked').value));
+        });
+
+        newIdBtn.addEventListener('click', () => {
+            resultDiv.textContent = getResidentId(locationDdl.value, parseInt(document.querySelector('input[name="gender"]:checked').value));
+        });
+
+        oldIdBtn.addEventListener('click', () => {
+            resultDiv.textContent = generateId(false);
+        });
+
+        document.getElementById('verifyBtn').addEventListener('click', () => {
+            const idToVerify = resultDiv.textContent;
+            const isValid = validateResidentId(idToVerify);
+            alert('驗證結果: ' + (isValid ? '正確' : '錯誤'));
+        });
+
+        // Populate dropdown
+        const locationDdl = document.getElementById('locationDdl');
+        locationTw.forEach(location => {
+            const option = document.createElement('option');
+            option.value = location[1];
+            option.textContent = `${location[2]}(${location[1]})`;
+            locationDdl.appendChild(option);
+        });
+    </script>
+</body>
+</html>
