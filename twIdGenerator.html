@@ -17,12 +17,12 @@
             justify-content: center;
         }
         .gender-container {
-            margin-right: 80px;
+            margin-right: 60px;
         }
         .notice-container {
             display: flex;
             align-items: center; /* Vertical center */
-            justify-content: flex-start; /* Horizontal left */
+            justify-content: flex-end; /* Horizontal left */
             width: 400px;
         }
         .button-container {
@@ -31,6 +31,9 @@
             justify-content: center;
             gap: 20px;
         }
+        .location-container{
+        }
+        
     </style>
 	  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script type="text/javascript">
@@ -278,9 +281,6 @@
 </head>
 <body>
     <div class="controls-container">
-        <div class="notice-container">
-          <label id="lblNotice" style="font-size:medium;margin-left:10px;"></label>
-        </div>
         <div class="gender-container">
           <input type="radio" id="male" name="gender" value="1" checked>
           <label for="male">男</label>
@@ -288,7 +288,12 @@
           <input type="radio" id="female" name="gender" value="2">
           <label for="female">女</label>
         </div>
-        <div id="locationContainer"></div>
+        <div class="location-container">
+          <div id="locationContainer"></div>
+        </div>
+        <div class="notice-container">
+          <label id="lblNotice" style="font-size:medium;margin-left:10px;"></label>
+        </div>
     </div>
 
     <div class="button-container">
