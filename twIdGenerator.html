@@ -19,35 +19,21 @@
         .gender-container {
             margin-right: 80px;
         }
+        .notice-container {
+            display: flex;
+            align-items: center; /* Vertical center */
+            justify-content: flex-start; /* Horizontal left */
+            width: 400px;
+        }
         .button-container {
             margin-top: 10px;
             display: flex;
             justify-content: center;
         }
     </style>
-</head>
-<body>
-    <div class="controls-container">
-        <div class="gender-container">
-            <input type="radio" id="male" name="gender" value="1" checked>
-            <label for="male">男</label>
-            <br>
-            <input type="radio" id="female" name="gender" value="2">
-            <label for="female">女</label>
-        </div>
-        <div id="locationContainer"></div>
-    </div>
-
-    <div class="button-container">
-        <button id="twId">台灣身份證</button>
-        <button id="newId">新式居留證</button>
-        <button id="companyId">統一編號</button>
-        <button id="verifyBtn">驗證</button>
-    </div>
-
-    <div id="result"></div>
-
-    <script>
+	  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javascript">
+    $(function () {
         const twIdBtn = document.getElementById('twId');
         const newIdBtn = document.getElementById('newId');
         const companyId = document.getElementById('companyId');
@@ -225,7 +211,9 @@
             const locationSelect = document.querySelector('input[name="location"]:checked');
             const genderSelect = document.querySelector('input[name="gender"]:checked');
             if (locationSelect && genderSelect) {
-                resultDiv.textContent = getTwId(locationSelect.value, parseInt(genderSelect.value));
+              resultDiv.textContent = getTwId(locationSelect.value, parseInt(genderSelect.value));
+              navigator.clipboard.writeText(resultDiv.textContent);
+              $("#lblNotice").text("已複製 : " + resultDiv.textContent);
             }
         });
 
@@ -233,12 +221,16 @@
             const locationSelect = document.querySelector('input[name="location"]:checked');
             const genderSelect = document.querySelector('input[name="gender"]:checked');
             if (locationSelect && genderSelect) {
-                resultDiv.textContent = getResidentId(locationSelect.value, parseInt(genderSelect.value));
+              resultDiv.textContent = getResidentId(locationSelect.value, parseInt(genderSelect.value));
+              navigator.clipboard.writeText(resultDiv.textContent);
+              $("#lblNotice").text("已複製 : " + resultDiv.textContent);
             }
         });
 
         companyId.addEventListener('click', () => {
-            resultDiv.textContent = getCompanyId();
+          resultDiv.textContent = getCompanyId();
+          navigator.clipboard.writeText(resultDiv.textContent);
+          $("#lblNotice").text("已複製 : " + resultDiv.textContent);
         });
 
         document.getElementById('verifyBtn').addEventListener('click', () => {
@@ -280,6 +272,31 @@
             table.appendChild(row);
         }
         locationContainer.appendChild(table);
+    })
     </script>
+</head>
+<body>
+    <div class="controls-container">
+        <div class="notice-container">
+          <label id="lblNotice" style="font-size:medium;margin-left:10px;"></label>
+        </div>
+        <div class="gender-container">
+          <input type="radio" id="male" name="gender" value="1" checked>
+          <label for="male">男</label>
+          <br>
+          <input type="radio" id="female" name="gender" value="2">
+          <label for="female">女</label>
+        </div>
+        <div id="locationContainer"></div>
+    </div>
+
+    <div class="button-container">
+        <button id="twId">台灣身份證</button>
+        <button id="newId">新式居留證</button>
+        <button id="companyId">統一編號</button>
+        <button id="verifyBtn">驗證</button>
+    </div>
+
+    <div id="result"></div>
 </body>
 </html>
