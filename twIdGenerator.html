@@ -11,20 +11,40 @@
             border: 1px solid #ccc;
             min-height: 100px;
         }
+        .controls-container {
+            display: flex;
+            align-items: flex-start;
+            justify-content: center;
+        }
+        .gender-container {
+            margin-right: 80px;
+        }
+        .button-container {
+            margin-top: 10px;
+            display: flex;
+            justify-content: center;
+        }
     </style>
 </head>
 <body>
-    <select id="locationDdl"></select>
+    <div class="controls-container">
+        <div class="gender-container">
+            <input type="radio" id="male" name="gender" value="1" checked>
+            <label for="male">男</label>
+            <br>
+            <input type="radio" id="female" name="gender" value="2">
+            <label for="female">女</label>
+        </div>
+        <div id="locationContainer"></div>
+    </div>
 
-    <input type="radio" id="male" name="gender" value="1" checked>
-    <label for="male">男</label>
-    <input type="radio" id="female" name="gender" value="2">
-    <label for="female">女</label>
+    <div class="button-container">
+        <button id="twId">台灣身份證</button>
+        <button id="newId">新式居留證</button>
+        <button id="oldId">舊式居留證</button>
+        <button id="verifyBtn">驗證</button>
+    </div>
 
-    <button id="twId">台灣身份證</button>
-    <button id="newId">新式居留證</button>
-    <button id="oldId">舊式居留證</button>
-    <button id="verifyBtn">驗證</button>
     <div id="result"></div>
 
     <script>
@@ -180,11 +200,11 @@
         }
 
         twIdBtn.addEventListener('click', () => {
-            resultDiv.textContent = getTwId(locationDdl.value, parseInt(document.querySelector('input[name="gender"]:checked').value));
+            resultDiv.textContent = getTwId(document.querySelector('input[name="location"]:checked').value, parseInt(document.querySelector('input[name="gender"]:checked').value));
         });
 
         newIdBtn.addEventListener('click', () => {
-            resultDiv.textContent = getResidentId(locationDdl.value, parseInt(document.querySelector('input[name="gender"]:checked').value));
+            resultDiv.textContent = getResidentId(document.querySelector('input[name="location"]:checked').value, parseInt(document.querySelector('input[name="gender"]:checked').value));
         });
 
         oldIdBtn.addEventListener('click', () => {
@@ -197,14 +217,39 @@
             alert('驗證結果: ' + (isValid ? '正確' : '錯誤'));
         });
 
-        // Populate dropdown
-        const locationDdl = document.getElementById('locationDdl');
-        locationTw.forEach(location => {
-            const option = document.createElement('option');
-            option.value = location[1];
-            option.textContent = `${location[2]}(${location[1]})`;
-            locationDdl.appendChild(option);
-        });
+        // Populate location radio buttons
+        const locationContainer = document.getElementById('locationContainer');
+        const table = document.createElement('table');
+        let locationIndex = 0;
+        for (let i = 0; i < 5; i++) {
+            const row = document.createElement('tr');
+            for (let j = 0; j < 6; j++) {
+                const cell = document.createElement('td');
+                if (locationIndex < locationTw.length) {
+                    const location = locationTw[locationIndex];
+                    const radioId = `loc-${location[1]}`;
+                    const radio = document.createElement('input');
+                    radio.type = 'radio';
+                    radio.id = radioId;
+                    radio.name = 'location';
+                    radio.value = location[1];
+                    if (locationIndex === 0) {
+                        radio.checked = true;
+                    }
+
+                    const label = document.createElement('label');
+                    label.htmlFor = radioId;
+                    label.textContent = `${location[2]}(${location[1]})`;
+
+                    cell.appendChild(radio);
+                    cell.appendChild(label);
+                    locationIndex++;
+                }
+                row.appendChild(cell);
+            }
+            table.appendChild(row);
+        }
+        locationContainer.appendChild(table);
     </script>
 </body>
 </html>
