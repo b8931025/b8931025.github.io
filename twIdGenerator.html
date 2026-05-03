@@ -41,7 +41,7 @@
     <div class="button-container">
         <button id="twId">台灣身份證</button>
         <button id="newId">新式居留證</button>
-        <button id="oldId">舊式居留證</button>
+        <button id="companyId">統一編號</button>
         <button id="verifyBtn">驗證</button>
     </div>
 
@@ -50,9 +50,11 @@
     <script>
         const twIdBtn = document.getElementById('twId');
         const newIdBtn = document.getElementById('newId');
-        const oldIdBtn = document.getElementById('oldId');
+        const companyId = document.getElementById('companyId');
         const resultDiv = document.getElementById('result');
-
+        
+        // 權重
+        const weights = [1, 9, 8, 7, 6, 5, 4, 3, 2, 1, 1]
         // 身份證字號
         const locationTw =
             [[10, "A", "臺北市"],
@@ -81,7 +83,6 @@
             [30, "X", "澎湖縣"],
             [31, "Y", "陽明山"],
             [33, "Z", "連江縣"]];
-        const weights = [1, 9, 8, 7, 6, 5, 4, 3, 2, 1, 1]
 
         //location:A~Z
         //gender:1,男 2,女
@@ -138,7 +139,7 @@
                 szLocation = locationRdn[1],
                 num = 1;
 
-            for (var i = 0; i < num; i++) {
+            for (let i = 0; i < num; i++) {
                 var validateCode = ((location - location % 10) / 10) +
                     (location % 10 * 9) +
                     gender * 8;
@@ -153,6 +154,27 @@
 
             szSN = szSN.substring(0, szSN.length - 1);
             return szSN;
+        }
+
+        function getCompanyId(){
+          const weights = [1, 2, 1, 2, 1, 2, 4, 1]
+          let result = []
+          let sum = 0
+          for(let i = 0 ; i < (weights.length - 1) ; i++){
+            let tmp = 0
+            if (i === 0){
+              tmp = Math.ceil(Math.random() * 9) + 1
+            }else{
+              tmp = Math.ceil(Math.random() * 10)
+            }
+            sum += tmp * weights[i]
+            result.push(tmp)
+          }
+          sum = sum % 10
+          if (sum !== 0) sum = 10 - sum;
+          result.push(sum)
+
+          return result.join('');
         }
         
         function generateId(isNew) {
@@ -200,15 +222,23 @@
         }
 
         twIdBtn.addEventListener('click', () => {
-            resultDiv.textContent = getTwId(document.querySelector('input[name="location"]:checked').value, parseInt(document.querySelector('input[name="gender"]:checked').value));
+            const locationSelect = document.querySelector('input[name="location"]:checked');
+            const genderSelect = document.querySelector('input[name="gender"]:checked');
+            if (locationSelect && genderSelect) {
+                resultDiv.textContent = getTwId(locationSelect.value, parseInt(genderSelect.value));
+            }
         });
 
         newIdBtn.addEventListener('click', () => {
-            resultDiv.textContent = getResidentId(document.querySelector('input[name="location"]:checked').value, parseInt(document.querySelector('input[name="gender"]:checked').value));
+            const locationSelect = document.querySelector('input[name="location"]:checked');
+            const genderSelect = document.querySelector('input[name="gender"]:checked');
+            if (locationSelect && genderSelect) {
+                resultDiv.textContent = getResidentId(locationSelect.value, parseInt(genderSelect.value));
+            }
         });
 
-        oldIdBtn.addEventListener('click', () => {
-            resultDiv.textContent = generateId(false);
+        companyId.addEventListener('click', () => {
+            resultDiv.textContent = getCompanyId();
         });
 
         document.getElementById('verifyBtn').addEventListener('click', () => {
