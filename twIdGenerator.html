@@ -39,7 +39,7 @@
     <script type="text/javascript">
     $(function () {
         const twIdBtn = document.getElementById('twId');
-        const newIdBtn = document.getElementById('newId');
+        const residentIdBtn = document.getElementById('residentId');
         const companyId = document.getElementById('companyId');
         const resultDiv = document.getElementById('result');
         
@@ -151,17 +151,21 @@
           let result = []
           let sum = 0
           for(let i = 0 ; i < (weights.length - 1) ; i++){
-            let tmp = 0
-            if (i === 0){
-              tmp = Math.ceil(Math.random() * 9) + 1
-            }else{
-              tmp = Math.ceil(Math.random() * 10)
-            }
-            sum += tmp * weights[i]
+            let tmp = Math.floor(Math.random() * 10)
+            //第七碼是七
+            let no7is7 = i === 6 && tmp === 7
             result.push(tmp)
+
+            //權重計算
+            let right = tmp * weights[i]
+            //十位數加個位數
+            right = Math.floor(right / 10) + (right % 10)
+            if (no7is7) right += 1
+
+            sum += right
           }
-          sum = sum % 10
-          if (sum !== 0) sum = 10 - sum;
+          sum = sum % 5
+          if (sum !== 0) sum = 5 - sum;
           result.push(sum)
 
           return result.join('');
@@ -221,7 +225,7 @@
             }
         });
 
-        newIdBtn.addEventListener('click', () => {
+        residentIdBtn.addEventListener('click', () => {
             const locationSelect = document.querySelector('input[name="location"]:checked');
             const genderSelect = document.querySelector('input[name="gender"]:checked');
             if (locationSelect && genderSelect) {
@@ -298,7 +302,7 @@
 
     <div class="button-container">
         <button id="twId">台灣身份證</button>
-        <button id="newId">新式居留證</button>
+        <button id="residentId">新式居留證</button>
         <button id="companyId">統一編號</button>
         <button id="verifyBtn">驗證</button>
     </div>
