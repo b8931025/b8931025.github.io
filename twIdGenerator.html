@@ -12,18 +12,27 @@
             min-height: 100px;
         }
         .controls-container {
+            border:1px solid black;
             display: flex;
-            align-items: flex-start;
-            justify-content: center;
+            align-items: center;
+            justify-content: space-between;
         }
         .gender-container {
-            margin-right: 60px;
+            /*border:1px solid yellow;*/
+            display: grid;
+            grid-template-columns: auto auto;
+            justify-content: center;
+            row-gap: 10px;
+            column-gap: 6px;
+         
+            width:25%;
         }
         .notice-container {
+            /*border:1px solid red;*/
             display: flex;
             align-items: center; /* Vertical center */
-            justify-content: flex-end; /* Horizontal left */
-            width: 400px;
+            justify-content: center; /* Horizontal left */
+            width:25%
         }
         .button-container {
             margin-top: 10px;
@@ -32,10 +41,26 @@
             gap: 20px;
         }
         .location-container{
+            /*border:1px solid blue;*/
+            width:50%
+        }
+        #locationContainer {
+            display: grid;
+            grid-template-columns: repeat(6, auto);
+            justify-content: center;
+            row-gap: 10px;
+            column-gap: 12px;
+        }
+        .location-cell {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            min-height: 22px;
         }
         
     </style>
-	  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script type="text/javascript">
     $(function () {
         const twIdBtn = document.getElementById('twId');
@@ -249,12 +274,11 @@
 
         // Populate location radio buttons
         const locationContainer = document.getElementById('locationContainer');
-        const table = document.createElement('table');
         let locationIndex = 0;
         for (let i = 0; i < 5; i++) {
-            const row = document.createElement('tr');
             for (let j = 0; j < 6; j++) {
-                const cell = document.createElement('td');
+                const cell = document.createElement('div');
+                cell.className = 'location-cell';
                 if (locationIndex < locationTw.length) {
                     const location = locationTw[locationIndex];
                     const radioId = `loc-${location[1]}`;
@@ -275,11 +299,9 @@
                     cell.appendChild(label);
                     locationIndex++;
                 }
-                row.appendChild(cell);
+                locationContainer.appendChild(cell);
             }
-            table.appendChild(row);
         }
-        locationContainer.appendChild(table);
     })
     </script>
 </head>
@@ -288,7 +310,6 @@
         <div class="gender-container">
           <input type="radio" id="male" name="gender" value="1" checked>
           <label for="male">男</label>
-          <br>
           <input type="radio" id="female" name="gender" value="2">
           <label for="female">女</label>
         </div>
@@ -301,10 +322,10 @@
     </div>
 
     <div class="button-container">
-        <button id="twId">台灣身份證</button>
-        <button id="residentId">新式居留證</button>
-        <button id="companyId">統一編號</button>
-        <button id="verifyBtn">驗證</button>
+        <button class="btn btn-primary" id="twId">台灣身份證</button>
+        <button class="btn btn-primary" id="residentId">新式居留證</button>
+        <button class="btn btn-primary" id="companyId">統一編號</button>
+        <button class="btn btn-primary" id="verifyBtn">驗證</button>
     </div>
 
     <div id="result"></div>
