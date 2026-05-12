@@ -103,7 +103,7 @@
         //gender:1,男 2,女
         function getResidentId(location = "A",gender =  1){
           let locationNumber = locationTw.find(item => item[1] === location)[0];
-          let num0 = Math.ceil(locationNumber / 10);
+          let num0 = Math.trunc(locationNumber / 10);
           let num1 = locationNumber % 10;
           let num2 = gender === 1 ? 8 : 9;
           let num3 = Math.floor(Math.random() * 6);
