@@ -67,9 +67,7 @@
         const residentIdBtn = document.getElementById('residentId');
         const companyId = document.getElementById('companyId');
         const resultDiv = document.getElementById('result');
-        
-        // 權重
-        const weights = [1, 9, 8, 7, 6, 5, 4, 3, 2, 1, 1]
+
         // 身份證字號
         const locationTw =
             [[10, "A", "臺北市"],
@@ -99,9 +97,12 @@
             [31, "Y", "陽明山"],
             [33, "Z", "連江縣"]];
 
+        //取得居留證號
         //location:A~Z
         //gender:1,男 2,女
         function getResidentId(location = "A",gender =  1){
+          // 權重
+          const weights = [1, 9, 8, 7, 6, 5, 4, 3, 2, 1, 1]
           let locationNumber = locationTw.find(item => item[1] === location)[0];
           let num0 = Math.trunc(locationNumber / 10);
           let num1 = locationNumber % 10;
@@ -144,7 +145,7 @@
         }
 
 
-        //取得新身份證號
+        //取得身份證號
         //location:A~Z
         //gender:1,男 2,女
         function getTwId(location, gender){
@@ -171,6 +172,7 @@
             return szSN;
         }
 
+        //取得統一編號
         function getCompanyId(){
           const weights = [1, 2, 1, 2, 1, 2, 4, 1]
           let result = []
@@ -196,27 +198,6 @@
           return result.join('');
         }
         
-        function generateId(isNew) {
-            let id = '';
-            // 1. First char: A-Z
-            id += letters.charAt(Math.floor(Math.random() * letters.length));
-
-            if (isNew) {
-                // 2. Second char: 8 or 9
-                id += Math.random() < 0.5 ? '8' : '9';
-            } else {
-                // 2. Second char: A-D
-                const secondLetters = 'ABCD';
-                id += secondLetters.charAt(Math.floor(Math.random() * secondLetters.length));
-            }
-
-            // 3. Remaining 8 digits
-            for (let i = 0; i < 8; i++) {
-                id += Math.floor(Math.random() * 10);
-            }
-            return id;
-        }
-
         function verifyId(id) {
             id = id.trim();
             
