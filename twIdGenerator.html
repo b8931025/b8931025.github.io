@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>身份證/居留證產生器</title>
     <style>
-        #result {
+        #divPasteBoard {
             margin-top: 20px;
             padding: 10px;
             border: 1px solid #ccc;
@@ -57,16 +57,45 @@
             gap: 4px;
             min-height: 22px;
         }
+
+        #divPasteBoard .row {
+            line-height: 40px;
+        }
+
+        .StickerLabel {
+            color:white;
+            margin: 5px;
+            padding: 5px;
+            cursor: pointer;
+        }
+
+        .BtnOff {
+            background-color: #5bc0de;
+        }
+        .BtnOff:hover {
+            background-color: #43a5c6;
+        }        
+
+        .BtnOn {
+            background-color: #5cb85c;
+        }
+        .BtnOn:hover {
+            background-color: #449d44;
+        }
         
+        .dateStyle {
+            color:blue;
+        }
     </style>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script type="text/javascript">
     $(function () {
-        const twIdBtn = $('#twId');
-        const residentIdBtn = $('#residentId');
-        const companyId = $('#companyId');
-        const resultDiv = $('#result');
+        //瀏覽器不支援剪貼薄
+        if (navigator.clipboard == undefined) alert("您的瀏覽器不支援剪貼薄，請改更Chrome或更新版瀏覽器");
+
+        let cssBtnOff = "StickerLabel BtnOff";
+        let cssBtnOn = "StickerLabel BtnOn";
 
         // 身份證字號
         const locationTw =
@@ -96,7 +125,9 @@
             [30, "X", "澎湖縣"],
             [31, "Y", "陽明山"],
             [33, "Z", "連江縣"]];
-
+        
+        initPasteBoard()
+        
         //取得居留證號
         //location:A~Z
         //gender:1,男 2,女
@@ -197,60 +228,95 @@
 
           return result.join('');
         }
-        
-        function verifyId(id) {
-            id = id.trim();
+
+        //init PasteBoard
+        function initPasteBoard()
+        {
+            let textIdHistory = window.localStorage.getItem('idHistory') || '[]';
+            let idHistory = JSON.parse(textIdHistory)
             
-            verification = id.match("^[A-Z][ABCD]\\d{8}$")
-            if(!verification){
-              return false
-            }
-
-            let conver = "ABCDEFGHJKLMNPQRSTUVXYWZIO"
-            let weights = [1, 9, 8, 7, 6, 5, 4, 3, 2, 1, 1]
-
-            id = String(conver.indexOf(id[0]) + 10) +  String((conver.indexOf(id[1]) + 10)%10) + id.slice(2);
-
-            checkSum = 0
-            for (let i = 0; i < id.length; i++) {
-                c = parseInt(id[i])
-                w = weights[i]
-                checkSum += c * w
-            }
-          
-            return checkSum % 10 == 0
+            $('#divPasteBoard').empty()
+            for(let i = 0 ; i < idHistory.length ; i++)
+                setPasteBoard(idHistory[i], false)
         }
 
-        twIdBtn.on("click", () => {
+        //set PasteBoard
+        function setPasteBoard(objId, btnOn = true)
+        {
+            let cssBtn = btnOn ? cssBtnOn : cssBtnOff
+            //回復上一個按鈕的顏色
+            if (btnOn) $(".BtnOn").eq(0).prop({ class: cssBtnOff });
+            let createDate = new Date(objId.createDate)
+            createDate = `${createDate.getFullYear()}/${String(createDate.getMonth() + 1).padStart(2, '0')}/${String(createDate.getDate()).padStart(2, '0')} ${String(createDate.getHours()).padStart(2, '0')}:${String(createDate.getMinutes()).padStart(2, '0')}:${String(createDate.getSeconds()).padStart(2, '0')}`
+            let divPasteBoard = $('#divPasteBoard')
+            let row = $(document.createElement('div')).prop({ class: "row" })
+            let frm = $(document.createElement('div')).prop({ class: "col-md-12 col-sm-12 col-xs-12" })
+            let lbl = $(document.createElement('span')).prop({ innerHTML: objId.id, class: cssBtn, title: createDate });
+            let lblDate = $(document.createElement('span')).prop({ innerHTML: createDate, class: 'dateStyle' });
+            frm.append(lbl)
+            frm.append(lblDate)
+            row.append(frm)
+            divPasteBoard.prepend(row)
+        }
+
+        function save(objId)
+        {
+            let idHistory = JSON.parse(window.localStorage.getItem('idHistory') || '[]')
+            idHistory.push(objId)
+            window.localStorage.setItem('idHistory',JSON.stringify(idHistory))
+        }
+
+        function copy(id)
+        {
+            navigator.clipboard.writeText(id);
+            $("#lblNotice").text("已複製 : " + id);
+        }
+
+        //id按扭事件
+        $('#divPasteBoard').on('click', '.BtnOff, .BtnOn', function(){
+            let btnId = $(this);
+            copy(btnId.text())
+            //回復上一個按鈕的顏色
+            $(".BtnOn").eq(0).prop({ class: cssBtnOff });
+            //標示目前按鈕的顏色
+            btnId.prop({ class: cssBtnOn });
+        });
+
+        $('#btnTwId').on("click", () => {
             const locationSelect = $('input[name="location"]:checked');
             const genderSelect = $('input[name="gender"]:checked');
             if (locationSelect.length && genderSelect.length) {
-                resultDiv.text(getTwId(locationSelect.val(), parseInt(genderSelect.val())));
-                navigator.clipboard.writeText(resultDiv.text());
-                $("#lblNotice").text("已複製 : " + resultDiv.text());
+                const id = getTwId(locationSelect.val(), parseInt(genderSelect.val()))
+                const objId = { id: id, createDate: new Date().toISOString() }
+                save(objId)
+                copy(id)
+                setPasteBoard(objId)
             }
         });
 
-        residentIdBtn.on('click', () => {
+        $('#btnResidentId').on('click', () => {
             const locationSelect = $('input[name="location"]:checked');
             const genderSelect = $('input[name="gender"]:checked');
             if (locationSelect.length && genderSelect.length) {
-              resultDiv.text(getResidentId(locationSelect.value, parseInt(genderSelect.value)));
-              navigator.clipboard.writeText(resultDiv.text());
-              $("#lblNotice").text("已複製 : " + resultDiv.text());
+                const id = getResidentId(locationSelect.val(), parseInt(genderSelect.val()))
+                const objId = { id: id, createDate: new Date().toISOString() }
+                save(objId)
+                copy(id)
+                setPasteBoard(objId)
             }
         });
 
-        companyId.on('click', () => {
-          resultDiv.text(getCompanyId());
-          navigator.clipboard.writeText(resultDiv.text());
-          $("#lblNotice").text("已複製 : " + resultDiv.text());
+        $('#btnCompanyId').on('click', () => {
+            const id = getCompanyId()
+            const objId = { id: id, createDate: new Date().toISOString() }
+            save(objId)
+            copy(id)
+            setPasteBoard(objId)
         });
 
-        $('verifyBtn').on('click', () => {
-            const idToVerify = resultDiv.text();
-            const isValid = validateResidentId(idToVerify);
-            alert('驗證結果: ' + (isValid ? '正確' : '錯誤'));
+        $('#btnEmpty').on('click', () => {
+            $('#divPasteBoard').empty()
+            window.localStorage.setItem('idHistory', '[]')
         });
 
         // Populate location radio buttons
@@ -303,12 +369,12 @@
     </div>
 
     <div class="button-container">
-        <button class="btn btn-primary" id="twId">台灣身份證</button>
-        <button class="btn btn-primary" id="residentId">新式居留證</button>
-        <button class="btn btn-primary" id="companyId">統一編號</button>
-        <button class="btn btn-primary" id="verifyBtn">驗證</button>
+        <button class="btn btn-primary" id="btnTwId">台灣身份證</button>
+        <button class="btn btn-primary" id="btnResidentId">新式居留證</button>
+        <button class="btn btn-primary" id="btnCompanyId">統一編號</button>
+        <button class="btn btn-primary" id="btnEmpty">清空</button>
     </div>
 
-    <div id="result"></div>
+    <div id="divPasteBoard"></div>
 </body>
 </html>
