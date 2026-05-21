@@ -63,10 +63,10 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script type="text/javascript">
     $(function () {
-        const twIdBtn = document.getElementById('twId');
-        const residentIdBtn = document.getElementById('residentId');
-        const companyId = document.getElementById('companyId');
-        const resultDiv = document.getElementById('result');
+        const twIdBtn = $('#twId');
+        const residentIdBtn = $('#residentId');
+        const companyId = $('#companyId');
+        const resultDiv = $('#result');
 
         // 身份證字號
         const locationTw =
@@ -221,40 +221,40 @@
             return checkSum % 10 == 0
         }
 
-        twIdBtn.addEventListener('click', () => {
-            const locationSelect = document.querySelector('input[name="location"]:checked');
-            const genderSelect = document.querySelector('input[name="gender"]:checked');
-            if (locationSelect && genderSelect) {
-              resultDiv.textContent = getTwId(locationSelect.value, parseInt(genderSelect.value));
-              navigator.clipboard.writeText(resultDiv.textContent);
-              $("#lblNotice").text("已複製 : " + resultDiv.textContent);
+        twIdBtn.on("click", () => {
+            const locationSelect = $('input[name="location"]:checked');
+            const genderSelect = $('input[name="gender"]:checked');
+            if (locationSelect.length && genderSelect.length) {
+                resultDiv.text(getTwId(locationSelect.val(), parseInt(genderSelect.val())));
+                navigator.clipboard.writeText(resultDiv.text());
+                $("#lblNotice").text("已複製 : " + resultDiv.text());
             }
         });
 
-        residentIdBtn.addEventListener('click', () => {
-            const locationSelect = document.querySelector('input[name="location"]:checked');
-            const genderSelect = document.querySelector('input[name="gender"]:checked');
-            if (locationSelect && genderSelect) {
-              resultDiv.textContent = getResidentId(locationSelect.value, parseInt(genderSelect.value));
-              navigator.clipboard.writeText(resultDiv.textContent);
-              $("#lblNotice").text("已複製 : " + resultDiv.textContent);
+        residentIdBtn.on('click', () => {
+            const locationSelect = $('input[name="location"]:checked');
+            const genderSelect = $('input[name="gender"]:checked');
+            if (locationSelect.length && genderSelect.length) {
+              resultDiv.text(getResidentId(locationSelect.value, parseInt(genderSelect.value)));
+              navigator.clipboard.writeText(resultDiv.text());
+              $("#lblNotice").text("已複製 : " + resultDiv.text());
             }
         });
 
-        companyId.addEventListener('click', () => {
-          resultDiv.textContent = getCompanyId();
-          navigator.clipboard.writeText(resultDiv.textContent);
-          $("#lblNotice").text("已複製 : " + resultDiv.textContent);
+        companyId.on('click', () => {
+          resultDiv.text(getCompanyId());
+          navigator.clipboard.writeText(resultDiv.text());
+          $("#lblNotice").text("已複製 : " + resultDiv.text());
         });
 
-        document.getElementById('verifyBtn').addEventListener('click', () => {
-            const idToVerify = resultDiv.textContent;
+        $('verifyBtn').on('click', () => {
+            const idToVerify = resultDiv.text();
             const isValid = validateResidentId(idToVerify);
             alert('驗證結果: ' + (isValid ? '正確' : '錯誤'));
         });
 
         // Populate location radio buttons
-        const locationContainer = document.getElementById('locationContainer');
+        const locationContainer = $('#locationContainer');
         let locationIndex = 0;
         for (let i = 0; i < 5; i++) {
             for (let j = 0; j < 6; j++) {
@@ -280,7 +280,7 @@
                     cell.appendChild(label);
                     locationIndex++;
                 }
-                locationContainer.appendChild(cell);
+                locationContainer.append(cell);
             }
         }
     })
