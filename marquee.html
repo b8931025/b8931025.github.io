@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <title>Marquee</title>
+    <style>
+        body {
+            margin:15% 0;
+            padding: 20px;
+            background-color: #f0f0f0;
+            font-family: Arial, sans-serif;
+        }
+
+        .marquee-container {
+            width: 100%;
+            overflow: hidden;
+            font-size: 30px;
+        }
+
+        .marquee-content {
+            position: relative;
+            display: inline-block;
+            white-space: nowrap;
+            min-width: 100%;
+            width: max-content;
+            animation: marquee linear infinite;
+        }
+
+        .marquee-content::before,
+        .marquee-content::after {
+            content: attr(data-text);
+            position: absolute;
+            top: 0;
+            white-space: nowrap;
+        }
+
+        .marquee-content::before {
+            left: 100%;
+        }
+
+        .marquee-content::after {
+            left: 200%;
+            /**/border: 2px solid blue;
+        }
+
+        @keyframes marquee {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(-100%);
+            }
+        }
+    </style>
+    <script type="text/javascript">
+    $(function () {
+        //每秒移動多少px
+        const MARQUEE_SPEED_PX_PER_SEC = 400;
+
+        function getMarqueeData(){
+            let data = "Your scrolling text goes here.Your scrolling text goes here.Your scrolling text goes here."
+            return data
+        }
+
+        //維持定速
+        function applyConstantMarqueeSpeed() {
+            const marqueeContent = document.querySelector('.marquee-content');
+            if (!marqueeContent) {
+                return;
+            }
+
+            //先量測實際文字寬度，再自動設定 animation-duration = 文字寬度 / 速度。
+            const contentWidth = marqueeContent.scrollWidth;
+            const duration = Math.max(contentWidth / MARQUEE_SPEED_PX_PER_SEC, 1);
+            marqueeContent.style.animationDuration = `${duration}s`;
+        }
+        
+        var data = getMarqueeData();
+        $('.marquee-content').text(data).attr('data-text', data);
+        applyConstantMarqueeSpeed();
+    })
+    </script>
+</head>
+<body>
+    <div class="marquee-container">
+        <div class="marquee-content"></div>
+    </div>    
+</body>
+</html>
